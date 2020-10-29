@@ -8,5 +8,7 @@
 </head>
 <body>
 <h1> Test Page</h1>
+<p> ${user.username }</p>
+<p> ${user}</p>
 </body>
 </html>
