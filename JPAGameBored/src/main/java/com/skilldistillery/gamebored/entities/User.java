@@ -1,12 +1,14 @@
 package com.skilldistillery.gamebored.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -42,7 +44,16 @@ public class User {
 	
 	@Column(name ="create_date")
 	private LocalDateTime createDate;
+	
+	@OneToMany(mappedBy = "user")
+	List<BoardGameComment> boardGameComments;
+	
+	@OneToMany(mappedBy = "user")
+	private List<CommunityComment> communityComment;
 
+	@OneToMany(mappedBy = "user")
+	private List<Meetup> meetups;
+	
 	public User() {
 		super();
 	}
@@ -133,6 +144,34 @@ public class User {
 
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
+	}
+
+	
+	public List<BoardGameComment> getBoardGameComments() {
+		return boardGameComments;
+	}
+
+	public void setBoardGameComments(List<BoardGameComment> boardGameComments) {
+		this.boardGameComments = boardGameComments;
+	}
+	
+
+	public List<CommunityComment> getCommunityComment() {
+		return communityComment;
+	}
+
+	public void setCommunityComment(List<CommunityComment> communityComment) {
+		this.communityComment = communityComment;
+	}
+	
+	
+
+	public List<Meetup> getMeetups() {
+		return meetups;
+	}
+
+	public void setMeetups(List<Meetup> meetups) {
+		this.meetups = meetups;
 	}
 
 	@Override

@@ -1,12 +1,12 @@
 package com.skilldistillery.gamebored.entities;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
@@ -20,6 +20,9 @@ public class Category {
 	
 	private String description;
 
+	@OneToMany(mappedBy="category")
+	private List<Boardgame> boardGames;
+	
 	public Category() {
 		super();
 	}
@@ -46,6 +49,14 @@ public class Category {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Boardgame> getBoardGames() {
+		return boardGames;
+	}
+
+	public void setBoardGames(List<Boardgame> boardGames) {
+		this.boardGames = boardGames;
 	}
 
 	@Override

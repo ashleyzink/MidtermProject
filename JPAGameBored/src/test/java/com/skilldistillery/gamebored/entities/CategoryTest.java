@@ -51,7 +51,14 @@ class CategoryTest {
 		
 	}
 	
-
+	@Test
+	void test_Category_to_BoardGame_entity_mapping() {
+		assertNotNull(category);
+		assertNotNull(category.getBoardGames());
+		assertNotNull(category.getBoardGames().size() >0);
+		assertEquals(1, category.getBoardGames().size());
+		
+	}
 	
 	
 	

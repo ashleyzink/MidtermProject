@@ -46,5 +46,16 @@ class GenreTest {
 		assertEquals("Fantasy", genre.getName());
 		assertEquals("Takes place in a world of magic", genre.getDescription());
 	}
+	
+	@Test
+	void test_Genre_to_BoardGame_entity_mapping() {
+		assertNotNull(genre);
+		assertNotNull(genre.getBoardGames());
+		assertNotNull(genre.getBoardGames().size() >0);
+		assertEquals(1, genre.getBoardGames().size());
+		
+	}
+	
 
+	
 }

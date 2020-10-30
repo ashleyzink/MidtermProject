@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,13 +17,17 @@ public class CommunityComment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(name= "comment_date")
 	private LocalDateTime commentDate;
 	@Column(name= "comment_text")
 	private String commentText;
 	
+	@ManyToOne
+	@JoinColumn(name= "user_id")
+	private User user; 
 	
-	
+	//In reply to id
 	
 	public CommunityComment() {
 		super();
@@ -47,6 +53,20 @@ public class CommunityComment {
 	public void setCommentText(String commentText) {
 		this.commentText = commentText;
 	}
+	
+	
+	public User getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

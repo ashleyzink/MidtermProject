@@ -62,6 +62,24 @@ class MeetupTest {
 	
 	}
 	
+	@Test
+	void test_meetup_to_address_entity_mapping() {
+		assertNotNull(meetup);
+		assertEquals("Aurora", meetup.getAddress().getCity());
+	}
+	@Test
+	void test_meetup_to_board_game_entity_mapping() {
+		assertNotNull(meetup);
+		assertEquals("Play 12 seasons", meetup.getBoardGame().getDescription());
+	}
+	
+	@Test
+	void test_meetup_to_user_entity_mapping() {
+		assertNotNull(meetup);
+		assertEquals("adminuser@gamebored.com", meetup.getUser().getEmail());
+	}
+	
+	
 
 	
 	

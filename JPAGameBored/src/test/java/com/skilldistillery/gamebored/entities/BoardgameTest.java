@@ -2,6 +2,7 @@ package com.skilldistillery.gamebored.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -46,8 +47,42 @@ class BoardgameTest {
 	@DisplayName("testing board_game mapping")
 	void test2() {
 		assertNotNull(boardgame);
-		
 		assertEquals("Play 12 seasons", boardgame.getDescription());
 		assertEquals("Seasons", boardgame.getName());
 	}
+	
+	
+	@Test
+	@DisplayName("testing board_game to genre mapping")
+	void test3() {
+		assertNotNull(boardgame);
+		assertNotNull(boardgame.getGenre());
+		assertEquals("Fantasy", boardgame.getGenre().getName());
+	}
+	
+	@Test
+	@DisplayName("testing board_game to publisher mapping")
+	void test4() {
+		assertNotNull(boardgame);
+		assertNotNull(boardgame.getPublisher());
+		assertEquals("Libellud", boardgame.getPublisher().getName());
+	}
+	
+	@Test
+	@DisplayName("testing board_game to category mapping")
+	void test5() {
+		assertNotNull(boardgame);
+		assertNotNull(boardgame.getPublisher());
+		assertEquals("Deck Builder", boardgame.getCategory().getName());
+	}
+	
+	@Test
+	@DisplayName("testing board_game to board_game_comment mapping")
+	void test6() {
+		assertNotNull(boardgame);
+		assertNotNull(boardgame.getBoardGameComments());
+		assertTrue(boardgame.getBoardGameComments().size()>0);
+		assertEquals(1, boardgame.getBoardGameComments().size());
+	}
+
 }
