@@ -25,6 +25,9 @@ public class Address {
 	@Column(name="zip_code")
 	private String zipCode;
 
+	public Address() {
+		super();
+	}
 	public int getId() {
 		return id;
 	}
@@ -71,9 +74,29 @@ public class Address {
 				+ stateAbbreviation + ", zipCode=" + zipCode + "]";
 	}
 
-	public Address() {
-		super();
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Address other = (Address) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	
 	
 	
 }
