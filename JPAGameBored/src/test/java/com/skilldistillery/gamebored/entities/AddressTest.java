@@ -48,5 +48,11 @@ class AddressTest {
 		assertEquals("123 Sesame St", address.getStreet());
 		assertEquals("80013", address.getZipCode());
 	}
+	
+	@Test
+	void test_Address_to_meetup_entity_mapping() {
+		assertNotNull(address);
+		assertEquals("123 Sesame St", address.getStreet());
+	}
 
 }

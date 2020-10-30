@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Meetup {
@@ -23,7 +26,17 @@ public class Meetup {
 	
 	private String description;
 	
-	//private Address addressId;
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+	
+	@OneToOne
+	@JoinColumn(name = "board_game_id")
+	private Boardgame boardGame;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	//private BoardGame boardGameId;
 	@Column (name ="meetup_date")
@@ -87,6 +100,34 @@ public class Meetup {
 
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
+	}
+	
+	
+
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Boardgame getBoardGame() {
+		return boardGame;
+	}
+
+	public void setBoardGame(Boardgame boardGame) {
+		this.boardGame = boardGame;
+	}
+
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

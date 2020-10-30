@@ -45,5 +45,14 @@ class PublisherTest {
 		assertNotNull(publisher);
 		assertEquals("Libellud", publisher.getName());
 	}
+	
+	@Test
+	void test_Publisher_to_BoardGame_entity_mapping() {
+		assertNotNull(publisher);
+		assertNotNull(publisher.getBoardGames());
+		assertNotNull(publisher.getBoardGames().size() >0);
+		assertEquals(1, publisher.getBoardGames().size());
+		
+	}
 
 }

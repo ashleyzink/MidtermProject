@@ -48,5 +48,13 @@ class CommunityCommentTest {
 		assertEquals("I love board games!!", comment.getCommentText());
 
 	}
+	
+	@Test
+	@DisplayName("testing board_game to community_comment mapping")
+	void test3() {
+		assertNotNull(comment);
+		assertEquals("Game", comment.getUser().getFirstName());
+		
+	}
 
 }

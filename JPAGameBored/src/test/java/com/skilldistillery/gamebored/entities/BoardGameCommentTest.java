@@ -51,6 +51,22 @@ class BoardGameCommentTest {
 		
 	}
 	
+	@Test
+	void test_BoardGameComment_to_User_entity_mapping() {
+		assertNotNull(boardGameComment);
+		assertNotNull(boardGameComment.getUser());
+		assertEquals("Game", boardGameComment.getUser().getFirstName());
+		
+	}
+	
+	@Test
+	void test_BoardGameComment_to_Boardgame_entity_mapping() {
+		assertNotNull(boardGameComment);
+		assertNotNull(boardGameComment.getBoardgame());
+		assertEquals("Seasons", boardGameComment.getBoardgame().getName());
+		
+	}
+	
 
 	
 	

@@ -1,10 +1,15 @@
 package com.skilldistillery.gamebored.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,25 +18,44 @@ public class Boardgame {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String name;
+	
 	private String description;
+	
 	@Column(name= "min_players")
 	private int minPlayers;
+	
 	@Column(name= "max_players")
 	private Integer maxPlayers;
+	
 	@Column(name= "play_time_minutes")
     private Integer playTimeMinutes;
+	
 	private Double cost;
+	
+	@ManyToOne
+	@JoinColumn(name="genre_id")
+	private Genre genre;
+	
+	@ManyToOne
+	@JoinColumn(name="category_id")
+	private Category category;
+	
+	@ManyToOne
+	@JoinColumn(name="publisher_id")
+	private Publisher publisher;
+
 	@Column(name= "logo_url")
 	private String logoUrl;
+	
 	@Column(name= "box_art_url")
 	private String boxArtUrl;
 	
+	@OneToMany(mappedBy = "boardgame")
+	List<BoardGameComment> boardGameComments;
 	
-	
-	
-	
-	
+
 	public Boardgame() {
 		super();
 	}
@@ -94,7 +118,54 @@ public class Boardgame {
 		this.boxArtUrl = boxArtUrl;
 	}
 	
-	
+
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+
+
+
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+
+
+
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
+	}
+
+
+
+
+	public List<BoardGameComment> getBoardGameComments() {
+		return boardGameComments;
+	}
+
+
+
+
+	public void setBoardGameComments(List<BoardGameComment> boardGameComments) {
+		this.boardGameComments = boardGameComments;
+	}
+
+
+
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

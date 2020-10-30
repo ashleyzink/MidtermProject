@@ -1,9 +1,12 @@
 package com.skilldistillery.gamebored.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Genre {
@@ -15,6 +18,14 @@ public class Genre {
 	private String name;
 
 	private String description;
+	
+	@OneToMany(mappedBy="genre")
+	private List<Boardgame> boardGames;
+
+	public Genre() {
+		super();
+	}
+	
 
 	public int getId() {
 		return id;
@@ -39,14 +50,46 @@ public class Genre {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+
+	public List<Boardgame> getBoardGames() {
+		return boardGames;
+	}
+
+	public void setBoardGames(List<Boardgame> boardGames) {
+		this.boardGames = boardGames;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Genre [id=" + id + ", name=" + name + ", description=" + description + "]";
+		return "Genre [id=" + id + ", name=" + name + ", description=" + description + ", boardGames=" + boardGames
+				+ "]";
 	}
 
-	public Genre() {
-		super();
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Genre other = (Genre) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	
+	
 
 }
