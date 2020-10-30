@@ -14,11 +14,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class MeetupTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Meetup meetup;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,30 +33,33 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		meetup = em.find(Meetup.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		meetup = null;
 	}
 
 	@Test
-	void test_User_entity_mapping() {
-		assertNotNull(user);
-		assertEquals(1, user.getId());
-		assertEquals("admin", user.getUsername());
-		assertEquals("admin", user.getPassword());
-		assertEquals(1, user.getEnabled());
-		assertEquals("ADMIN", user.getRole());
-		assertEquals("Game", user.getFirstName());
-		assertEquals("Bored", user.getLastName());
-		assertEquals("adminuser@gamebored.com", user.getEmail());
-		assertEquals(null, user.getProfileImageUrl());
-		assertEquals(null, user.getBioDescription());
-		assertEquals(null, user.getCreateDate());
+	void test_Meetup_entity_mapping() {
+		assertNotNull(meetup);
+		assertEquals(1, meetup.getId());
+		assertEquals("Games at the Park", meetup.getTitle());
+		assertEquals("Play games at the park", meetup.getDescription());
+//		assertEquals("2020-10-10", meetup.getMeetupDate());
+		assertEquals(12, meetup.getStartTime().getHour());
+		assertEquals(00, meetup.getStartTime().getMinute());
+		assertEquals(00, meetup.getStartTime().getSecond());
 		
+		assertEquals(2020, meetup.getCreateDate().getYear());
+		assertEquals(10, meetup.getCreateDate().getMonthValue());
+		assertEquals(10, meetup.getCreateDate().getDayOfMonth());
+		assertEquals(9, meetup.getCreateDate().getHour());
+		assertEquals(10, meetup.getCreateDate().getMinute());
+		assertEquals(10, meetup.getCreateDate().getSecond());
+	
 	}
 	
 

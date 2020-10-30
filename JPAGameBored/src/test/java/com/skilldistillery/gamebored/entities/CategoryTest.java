@@ -14,11 +14,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class CategoryTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Category category;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,29 +33,21 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		category = em.find(Category.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		category = null;
 	}
 
 	@Test
-	void test_User_entity_mapping() {
-		assertNotNull(user);
-		assertEquals(1, user.getId());
-		assertEquals("admin", user.getUsername());
-		assertEquals("admin", user.getPassword());
-		assertEquals(1, user.getEnabled());
-		assertEquals("ADMIN", user.getRole());
-		assertEquals("Game", user.getFirstName());
-		assertEquals("Bored", user.getLastName());
-		assertEquals("adminuser@gamebored.com", user.getEmail());
-		assertEquals(null, user.getProfileImageUrl());
-		assertEquals(null, user.getBioDescription());
-		assertEquals(null, user.getCreateDate());
+	void test_Category_entity_mapping() {
+		assertNotNull(category);
+		assertEquals(1, category.getId());
+		assertEquals("Deck Builder", category.getName());
+		assertEquals("Build the deck you'll be using to play in turns", category.getDescription());
 		
 	}
 	

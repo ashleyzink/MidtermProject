@@ -14,11 +14,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class BoardGameCommentTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private BoardGameComment boardGameComment;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,29 +33,21 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		boardGameComment = em.find(BoardGameComment.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		boardGameComment = null;
 	}
 
 	@Test
-	void test_User_entity_mapping() {
-		assertNotNull(user);
-		assertEquals(1, user.getId());
-		assertEquals("admin", user.getUsername());
-		assertEquals("admin", user.getPassword());
-		assertEquals(1, user.getEnabled());
-		assertEquals("ADMIN", user.getRole());
-		assertEquals("Game", user.getFirstName());
-		assertEquals("Bored", user.getLastName());
-		assertEquals("adminuser@gamebored.com", user.getEmail());
-		assertEquals(null, user.getProfileImageUrl());
-		assertEquals(null, user.getBioDescription());
-		assertEquals(null, user.getCreateDate());
+	void test_BoardGameComment_entity_mapping() {
+		assertNotNull(boardGameComment);
+		assertEquals(1, boardGameComment.getId());
+//		assertEquals("2020-10-30 12:30:16", boardGameComment.getCommentDate());
+		assertEquals("This game is good with some houserules", boardGameComment.getCommentText());
 		
 	}
 	
