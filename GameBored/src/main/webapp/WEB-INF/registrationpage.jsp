@@ -12,7 +12,7 @@
 
 
 <h1>REGISTER</h1>
-</form> 
+
 <form action="registration.do" method="POST">
  
 <table>

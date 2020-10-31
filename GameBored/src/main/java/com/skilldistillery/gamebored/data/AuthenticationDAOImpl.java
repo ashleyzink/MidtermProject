@@ -27,7 +27,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		// NEED TO ADD SPECIFIC CONSTRUCTOR TO USER ENTITY
 		
 //		this.users.put("adminuser@gamebored.com", new User(1, "admin", "password", 1, "Game",
-//				"Bored", "adminuser@gamebored.com", Address());
+//				"Bored", "adminuser@gamebored.com");
 		
 //		this.users.put("adminuser@gamebored.com", new User(1, "admin", "admin", 1, "ADMIN",
 //				"Game", "Bored", "adminuser@gamebored.com", 1, null, null, null));
