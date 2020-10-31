@@ -3,8 +3,6 @@ package com.skilldistillery.gamebored.data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -15,9 +13,6 @@ import com.skilldistillery.gamebored.entities.CommunityComment;
 @Service
 @Transactional
 public class CCommentDAOImpl implements CCommentDAO {
-
-
-		private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("GameBoredPU");
 
 		@PersistenceContext
 		private EntityManager em;
@@ -31,10 +26,8 @@ public class CCommentDAOImpl implements CCommentDAO {
 		@Override
 		public List<CommunityComment> findCCommentByUser(String user) {
 			List<CommunityComment> comments = null;
-			EntityManager em = emf.createEntityManager();
 			String jpql = "SELECT cc FROM CommunityComment cc WHERE cc.user=:cc";
 			comments = em.createQuery(jpql, CommunityComment.class).setParameter("cc", user).getResultList();
-			em.close();
 			return comments;
 		}
 
@@ -65,7 +58,6 @@ public class CCommentDAOImpl implements CCommentDAO {
 		public boolean destroy(int id) {
 
 			CommunityComment dbComment = em.find(CommunityComment.class, id);
-			em.getTransaction().begin();
 
 			em.remove(dbComment);
 
