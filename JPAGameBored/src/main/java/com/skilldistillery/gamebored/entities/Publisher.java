@@ -1,5 +1,6 @@
 package com.skilldistillery.gamebored.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -65,6 +66,25 @@ public class Publisher {
 
 	public void setBoardGames(List<Boardgame> boardGames) {
 		this.boardGames = boardGames;
+	}
+	
+	public void addBoardgame(Boardgame game) {
+		if(boardGames == null) boardGames = new ArrayList<Boardgame>();
+		
+		if(!boardGames.contains(game)) {
+			boardGames.add(game);
+			if(game.getPublisher() != null) {
+				game.getPublisher().getBoardGames().remove(game);
+			}
+			game.setPublisher(this);
+		}
+	}
+
+	public void removeBoardgame(Boardgame game) {
+		game.setPublisher(null);
+		if(boardGames != null) {
+			boardGames.remove(game);
+		}
 	}
 
 	

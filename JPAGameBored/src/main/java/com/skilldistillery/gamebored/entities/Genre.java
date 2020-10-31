@@ -1,5 +1,6 @@
 package com.skilldistillery.gamebored.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -66,6 +67,25 @@ public class Genre {
 	@Override
 	public String toString() {
 		return "Genre [id=" + id + ", name=" + name + ", description=" + description + "]";
+	}
+	
+	public void addBoardgame(Boardgame game) {
+		if(boardGames == null) boardGames = new ArrayList<Boardgame>();
+		
+		if(!boardGames.contains(game)) {
+			boardGames.add(game);
+			if(game.getGenre() != null) {
+				game.getGenre().getBoardGames().remove(game);
+			}
+			game.setGenre(this);
+		}
+	}
+
+	public void removeBoardgame(Boardgame game) {
+		game.setGenre(null);
+		if(boardGames != null) {
+			boardGames.remove(game);
+		}
 	}
 
 
