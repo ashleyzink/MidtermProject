@@ -1,5 +1,6 @@
 package com.skilldistillery.gamebored.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -189,6 +190,25 @@ public class Boardgame {
 		builder.append(boxArtUrl);
 		builder.append("]");
 		return builder.toString();
+	}
+	
+	public void addBoardgameComment(BoardGameComment comment) {
+		if(boardGameComments == null) boardGameComments = new ArrayList<BoardGameComment>();
+		
+		if(!boardGameComments.contains(comment)) {
+			boardGameComments.add(comment);
+			if(comment.getBoardgame() != null) {
+				comment.getBoardgame().getBoardGameComments().remove(comment);
+			}
+			comment.setBoardgame(this);
+		}
+	}
+
+	public void removeBoardgameComment(BoardGameComment comment) {
+		comment.setBoardgame(null);
+		if(boardGameComments != null) {
+			boardGameComments.remove(comment);
+		}
 	}
 
 
