@@ -1,6 +1,7 @@
 package com.skilldistillery.gamebored.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -51,10 +52,10 @@ public class User {
 	private LocalDateTime createDate;
 	
 	@OneToMany(mappedBy = "user")
-	List<BoardGameComment> boardGameComments;
+	private List<BoardGameComment> boardGameComments;
 	
 	@OneToMany(mappedBy = "user")
-	private List<CommunityComment> communityComment;
+	private List<CommunityComment> communityComments;
 
 	@OneToMany(mappedBy = "user")
 	private List<Meetup> meetups;
@@ -217,6 +218,62 @@ public class User {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	public void addBoardgameComment(BoardGameComment comment) {
+		if(boardGameComments == null) boardGameComments = new ArrayList<BoardGameComment>();
+		
+		if(!boardGameComments.contains(comment)) {
+			boardGameComments.add(comment);
+			if(comment.getUser() != null) {
+				comment.getUser().getBoardGameComments().remove(comment);
+			}
+			comment.setUser(this);
+		}
+	}
+
+	public void removeBoardgameComment(BoardGameComment comment) {
+		comment.setUser(null);
+		if(boardGameComments != null) {
+			boardGameComments.remove(comment);
+		}
+	}
+	
+	public void addCommunityComment(CommunityComment comment) {
+		if(communityComments == null) communityComments = new ArrayList<CommunityComment>();
+		
+		if(!communityComments.contains(comment)) {
+			communityComments.add(comment);
+			if(comment.getUser() != null) {
+				comment.getUser().getCommunityComment().remove(comment);
+			}
+			comment.setUser(this);
+		}
+	}
+	
+	public void removeCommunityComment(BoardGameComment comment) {
+		comment.setUser(null);
+		if(communityComments != null) {
+			communityComments.remove(comment);
+		}
+	}
+	public void addMeetUp(Meetup meetUp) {
+		if(meetups == null) meetups = new ArrayList<Meetup>();
+		
+		if(!meetups.contains(meetUp)) {
+			meetups.add(meetUp);
+			if(meetUp.getUser() != null) {
+				meetUp.getUser().getBoardGameComments().remove(meetUp);
+			}
+			meetUp.setUser(this);
+		}
+	}
+	
+	public void removeMeetUp(Meetup meetUp) {
+		meetUp.setUser(null);
+		if(meetups != null) {
+			meetups.remove(meetUp);
+		}
 	}
 	
 	
