@@ -86,6 +86,14 @@ class UserTest {
 		
 	}
 	
+	@Test
+	void test_User_to_Address_entity_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getAddress());
+		assertEquals("123 Sesame St", user.getAddress().getStreet());
+		
+	}
+	
 
 	
 	
