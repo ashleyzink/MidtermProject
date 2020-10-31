@@ -20,6 +20,7 @@ public class CommunityComment {
 	
 	@Column(name= "comment_date")
 	private LocalDateTime commentDate;
+	
 	@Column(name= "comment_text")
 	private String commentText;
 	
