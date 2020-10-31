@@ -12,20 +12,18 @@
 
 
 
-
+<!-- LOGIN FORM -->
 <form action="login.do" method="GET">
  <p>LOGIN</p>p>
- 
  Username: <input type="text" name="username"/>
  Password: <input type="text" name="password"/>
   <input type="submit" value="Login " />
 
+<!-- REGISTRATION BUTTOM FORM -->
 </form> 
-
 <form action="register.do" method="GET">
  <p>REGISTER</p>
   <input type="button" value="Register " />
-
 </form> 
 
 
