@@ -192,11 +192,11 @@ public class User {
 	
 
 	public List<CommunityComment> getCommunityComment() {
-		return communityComment;
+		return communityComments;
 	}
 
 	public void setCommunityComment(List<CommunityComment> communityComment) {
-		this.communityComment = communityComment;
+		this.communityComments = communityComment;
 	}
 	
 	
