@@ -55,42 +55,42 @@ public class AccountController {
 	}
 	
 	
-//	
-//	@RequestMapping(path="register.do", method=RequestMethod.GET)
-//	public ModelAndView register() {
-//		ModelAndView mv = new ModelAndView();
-//		// TODO: Create a user command object for use with the registration form,
-//		// set it in the model with the key "user",
-//		// and return the view 'WEB-INF/register.jsp'
-//		User u = new User();
-//		mv.addObject("user", u);
-//		mv.setViewName("WEB-INF/register.jsp");
-//		return mv;
-//	}
+	
+	@RequestMapping(path="register.do", method=RequestMethod.GET)
+	public ModelAndView register() {
+		ModelAndView mv = new ModelAndView();
+		// TODO: Create a user command object for use with the registration form,
+		// set it in the model with the key "user",
+		// and return the view 'WEB-INF/register.jsp'
+		User u = new User();
+		mv.addObject("user", u);
+		mv.setViewName("registrationpage");
+		return mv;
+	}
 	
 	
 //REGISTER
 	
 	// TODO: Add the @Valid annotation to the User object
 	// TODO: Inject the Errors object
-	@RequestMapping(path="register.do", method=RequestMethod.POST)
+	@RequestMapping(path="registration.do", method=RequestMethod.POST)
 	public String create(@Validated User user, Errors errors) {
 		// TODO: 1. If there are any errors, return the view 'WEB-INF/register.jsp'
 	  if(errors.hasErrors()) {
-	    return "WEB-INF/register.jsp";
+	    return "homepage";
 	  }
 		// TODO: 2. Check the email's uniqueness with the DAO's isEmailUnique method
 		//          if the email already exists, add an additional error (use 
 	  //          errors.rejectValue()...) and return the view 'WEB-INF/register.jsp'.
 	  if(!aDao.isEmailUnique(user.getEmail())) {
 	    errors.rejectValue("email", "error.email", "Email already in use");
-	    return "WEB-INF/register.jsp";
+	    return "homepage";
 	  }
 	  
 	  // TODO: 3. Add the user to the DAO
 	  aDao.create(user);
 	  
-		return "WEB-INF/profile.jsp";
+		return "profile";
 	}
 	
 	
