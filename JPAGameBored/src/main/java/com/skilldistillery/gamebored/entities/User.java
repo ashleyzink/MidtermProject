@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -34,7 +36,10 @@ public class User {
 	
 	private String email;
 	
-//	private Address addressId;
+	@OneToOne
+	@JoinColumn(name ="address_id")
+	private Address address;
+	
 	
 	@Column(name ="profile_image_url")
 	private String profileImageUrl;
@@ -57,6 +62,35 @@ public class User {
 	public User() {
 		super();
 	}
+	
+	public User(int id, String username, String password, int enabled, String firstName, String lastName, String email,
+			Address address) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.address = address;
+	}
+	
+	public User(String username, String password, int enabled, String firstName, String lastName, String email,
+			Address address) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.address = address;
+	}
+
+
+
+
 
 	public int getId() {
 		return id;
@@ -173,6 +207,19 @@ public class User {
 	public void setMeetups(List<Meetup> meetups) {
 		this.meetups = meetups;
 	}
+
+	
+	public Address getAddress() {
+		return address;
+	}
+
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+
 
 	@Override
 	public String toString() {
