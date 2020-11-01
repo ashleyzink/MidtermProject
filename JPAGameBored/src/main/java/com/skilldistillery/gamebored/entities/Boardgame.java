@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -54,7 +55,12 @@ public class Boardgame {
 	private String boxArtUrl;
 	
 	@OneToMany(mappedBy = "boardgame")
-	List<BoardGameComment> boardGameComments;
+	private List<BoardGameComment> boardGameComments;
+	
+	@ManyToMany(mappedBy= "favorites")
+	private List<User> userWithFavs;
+	@ManyToMany(mappedBy= "owned")
+	private List<User> userWithOwned;
 	
 
 	public Boardgame() {
@@ -208,6 +214,36 @@ public class Boardgame {
 		comment.setBoardgame(null);
 		if(boardGameComments != null) {
 			boardGameComments.remove(comment);
+		}
+	}
+	
+	public void addUserWithFav(User user) {
+		if(userWithFavs == null) {userWithFavs = new ArrayList<User>();}
+		if(!userWithFavs.contains(user)) {
+			userWithFavs.add(user);
+			user.addFavorite(this);
+		}
+	}
+	
+	public void removeUserWithFav(User user) {
+		if(userWithFavs != null && userWithFavs.contains(user)) {
+			userWithFavs.remove(user);
+			user.removeFavorite(this);
+		}
+		
+	}
+	public void addUserWithOwned(User user) {
+		if(userWithOwned == null) {userWithOwned = new ArrayList<User>();}
+		if(!userWithOwned.contains(user)) {
+			userWithOwned.add(user);
+			user.addOwned(this);
+		}
+	}
+	
+	public void removeUserWithOwned(User user) {
+		if(userWithOwned != null && userWithOwned.contains(user)) {
+			userWithOwned.remove(user);
+			user.removeOwned(this);
 		}
 	}
 
