@@ -79,23 +79,48 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		return userList;
 		}
 	
+	//update user information
 	@Override
-	public BoardGameComment update(int id, User user) {
+	public User update(int id, User user) {
 		User u = em.find(User.class, id);
 
 		u.setAddress(user.getAddress());
 		u.setBioDescription(user.getBioDescription());
 		u.setBoardGameComments(user.getBoardGameComments());
-		u.setCommunityComment(user.getCommunityComment());
+		u.setCommunityComments(user.getCommunityComments());
 		u.setEmail(user.getEmail());
 		u.setFirstName(user.getFirstName());
 		u.setLastName(user.getLastName());
-		u.set
+		u.setCreateDate(user.getCreateDate());
+		u.setEnabled(user.getEnabled());
+		u.setFavorites(user.getFavorites());
+		u.setId(user.getId());
+		u.setMeetups(user.getMeetups());
+		u.setOwned(user.getOwned());
+		u.setPassword(user.getPassword());
+		u.setProfileImageUrl(u.getProfileImageUrl());
+		u.setRole(u.getRole());
+		u.setUsername(u.getUsername());
 
 		em.flush();
 
 		return u;
 	}
+
+	//delete a user
+	@Override
+	public boolean destroy(int id) {
+
+		User user = em.find(User.class, id);
+		em.remove(user);
+
+		boolean userDel = !em.contains(user);
+
+		em.flush();
+
+		return userDel;
+	}
+
 	
 	//Find User by email
 
