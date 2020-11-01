@@ -56,7 +56,7 @@ class MeetupTest {
 		assertEquals(2020, meetup.getCreateDate().getYear());
 		assertEquals(10, meetup.getCreateDate().getMonthValue());
 		assertEquals(10, meetup.getCreateDate().getDayOfMonth());
-		assertEquals(9, meetup.getCreateDate().getHour());
+		assertEquals(10, meetup.getCreateDate().getHour());
 		assertEquals(10, meetup.getCreateDate().getMinute());
 		assertEquals(10, meetup.getCreateDate().getSecond());
 	
