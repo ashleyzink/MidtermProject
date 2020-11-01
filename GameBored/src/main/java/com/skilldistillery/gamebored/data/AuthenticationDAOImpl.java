@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.User;
 
 //may not need Repository
@@ -77,6 +78,24 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		userList=  em.createQuery(jpql, User.class).getResultList();
 		return userList;
 		}
+	
+	@Override
+	public BoardGameComment update(int id, User user) {
+		User u = em.find(User.class, id);
+
+		u.setAddress(user.getAddress());
+		u.setBioDescription(user.getBioDescription());
+		u.setBoardGameComments(user.getBoardGameComments());
+		u.setCommunityComment(user.getCommunityComment());
+		u.setEmail(user.getEmail());
+		u.setFirstName(user.getFirstName());
+		u.setLastName(user.getLastName());
+		u.set
+
+		em.flush();
+
+		return u;
+	}
 	
 	//Find User by email
 
