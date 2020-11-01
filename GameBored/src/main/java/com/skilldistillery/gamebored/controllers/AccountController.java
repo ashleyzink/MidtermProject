@@ -1,5 +1,7 @@
 package com.skilldistillery.gamebored.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -19,16 +21,16 @@ public class AccountController {
 	private AuthenticationDAO aDao;
 	
 //LOGIN
-//	@RequestMapping(path="login", method=RequestMethod.GET)
-//	public ModelAndView login() {
-//		User u = new User();
-//		ModelAndView mv = new ModelAndView("WEB-INF/login.jsp", "user", u);
-//		return mv;
-//	}
-//	
+	@RequestMapping(path="login", method=RequestMethod.GET)
+	public ModelAndView login(HttpSession session) {
+		User u = new User();
+		ModelAndView mv = new ModelAndView("login", "user", u);
+		return mv;
+	}
+	
 
 	@RequestMapping(path="login.do", method=RequestMethod.POST)
-	public ModelAndView doLogin(@Validated User user, Errors errors) {
+	public ModelAndView doLogin(@Validated User user, Errors errors, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		
 		User loggedInUser = aDao.getUserByEmail(user.getEmail());
@@ -46,13 +48,31 @@ public class AccountController {
 		  }
 		}
 		if (errors.getErrorCount() != 0) {
-			mv.setViewName("WEB-INF/login.jsp");
+			mv.setViewName("login");
 			return mv;
 		}
+		session.setAttribute("loggedInUser", user);
 		mv.addObject("user", loggedInUser);
-		mv.setViewName("WEB-INF/profile.jsp");
+		mv.setViewName("profile");
 		return mv;
 	}
+	
+	
+	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
+	public ModelAndView logoutDo(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+
+		session.removeAttribute("loggedInUser");
+
+		mv.setViewName("homepage");
+		return mv;
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -74,7 +94,7 @@ public class AccountController {
 	// TODO: Add the @Valid annotation to the User object
 	// TODO: Inject the Errors object
 	@RequestMapping(path="registration.do", method=RequestMethod.POST)
-	public String create(@Validated User user, Errors errors) {
+	public String create(@Validated User user, Errors errors, HttpSession session) {
 		// TODO: 1. If there are any errors, return the view 'WEB-INF/register.jsp'
 	  if(errors.hasErrors()) {
 	    return "homepage";
@@ -89,7 +109,7 @@ public class AccountController {
 	  
 	  // TODO: 3. Add the user to the DAO
 	  aDao.create(user);
-	  
+	  session.setAttribute("loggedInUser", user);
 		return "profile";
 	}
 	
