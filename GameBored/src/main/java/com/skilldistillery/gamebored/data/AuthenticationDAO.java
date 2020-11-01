@@ -19,5 +19,9 @@ public interface AuthenticationDAO {
 
 	User findByEmail(String email);
 
+	User update(int id, User user);
+
+	boolean destroy(int id);
+
 
 }

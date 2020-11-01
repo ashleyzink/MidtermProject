@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.gamebored.entities.Boardgame;
 import com.skilldistillery.gamebored.entities.User;
 
 //may not need Repository
@@ -77,6 +78,84 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		userList=  em.createQuery(jpql, User.class).getResultList();
 		return userList;
 		}
+	
+	//update user information
+	@Override
+	public User update(int id, User user) {
+		User u = em.find(User.class, id);
+
+		u.setAddress(user.getAddress());
+		u.setBioDescription(user.getBioDescription());
+		u.setBoardGameComments(user.getBoardGameComments());
+		u.setCommunityComments(user.getCommunityComments());
+		u.setEmail(user.getEmail());
+		u.setFirstName(user.getFirstName());
+		u.setLastName(user.getLastName());
+		u.setCreateDate(user.getCreateDate());
+		u.setEnabled(user.getEnabled());
+		u.setId(user.getId());
+		u.setMeetups(user.getMeetups());
+		u.setOwned(user.getOwned());
+		u.setPassword(user.getPassword());
+		u.setProfileImageUrl(u.getProfileImageUrl());
+		u.setRole(u.getRole());
+		u.setUsername(u.getUsername());
+
+		em.flush();
+
+		return u;
+	}
+	
+	public User addFavorite(int userId, int gameId) {
+		User u = em.find(User.class, userId);
+		Boardgame bg=em.find(Boardgame.class, gameId);
+		
+		u.getFavorites().add(bg);
+		em.flush();
+		
+		return u;
+	}
+	public User removeFavorite(int userId, int gameId) {
+		User u = em.find(User.class, userId);
+		Boardgame bg=em.find(Boardgame.class, gameId);
+		
+		u.getFavorites().remove(bg);
+		em.flush();
+		
+		return u;
+	}
+	public User addOwned(int userId, int ownedId) {
+		User u = em.find(User.class, userId);
+		Boardgame bg=em.find(Boardgame.class, ownedId);
+		
+		u.getOwned().add(bg);
+		em.flush();
+		
+		return u;
+	}
+	public User removeOwned(int userId, int gameId) {
+		User u = em.find(User.class, userId);
+		Boardgame bg=em.find(Boardgame.class, gameId);
+		
+		u.getOwned().remove(bg);
+		em.flush();
+		
+		return u;
+	}
+	//delete a user
+	@Override
+	public boolean destroy(int id) {
+
+		User user = em.find(User.class, id);
+		em.remove(user);
+
+		boolean userDel = !em.contains(user);
+
+		em.flush();
+
+		return userDel;
+	}
+
 	
 	//Find User by email
 
