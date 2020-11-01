@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.gamebored.entities.Boardgame;
 import com.skilldistillery.gamebored.entities.User;
 
 //may not need Repository
@@ -104,7 +105,43 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 		return u;
 	}
-
+	
+	public User addFavorite(int userId, int gameId) {
+		User u = em.find(User.class, userId);
+		Boardgame bg=em.find(Boardgame.class, gameId);
+		
+		u.getFavorites().add(bg);
+		em.flush();
+		
+		return u;
+	}
+	public User removeFavorite(int userId, int gameId) {
+		User u = em.find(User.class, userId);
+		Boardgame bg=em.find(Boardgame.class, gameId);
+		
+		u.getFavorites().remove(bg);
+		em.flush();
+		
+		return u;
+	}
+	public User addOwned(int userId, int ownedId) {
+		User u = em.find(User.class, userId);
+		Boardgame bg=em.find(Boardgame.class, ownedId);
+		
+		u.getOwned().add(bg);
+		em.flush();
+		
+		return u;
+	}
+	public User removeOwned(int userId, int gameId) {
+		User u = em.find(User.class, userId);
+		Boardgame bg=em.find(Boardgame.class, gameId);
+		
+		u.getOwned().remove(bg);
+		em.flush();
+		
+		return u;
+	}
 	//delete a user
 	@Override
 	public boolean destroy(int id) {
