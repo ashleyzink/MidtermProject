@@ -24,6 +24,8 @@ public class UserController {
 	@Autowired
 	private CCommentDAO cDao;
 
+	
+	
 	@RequestMapping("addUser.do")
 	public String addUser(User user, Model model) {
 		User u = aDao.create(user);
@@ -44,6 +46,7 @@ public class UserController {
 		model.addAttribute("update", u);
 		return "update.jsp";
 	}
+	
 	
 	@RequestMapping("addCommunityComment.do")
 	public String addBoardgameComment(BoardGameComment comment, Model model) {

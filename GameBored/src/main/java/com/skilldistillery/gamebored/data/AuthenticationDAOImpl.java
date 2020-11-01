@@ -11,7 +11,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.User;
 
 //may not need Repository
@@ -93,7 +92,6 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		u.setLastName(user.getLastName());
 		u.setCreateDate(user.getCreateDate());
 		u.setEnabled(user.getEnabled());
-		u.setFavorites(user.getFavorites());
 		u.setId(user.getId());
 		u.setMeetups(user.getMeetups());
 		u.setOwned(user.getOwned());
