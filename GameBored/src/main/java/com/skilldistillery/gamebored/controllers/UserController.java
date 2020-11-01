@@ -30,7 +30,7 @@ public class UserController {
 	public String addUser(User user, Model model) {
 		User u = aDao.create(user);
 		model.addAttribute("comment", u);
-		return "homepage.jsp";
+		return "homepage";
 	}
 
 	@RequestMapping("deleteUser.do")
@@ -44,7 +44,7 @@ public class UserController {
 	public String editUSer(Integer id, User user, Model model) {
 		User u = aDao.update(id, user);
 		model.addAttribute("update", u);
-		return "update.jsp";
+		return "update";
 	}
 	
 	
@@ -52,7 +52,7 @@ public class UserController {
 	public String addBoardgameComment(BoardGameComment comment, Model model) {
 		BoardGameComment cc = bgDao.create(comment);
 		model.addAttribute("comment", cc);
-		return "homepage.jsp";
+		return "homepage";
 	}
 	
 	@RequestMapping("deleteCommunityComment.do")
@@ -66,13 +66,13 @@ public class UserController {
 	public String editBoardgameComment(Integer id, BoardGameComment comment, Model model) {
 		BoardGameComment cc = bgDao.update(id, comment);
 		model.addAttribute("update", cc);
-		return "update.jsp";
+		return "update";
 	}
 	@RequestMapping("addCommunityComment.do")
 	public String addCommunityComment(CommunityComment comment, Model model) {
 		CommunityComment cc = cDao.create(comment);
 		model.addAttribute("comment", cc);
-		return "homepage.jsp";
+		return "homepage";
 	}
 	
 	@RequestMapping("deleteCommunityComment.do")
@@ -86,7 +86,7 @@ public class UserController {
 	public String editCommunityComment(Integer id, CommunityComment comment, Model model) {
 		CommunityComment cc = cDao.update(id, comment);
 		model.addAttribute("update", cc);
-		return "update.jsp";
+		return "update";
 	}
 	
 }

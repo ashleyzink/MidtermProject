@@ -21,21 +21,21 @@ public class BoardGameController {
 	
 	@RequestMapping(path="index.do", method = RequestMethod.GET)
 	public String backHome() {
-		return "/WEB-INF/index.jsp";
+		return "index";
 	}
 
 	@RequestMapping(path="getGame.do", method = RequestMethod.GET)
 	public String showGameByID(Integer id, Model model) {
 		Boardgame game = boardGameDAO.findById(id);
 		model.addAttribute("game", game);
-		return "/WEB-INF/SingleGameDetailDisplay.jsp";
+		return "SingleGameDetailDisplay";
 	}
 	
 	@RequestMapping(path="gameList.do", method = RequestMethod.GET)
 	public String listOfAllGames(Model model) {
 		List<Boardgame> gameList = boardGameDAO.findAll();
 		model.addAttribute("games", gameList);
-		return "/WEB-INF/boardgame/ListOfGames.jsp";
+		return "boardgame/ListOfGames";
 	}
 	
 	@RequestMapping(path="gameList.do", method = RequestMethod.GET)
@@ -67,7 +67,7 @@ public class BoardGameController {
 			
 		}
 		model.addAttribute("games", gameList);
-		return "/WEB-INF/ListOfGames.jsp";
+		return "ListOfGames";
 	}
 	
 
@@ -80,25 +80,25 @@ public class BoardGameController {
 	}
 	@RequestMapping(path = "gameAdded.do", method = RequestMethod.GET)
 	public String addGameRedir() {
-		return "/WEB-INF/GameDetailDisplay.jsp";
+		return "GameDetailDisplay";
 	}
 	
 	@RequestMapping(path = "newGameForm.do", method = RequestMethod.GET)
 	public String redirToNewGameForm() {
-		return "/WEB-INF/NewGame.jsp";
+		return "NewGame";
 	}
 	
 	@RequestMapping(path = "updateGame.do", method = RequestMethod.POST )
 	public String updateGame(Boardgame bgame, Model model) {
 		Boardgame updateGame = boardGameDAO.updateGame(bgame);
 		model.addAttribute("game", updateGame);
-		return "/WEB-INF/GameDetailDisplay.jsp";
+		return "GameDetailDisplay";
 	}
 	
 	@RequestMapping(path = "redirToUpdate.do", method = RequestMethod.GET)
 	public String redirToUpdate(Integer id, Model model) {
 		model.addAttribute("game", boardGameDAO.findById(id));
-		return "/WEB-INF/UpdateGame.jsp";
+		return "UpdateGame";
 	}
 	
 	@RequestMapping(path = "deleteGame.do", method = RequestMethod.POST)
@@ -109,6 +109,6 @@ public class BoardGameController {
 	
 	@RequestMapping(path = "gameDeleted.do", method = RequestMethod.GET)
 	public String deleted() {
-		return "/WEB-INF/Deleted.jsp";
+		return "Deleted";
 	}
 }
