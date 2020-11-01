@@ -37,10 +37,13 @@ public class User {
 	
 	private String email;
 	
+	private List<Boardgame> favorites;
+	
+	private List<Boardgame> owned;
+	
 	@OneToOne
 	@JoinColumn(name ="address_id")
 	private Address address;
-	
 	
 	@Column(name ="profile_image_url")
 	private String profileImageUrl;
@@ -220,6 +223,31 @@ public class User {
 		this.address = address;
 	}
 	
+	
+	public List<Boardgame> getFavorites() {
+		return favorites;
+	}
+
+	public void setFavorites(List<Boardgame> favorites) {
+		this.favorites = favorites;
+	}
+
+	public List<Boardgame> getOwned() {
+		return owned;
+	}
+
+	public void setOwned(List<Boardgame> owned) {
+		this.owned = owned;
+	}
+
+	public List<CommunityComment> getCommunityComments() {
+		return communityComments;
+	}
+
+	public void setCommunityComments(List<CommunityComment> communityComments) {
+		this.communityComments = communityComments;
+	}
+
 	public void addBoardgameComment(BoardGameComment comment) {
 		if(boardGameComments == null) boardGameComments = new ArrayList<BoardGameComment>();
 		
