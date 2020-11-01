@@ -84,5 +84,19 @@ class BoardgameTest {
 		assertTrue(boardgame.getBoardGameComments().size()>0);
 		assertEquals(1, boardgame.getBoardGameComments().size());
 	}
+	@Test
+	@DisplayName("testing favorites list to users many to many relationship")
+	void test7() {
+		assertNotNull(boardgame.getUserWithFavs());
+		assertTrue(boardgame.getUserWithFavs().size() > 0);
+	
+	}
+	@Test
+	@DisplayName("testing owned list to users many to many relationship")
+	void test8() {
+		assertNotNull(boardgame.getUserWithOwned());
+		assertTrue(boardgame.getUserWithOwned().size() > 0);
+		
+	}
 
 }

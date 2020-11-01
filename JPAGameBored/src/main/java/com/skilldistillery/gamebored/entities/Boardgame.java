@@ -173,6 +173,34 @@ public class Boardgame {
 
 
 
+	public List<User> getUserWithFavs() {
+		return userWithFavs;
+	}
+
+
+
+
+	public void setUserWithFavs(List<User> userWithFavs) {
+		this.userWithFavs = userWithFavs;
+	}
+
+
+
+
+	public List<User> getUserWithOwned() {
+		return userWithOwned;
+	}
+
+
+
+
+	public void setUserWithOwned(List<User> userWithOwned) {
+		this.userWithOwned = userWithOwned;
+	}
+
+
+
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

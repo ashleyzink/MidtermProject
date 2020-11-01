@@ -12,6 +12,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class UserTest {
@@ -91,6 +92,23 @@ class UserTest {
 		assertNotNull(user);
 		assertNotNull(user.getAddress());
 		assertEquals("123 Sesame St", user.getAddress().getStreet());
+		
+	}
+	
+	@Test
+	@DisplayName("testing user to favorite boardgames many to many mapping")
+	void test1() {
+		assertNotNull(user.getFavorites());
+		assertTrue(user.getFavorites().size() > 0);
+		
+	}
+	
+	@Test
+	@DisplayName("testing user to owned boardgames many to many mapping")
+	void test2() {
+		assertNotNull(user.getOwned());
+		assertTrue(user.getOwned().size() > 0);
+	
 		
 	}
 	
