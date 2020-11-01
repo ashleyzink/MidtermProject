@@ -1,5 +1,7 @@
 package com.skilldistillery.gamebored.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,7 +48,12 @@ public class UserController {
 		model.addAttribute("update", u);
 		return "update.jsp";
 	}
-	
+	@RequestMapping("searchUser.do")
+	public String searchUser(String keyword, Model model) {
+		User userList=aDao.findByEmail(keyword);
+		model.addAttribute("user", userList);
+		return "result";
+	}
 	
 	@RequestMapping("addCommunityComment.do")
 	public String addBoardgameComment(BoardGameComment comment, Model model) {
