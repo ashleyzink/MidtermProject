@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -36,9 +38,15 @@ public class User {
 	private String lastName;
 	
 	private String email;
-	
+	@ManyToMany
+	  @JoinTable(name="favorite_board_game",
+	    joinColumns=@JoinColumn(name="user_id"),
+	    inverseJoinColumns=@JoinColumn(name="board_game_id"))
 	private List<Boardgame> favorites;
-	
+	@ManyToMany
+	  @JoinTable(name="owned_board_game",
+	    joinColumns=@JoinColumn(name="user_id"),
+	    inverseJoinColumns=@JoinColumn(name="board_game_id"))
 	private List<Boardgame> owned;
 	
 	@OneToOne
@@ -302,6 +310,34 @@ public class User {
 		if(meetups != null) {
 			meetups.remove(meetUp);
 		}
+	}
+	public void addFavorite(Boardgame favorite) {
+		if(favorites == null) {favorites = new ArrayList<Boardgame>();}
+		if(!favorites.contains(favorite)) {
+			favorites.add(favorite);
+			favorite.addUserWithFav(this);
+		}
+	}
+	public void removeFavorite(Boardgame favorite) {
+		if(favorites != null && favorites.contains(favorite)) {
+			favorites.remove(favorite);
+			favorite.removeUserWithFav(this);
+		}
+		
+	}
+	public void addOwned(Boardgame ownedBG) {
+		if(owned == null) {owned = new ArrayList<Boardgame>();}
+		if(!owned.contains(ownedBG)) {
+			owned.add(ownedBG);
+			ownedBG.addUserWithOwned(this);
+		}
+	}
+	public void removeOwned(Boardgame ownedBG) {
+		if(owned != null && owned.contains(ownedBG)) {
+			owned.remove(ownedBG);
+			ownedBG.removeUserWithOwned(this);
+		}
+		
 	}
 	
 	
