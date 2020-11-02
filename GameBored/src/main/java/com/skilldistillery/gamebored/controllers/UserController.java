@@ -26,7 +26,8 @@ public class UserController {
 	@Autowired
 	private CCommentDAO cDao;
 
-	
+//	@RequestMapping("addFavorite.do")
+//	public 
 	
 	@RequestMapping("addUser.do")
 	public String addUser(User user, Model model) {
