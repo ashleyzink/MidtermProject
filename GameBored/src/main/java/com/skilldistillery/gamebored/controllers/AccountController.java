@@ -103,8 +103,8 @@ public class AccountController {
 	  
 	  // TODO: 3. Add the user to the DAO
 	  aDao.create(user);
-	  session.setAttribute("loggedInUser", user);
-		return "profile";
+	//  session.setAttribute("loggedInUser", user);
+		return "login";
 	}
 	
 	
