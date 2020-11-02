@@ -19,11 +19,13 @@ public class BoardGameController {
 	@Autowired
 	private BoardGameDAO boardGameDAO;
 	
-	@RequestMapping(path="index.do", method = RequestMethod.GET)
-	public String backHome() {
-		return "index";
+	@RequestMapping(path="homepage.do", method = RequestMethod.GET)
+	public String backHome(Model model) {
+			List<Boardgame> gameList = boardGameDAO.findAll();
+			model.addAttribute("gameList", gameList);
+		return "homepage";
 	}
-
+	
 	@RequestMapping(path="getGame.do", method = RequestMethod.GET)
 	public String showGameByID(Integer id, Model model) {
 		Boardgame game = boardGameDAO.findById(id);
