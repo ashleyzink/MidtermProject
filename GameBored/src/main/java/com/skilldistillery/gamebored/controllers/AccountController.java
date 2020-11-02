@@ -68,13 +68,7 @@ public class AccountController {
 		return mv;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	@RequestMapping(path="register.do", method=RequestMethod.GET)
 	public ModelAndView register() {
