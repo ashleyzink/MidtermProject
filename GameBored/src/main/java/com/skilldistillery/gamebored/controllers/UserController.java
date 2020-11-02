@@ -61,6 +61,7 @@ public class UserController {
 		BoardGameComment cc = bgDao.create(comment);
 		model.addAttribute("comment", cc);
 		return "homepage";
+	
 	}
 	
 	@RequestMapping("deleteBoardGameComment.do")

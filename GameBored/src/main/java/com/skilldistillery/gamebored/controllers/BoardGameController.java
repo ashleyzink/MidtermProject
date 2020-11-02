@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.gamebored.data.BoardGameDAO;
+import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.Boardgame;
 
 @Controller
@@ -112,5 +113,15 @@ public class BoardGameController {
 	@RequestMapping(path = "gameDeleted.do", method = RequestMethod.GET)
 	public String deleted() {
 		return "Deleted";
+	}
+	
+	
+	
+	
+	@RequestMapping(path={"getBGComments.do"}, method = RequestMethod.GET)
+	public String getBGComments(Model model) {
+			List<BoardGameComment> comments = boardGameDAO.findAllCommentsForGame();
+			model.addAttribute("comments", comments);
+		return "SingleBoardGameDisplay";
 	}
 }

@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.Boardgame;
 import com.skilldistillery.gamebored.entities.Category;
 import com.skilldistillery.gamebored.entities.Genre;
@@ -28,6 +29,13 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 	public List<Boardgame> findAll() {
 		String jpql = "SELECT game FROM Boardgame game";
 		return em.createQuery(jpql, Boardgame.class).getResultList();
+	}
+	@Override
+	public List<BoardGameComment> findAllCommentsForGame() {
+		String jpql = "SELECT c FROM BoardGameComment c";
+		
+		
+		return em.createQuery(jpql, BoardGameComment.class).getResultList();
 	}
 
 	@Override
