@@ -2,7 +2,6 @@ package com.skilldistillery.gamebored.data;
 
 import java.util.List;
 
-import com.skilldistillery.gamebored.entities.Boardgame;
 import com.skilldistillery.gamebored.entities.User;
 
 public interface AuthenticationDAO {
