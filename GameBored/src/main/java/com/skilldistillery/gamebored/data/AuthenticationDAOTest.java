@@ -14,7 +14,7 @@ public class AuthenticationDAOTest {
 	public void run() {
 //	AuthenticationDAO adao = new AuthenticationDAOImpl() ;
 //		
-//	User user = new User(1, "admin", "password", 1, "Game", "Bored", "adminuser@gamebored.com", Address());
+//	User user = new User(1, "admin", "password", 1, "Game", "Bored", "adminuser@gamebored.com", new Address(1, "street",));
 //	
 //	
 //	//Create Tests for AuthenticationDAOImpl Here
