@@ -30,6 +30,13 @@
 	   <li>Play Time ${game.playTimeMinutes } mins</li>
 	</ul> 
 		
+		<c:forEach var="comment" items= "${game.boardGameComments } ">
+		<ul>
+		<li>${comment.commentText }
+		</ul>
+	</c:forEach>	
+		
+		
 		
 			</c:when>
 			<c:otherwise>

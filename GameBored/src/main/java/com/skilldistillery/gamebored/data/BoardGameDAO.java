@@ -2,6 +2,7 @@ package com.skilldistillery.gamebored.data;
 
 import java.util.List;
 
+import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.Boardgame;
 
 public interface BoardGameDAO {
@@ -25,5 +26,7 @@ Boardgame findById(int id);
 	Boardgame updateGame(Boardgame boardGame);
 	
 	boolean deleteGame(int id);
+
+	List<BoardGameComment> findAllCommentsForGame();
 
 }
