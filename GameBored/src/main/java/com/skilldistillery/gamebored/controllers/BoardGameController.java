@@ -19,7 +19,7 @@ public class BoardGameController {
 	@Autowired
 	private BoardGameDAO boardGameDAO;
 	
-	@RequestMapping(path="homepage.do", method = RequestMethod.GET)
+	@RequestMapping(path={"/", "homepage.do"}, method = RequestMethod.GET)
 	public String backHome(Model model) {
 			List<Boardgame> gameList = boardGameDAO.findAll();
 			model.addAttribute("gameList", gameList);
@@ -30,15 +30,15 @@ public class BoardGameController {
 	public String showGameByID(Integer id, Model model) {
 		Boardgame game = boardGameDAO.findById(id);
 		model.addAttribute("game", game);
-		return "SingleGameDetailDisplay";
+		return "SingleBoardGameDisplay";
 	}
 	
-	@RequestMapping(path="gameList.do", method = RequestMethod.GET)
-	public String listOfAllGames(Model model) {
-		List<Boardgame> gameList = boardGameDAO.findAll();
-		model.addAttribute("games", gameList);
-		return "boardgame/ListOfGames";
-	}
+//	@RequestMapping(path="gameList.do", method = RequestMethod.GET)
+//	public String listOfAllGames(Model model) {
+//		List<Boardgame> gameList = boardGameDAO.findAll();
+//		model.addAttribute("games", gameList);
+//		return "boardgame/ListOfGames";
+//	}
 	
 	@RequestMapping(path="gameList.do", method = RequestMethod.GET)
 	public String getGamesByKeyword(String searchTerm, String searchType, Model model) {
@@ -69,7 +69,7 @@ public class BoardGameController {
 			
 		}
 		model.addAttribute("games", gameList);
-		return "ListOfGames";
+		return "listofgames";
 	}
 	
 

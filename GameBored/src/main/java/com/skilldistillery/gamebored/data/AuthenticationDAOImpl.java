@@ -18,20 +18,9 @@ import com.skilldistillery.gamebored.entities.User;
 @Transactional
 @Service
 public class AuthenticationDAOImpl implements AuthenticationDAO {
-	private Map<String, User> users = new HashMap<>();
 
 	@PersistenceContext
 	private EntityManager em;
-
-	public AuthenticationDAOImpl() {
-		// NEED TO ADD SPECIFIC CONSTRUCTOR TO USER ENTITY
-		
-//		this.users.put("adminuser@gamebored.com", new User(1, "admin", "password", 1, "Game",
-//				"Bored", "adminuser@gamebored.com");
-		
-//		this.users.put("adminuser@gamebored.com", new User(1, "admin", "admin", 1, "ADMIN",
-//				"Game", "Bored", "adminuser@gamebored.com", 1, null, null, null));
-	}
 
 	@Override
 	public User create(User user) {
@@ -46,8 +35,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	@Override
 	public boolean isEmailUnique(String email) {
-		// TODO: Check to see if the provided email exists as a key in the users HashMap
-		return !users.containsKey(email);
+		return !User.class.;
 	}
 
 	@Override
@@ -55,7 +43,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		if (users.containsKey(email)) {
 			return users.get(email);
 		}
-		return null;
+		return email;
 	}
 
 	@Override
