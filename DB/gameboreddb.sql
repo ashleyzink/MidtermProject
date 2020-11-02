@@ -364,6 +364,7 @@ USE `gameboreddb`;
 INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (1, '123 Sesame St', 'Aurora', 'CO', '80013');
 INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (2, '808 Rainbow Road', 'Denver', 'CO', '80203');
 INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (3, '5150 Park Place', 'Aurora', 'CO', '80013');
+INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (4, NULL, NULL, NULL, NULL);
 
 COMMIT;
 
@@ -375,6 +376,7 @@ START TRANSACTION;
 USE `gameboreddb`;
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (1, 'admin', 'admin', 1, 'ADMIN', 'Game', 'Bored', 'adminuser@gamebored.com', 1, NULL, NULL, NULL);
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (2, 'ihasshoulders', 'ihasshoulders', 1, 'user', 'Shoulder', 'Person', 'ihasshoulders@gamebored.com', 2, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (3, 'disguisedhorse', 'disguisedhorse', 1, 'user', 'Disguised', 'Horse', 'disguisedhorse@gamebored.com', 4, NULL, NULL, NULL);
 
 COMMIT;
 
@@ -385,6 +387,14 @@ COMMIT;
 START TRANSACTION;
 USE `gameboreddb`;
 INSERT INTO `genre` (`id`, `name`, `description`) VALUES (1, 'Fantasy', 'Takes place in a world of magic');
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (2, 'Medieval', 'Medieval games often have themes or storylines set in Europe or Asia between the 5th century and the 15th century');
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (3, 'Industrial', 'Industry / Manufacturing games encourage players to build, manage and/or operate tools and machinery in order to manufacture raw materials into goods and products');
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (4, 'Economy', 'Economic games encourage players to develop and manage a system of production, distribution, trade, and/or consumption of goods');
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (5, 'Adventure', 'Adventure games often have themes of heroism, exploration, and puzzle-solving');
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (6, 'Horror', 'Horror games often contain themes and imagery depicting morbid and supernatural elements');
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (7, 'Civilization', 'Civilization games often have players developing and managing a society of people');
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (8, 'Medical', 'Medical games have themes related to the science of natural healing');
+INSERT INTO `genre` (`id`, `name`, `description`) VALUES (9, 'Take That', 'Competitive maneuvers that directly attack an opponent\'s progress toward victory');
 
 COMMIT;
 
@@ -395,6 +405,13 @@ COMMIT;
 START TRANSACTION;
 USE `gameboreddb`;
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (1, 'Deck Builder', 'Build the deck you\'ll be using to play in turns');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (2, 'Area Control', 'Board games with some form of map or board defining a space that players compete to dominate');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (3, 'Campaign', 'Board games where the actions and outcome of one senario will usually affect the next');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (4, 'Drafting', 'Players are presented with a set of options from which they must pick one leaving the remainder for the next player to choose from');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (5, 'Eurogame', 'Strategy-focused board games that prioritise limited-randomness over theme. Usually competitive with interaction between players through passive competition rather than aggressive conflict.');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (6, 'Roll and Move', 'Board games where you roll one or more dice and move that many spaces - commonly on a looping track of spaces, or a path with a start and finish');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (7, 'Worker Placement', 'Board games where you choose actions from spaces on the board by assigning your pool of workers');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (8, 'Wargame', 'Players pit armies against each other represented by collections of miniatures or tokens on a map with a grid or actual measured distances for movement');
 
 COMMIT;
 
@@ -404,7 +421,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `gameboreddb`;
-INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (1, 'Libellud', NULL, NULL);
+INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (1, 'Libellud', 'https://cf.geekdo-images.com/j7t0qcxsrH2arhgAMnnbdw__imagepage/img/8iU8eYP2I3GlHvhr9hz232bnJgg=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3868309.jpg', 'French board game publisher founded in 2008, Libellud quickly found success with its first game Dixit');
+INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (2, 'Z-Man Games', 'https://casualgamerevolution.b-cdn.net/sites/default/files/styles/content/public/field/image/2.jpg?itok=3-GLbFun', 'At Z-Man Games, we create innovative games that become modern essentials. Since 1999, our studio has published a variety of critically acclaimed titles from casual to complex, cooperative to competitive, small bag to big box—and everything in between.');
+INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (3, 'Days of Wonder', 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Days_of_wonder_logo.png/440px-Days_of_wonder_logo.png', 'Days of Wonder consistently raises the bar with an unmatched string of hits that includes Ticket to Ride®, the world\'s best-selling train game; Small World®, the legendary fantasy game of epic conquests; and Memoir \'44®, the World War II saga with 20 expansions to its credit.');
+INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (4, 'Bezier Games, Inc.', 'https://cf.geekdo-images.com/sX0o8mg58tABZYuMjjZiYw__imagepage/img/-7dnL_uQZQ9OtgPkFsGT6lZ-2EA=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5197396.jpg', 'Replayability is a hallmark of our games. With more options than you can fit in a single play, you’ll always have new things to try. Castles of Mad King Ludwig allows you to build a different castle every game. Whistle Stop uses the same core rules to play on a different board every time. Our component overkill makes every play new, every time.');
+INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (5, 'Fantasy Flight Games', 'https://mlpnk72yciwc.i.optimole.com/cqhiHLc.WqA8~2eefa/w:574/h:405/q:75/https://bleedingcool.com/wp-content/uploads/2020/01/fantasy-flight-games-logo.jpg', 'We publish a massive array of board and card games, roleplaying games, Living Card Games®, miniatures games and digital games.');
+INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (6, 'Catan GmbH', 'https://www.catan.com/files/catanlogo_new2_0.png', 'We are part of the entertainment and gaming industry. Today, our primary product is the successful board game CATAN® (formerly The Settlers of Catan®), which comes with an array of expansions, extensions, editions, and spin-offs.');
+INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (7, 'Renegade Game Studios', 'https://images.squarespace-cdn.com/content/54148cdae4b05a3412bfa19b/1547681239697-2I9WJ4TW7QOFZX0TE11O/RenegadeLogo_2019_ForDarkBackgrounds_RGB.png?content-type=image%2Fpng', 'Renegade Game Studios mission is to publish games that are fun, challenging, and unique.  We believe that gaming is for everybody and that everybody is a gamer; you may have just not found that right game yet.');
+INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (8, 'Space Cowboys', 'https://static.wixstatic.com/media/59baa2_fe106c0eda7a480e9a1135d076a1f274~mv2_d_5016_5051_s_4_2.png/v1/fill/w_112,h_112,al_c,q_85,usm_0.66_1.00_0.01/Logo_SPACE_COWBOYS.webp', '\nTo infinity and beyond!\nSPACE Cowboys is a game publishing studio created in 2014 by industry old-timers. Driven by its first success, Splendor, finalist of the famous Spiel des Jahres, the studio has since accumulated many successful titles.');
+INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (9, 'Arcane Wonders', 'https://www.arcanewonders.com/wp-content/themes/arcanewonders/assets/images/arcane-wonders-logo.png', NULL);
+INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (10, 'Paizo Publishing', 'https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/122012/paizo.png?itok=MgOXvjO-', 'Paizo Inc. is publisher of the award-winning Pathfinder Roleplaying Game, Pathfinder Adventure Card Game, Pathfinder Tales novels, Starfinder science-fantasy roleplaying game, as well as numerous board games and accessories. In the 15+ years since its founding, Paizo has received more than 100 major awards and has grown to become one of the most influential companies in the hobby games industry.');
+INSERT INTO `publisher` (`id`, `name`, `logo_url`, `description`) VALUES (11, 'Rio Grande Games', 'https://www.riograndegames.com/wp-content/themes/riograndegames/images/rio-grande-games-logo.svg', 'The mission of Rio Grande Games is to promote the playing of games, which offer the players choices. We do so by publishing adult and family strategy games, although children with appropriate parental supervision will enjoy playing many of these games.');
 
 COMMIT;
 
@@ -414,7 +441,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `gameboreddb`;
-INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (1, 'Seasons', 'Play 12 seasons', 2, 4, 45, 35.99, 1, 1, 1, NULL, NULL);
+INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (1, 'Seasons', 'Play 12 seasons', 2, 4, 45, 35.99, 1, 1, 1, NULL, 'https://cf.geekdo-images.com/awmZ9rYy-hTgea6Vdp_OoQ__imagepage/img/g9s85mrGdcUm5AWfRSH1GdD0Bts=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1299390.jpg');
+INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (2, 'Carcassonne', 'Shape the medieval landscape of France, claiming cities, monasteries and farms', 2, 5, 45, 45.08, 2, 5, 2, NULL, 'https://images.zmangames.com/filer_public/bd/f1/bdf146eb-90f0-43d6-b3c5-a55503c04cbb/zm7810_box_front.png');
+INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (3, 'Ticket To Ride', 'Build your railroad across North America to connect cities and collect tickets!', 2, 5, 60, 44.89, 3, 2, 3, NULL, 'https://ncdn0.daysofwonder.com/tickettoride/en/img/tt-box-296.png');
+INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (4, 'Castles of Mad King Ludwig', 'Choose and play tiles to satisfy the king\'s whims and build the best fantasy castle', 1, 4, 90, 54.95, 2, 5, 4, NULL, 'https://images-na.ssl-images-amazon.com/images/I/81oPItAnpGL._AC_SX466_.jpg');
+INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (5, 'Small World', 'Control one fantasy race after another to expand quickly throughout the land', 2, 5, 80, 49.99, 1, 2, 3, NULL, 'https://cf.geekdo-images.com/opengraph/img/H_klqnJiye4r0UmiuK11jaaXv1I=/fit-in/1200x630/filters:strip_icc()/pic428828.jpg');
+INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (6, 'Merchants and Marauders', 'Live the life of an influential merchant or a dreaded pirate in the Caribbean', 2, 4, 180, 49.97, 4, 8, 2, NULL, 'https://images.zmangames.com/filer_public/f7/a9/f7a96814-6943-4825-90ef-99383404089b/zm7062_box-front.png');
+INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (7, 'Runebound', 'Adventure and gain life experience until you can beat the Dragon!', 2, 6, 240, 64.59, 5, 3, 5, NULL, 'https://cf.geekdo-images.com/Zo4slt6oCCOFamxoR1ExcQ__imagepage/img/_hcTFNnN_csT_aknezns2DgZ6GE=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2625790.jpg');
 
 COMMIT;
 
