@@ -25,7 +25,7 @@
 	<br>
 	<hr>
 	<br>
-	<a href="index.do" class="btn btn-secondary" role="button">Go to Home page </a>
+	<a href="homepage.do" class="btn btn-secondary" role="button">Go to Home page </a>
 	<br />
  	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

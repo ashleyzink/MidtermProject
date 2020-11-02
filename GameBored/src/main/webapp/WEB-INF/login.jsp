@@ -9,8 +9,8 @@
 <body>
 <h1>LOGIN</h1>
 
-<form action="login.do" method="GET">
- <p>LOGIN</p>p>
+<form action="login.do" method="POST">
+ <p>LOGIN</p>
  Username: <input type="text" name="username"/>
  Password: <input type="text" name="password"/>
   <input type="submit" value="Login " />

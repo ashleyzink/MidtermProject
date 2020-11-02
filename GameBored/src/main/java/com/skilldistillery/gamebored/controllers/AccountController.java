@@ -21,7 +21,7 @@ public class AccountController {
 	private AuthenticationDAO aDao;
 	
 //LOGIN
-	@RequestMapping(path="login", method=RequestMethod.GET)
+	@RequestMapping(path="loginbutton.do", method=RequestMethod.GET)
 	public ModelAndView login(HttpSession session) {
 		User u = new User();
 		ModelAndView mv = new ModelAndView("login", "user", u);

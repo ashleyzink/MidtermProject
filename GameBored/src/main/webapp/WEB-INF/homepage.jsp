@@ -10,13 +10,13 @@
 </head>
 <body>
 <!-- LOGIN BUTTON  -->
-<form action="login" method="GET">
-<input type="button" value="LOGIN" />
+<form action="loginbutton.do" method="GET">
+<input type="submit" value="LOGIN" />
 </form> 
 
 <!-- REGISTRATION BUTTON -->
 <form action="register.do" method="GET">
-  <input type="button" value="REGISTER"/>
+  <input type="submit" value="REGISTER"/>
 </form> 
 
 <!-- DROPDOWN SEARCH LIST -->
@@ -28,8 +28,8 @@
   <option value="numPlayers">Number of Player</option>
   <option value="keyword">Keyword</option>
 </select>
-<input type=”text” name=”searchTerm” required= "required">
-<input type=”submit” value=”Submit”>
+<input type="text" name="searchTerm" required= "required"/>
+<input type="submit" value="Submit"/>
 </form>
 
 
@@ -37,7 +37,7 @@
 <table>
 <c:forEach var="gameIndiv" items="${gameList}">
 <tr>
-<td><a href = "gameGame?id=${gameIndiv.id}"/> ${gameIndiv.name}</a><td>
+<td><a href = "getGame.do?id=${gameIndiv.id}"> ${gameIndiv.name}</a><td>
  </tr>
 </c:forEach>
 </table>
@@ -46,22 +46,22 @@
 <!--After creating a new comment in the community comment, should we return the list of comments 
 in the Community comment DAO (limit 5 maybe?)  -->
 <!-- Also need to redirect mapping for  addCommunityComment.do to homepage -->
-<form action=”addCommunityComment.do” method=”POST”>
+<form action="addCommunityComment.do" method="POST">
 <p> Community Comments</p>
 <c:forEach var="comment" items="${comments}"> 
  <br>
 <tr>
-<td>${comment.commentDate}</a><td>
+<td>${comment.commentDate}<td>
  </tr>
 <tr>
-<td>${comment.commentText}</a><td>
+<td>${comment.commentText}<td>
  </tr>
  <br>
 </c:forEach>
 
 <p> Add a comment </p>
-<textarea type ="text" name=”comment”></textarea>
-<input type=”submit” value=”Submit”>
+<textarea name="comment"></textarea>
+<input type="submit" role="button"/>
 </form>
 <!-- https://www.smashingmagazine.com/2012/05/building-real-time-commenting-system/ -->
 
@@ -71,9 +71,8 @@ in the Community comment DAO (limit 5 maybe?)  -->
     <c:when test="${user.role} = ADMIN">
       <form action="adminCrud.do" method="GET">
 	<p> Admin CRUD </p><input type="button" value="Submit" />
-	</c:when>
 	</form>
-</form> 
+	</c:when>
 </c:choose>
 
 

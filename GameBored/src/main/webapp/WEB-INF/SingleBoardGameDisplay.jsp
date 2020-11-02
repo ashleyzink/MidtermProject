@@ -27,7 +27,7 @@
 	   <li>Min Players: ${game.minPlayers }</li>
 	   <li>Max Players: ${game.maxPlayers }</li>
 	   <li>Cost: ${game.cost }</li>
-	   <li>Play Time ${game.playTime } mins</li>
+	   <li>Play Time ${game.playTimeMinutes } mins</li>
 	</ul> 
 		
 		
