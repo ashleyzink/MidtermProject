@@ -1,20 +1,17 @@
 package com.skilldistillery.gamebored.data;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.gamebored.entities.Boardgame;
 import com.skilldistillery.gamebored.entities.User;
 
-//may not need Repository
+
 @Transactional
 @Service
 public class AuthenticationDAOImpl implements AuthenticationDAO {
@@ -35,15 +32,26 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	@Override
 	public boolean isEmailUnique(String email) {
-		return !User.class.;
+		List<User> users = null;
+		boolean containsEmail=false;
+		String jpql="SELECT u FROM User u";
+		users = em.createQuery(jpql, User.class).getResultList();
+		for (User user : users) {
+			if (user.getEmail().equals(email)) {
+				containsEmail=true;
+				break;
+			}
+				
+	}
+			return containsEmail;
 	}
 
 	@Override
 	public User getUserByEmail(String email) {
-		if (users.containsKey(email)) {
-			return users.get(email);
-		}
-		return email;
+		User user = null;
+		String jpql = "Select u from User u where email = :userEmail";
+		user =  em.createQuery(jpql, User.class).setParameter("userEmail", email).getSingleResult();
+		return user;
 	}
 
 	@Override
@@ -51,10 +59,8 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		if (getUserByEmail(u.getEmail()) == null) {
 			return false;
 		}
-		if (users.get(u.getEmail()).getPassword().equals(u.getPassword())) {
-			return true;
-		}
-		return false;
+		boolean validUser = em.contains(u);
+		return validUser;
 	}
 	
 	//List all Users
