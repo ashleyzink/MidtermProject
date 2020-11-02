@@ -55,21 +55,21 @@ public class UserController {
 		return "result";
 	}
 	
-	@RequestMapping("addCommunityComment.do")
+	@RequestMapping("addBoardGameComment.do")
 	public String addBoardgameComment(BoardGameComment comment, Model model) {
 		BoardGameComment cc = bgDao.create(comment);
 		model.addAttribute("comment", cc);
 		return "homepage";
 	}
 	
-	@RequestMapping("deleteCommunityComment.do")
+	@RequestMapping("deleteBoardGameComment.do")
 	public String deleteBoardgameComment(Integer id, Model model) {
 		boolean delComment = bgDao.destroy(id);
 		model.addAttribute("deleted", delComment);
 		return "deletedComment";
 	}
 	
-	@RequestMapping("updateCommunityComment.do")
+	@RequestMapping("updateBoardGameComment.do")
 	public String editBoardgameComment(Integer id, BoardGameComment comment, Model model) {
 		BoardGameComment cc = bgDao.update(id, comment);
 		model.addAttribute("update", cc);
@@ -83,7 +83,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("deleteCommunityComment.do")
-	public String deleteCommentComment(Integer id, Model model) {
+	public String deleteCommunityComment(Integer id, Model model) {
 		boolean delComment = cDao.destroy(id);
 		model.addAttribute("deleted", delComment);
 		return "deletedComment";

@@ -21,12 +21,14 @@
 <tr><td> First Name <input type="text" name="firstName" required="required"/></td></tr> 
 <tr><td> Last Name <input type="text" name="lastName" required="required"/></td></tr> 
 <tr><td> Email <input type="text" name="email" required="required"/></td></tr> 
-<tr><td> Address ? <input type="text" name="address" required="required"/></td></tr> 
+ 
+
+ 
 <tr><td> <input type="submit" value="Register" /></td></tr> 
  </table>
  </form>
 
-
+</div>
 
 </body>
 </html>
