@@ -15,7 +15,6 @@ import com.skilldistillery.gamebored.entities.Boardgame;
 import com.skilldistillery.gamebored.entities.User;
 
 //may not need Repository
-@Repository
 @Transactional
 @Service
 public class AuthenticationDAOImpl implements AuthenticationDAO {
