@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 @Table(name="board_game_comment")
 public class BoardGameComment {
@@ -21,6 +23,7 @@ public class BoardGameComment {
 	private int id;
 	
 	@Column(name ="comment_date")
+	@CreationTimestamp
 	private LocalDateTime commentDate;
 	
 	@Column(name ="comment_text")
