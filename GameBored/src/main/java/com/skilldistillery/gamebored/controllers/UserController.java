@@ -81,12 +81,13 @@ public class UserController {
 		return "update";
 	}
 	@RequestMapping("addCommunityComment.do")
-	public String addCommunityComment(HttpSession session, CommunityComment comment, Model model) {
+	public String addCommunityComment(HttpSession session, CommunityComment comment) {
+		//add model model
 		comment.setUser((User)session.getAttribute("loggedInUser"));
 		CommunityComment cc = cDao.create(comment);
-		List<CommunityComment> comments =cDao.listAllCommunityComments();
-		model.addAttribute("commentsList", comments);
-		return "homepage";
+//		List<CommunityComment> comments =cDao.listAllCommunityComments();
+//		model.addAttribute("commentsList", comments);
+		return "redirect:homepage.do";
 	}
 	
 	@RequestMapping("deleteCommunityComment.do")

@@ -77,6 +77,11 @@
 	</c:when>
 </c:choose>
 
+<!-- LOGIN BUTTON  -->
+<form action="logout.do" method="GET">
+<input type="submit" value="LOGOUT" />
+</form> 
+
 
 </body>
 </html>
