@@ -104,6 +104,8 @@ public class AccountController {
 	  }
 	  
 	  // TODO: 3. Add the user to the DAO
+	  user.setEnabled(1);
+	  user.setRole("user");
 	  aDao.create(user);
 	//  session.setAttribute("loggedInUser", user);
 		return "login";
