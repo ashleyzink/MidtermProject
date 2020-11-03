@@ -18,9 +18,10 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-
+//for registration
 	@Override
 	public User create(User user) {
+		System.out.println("***********" + user);
 		if (isEmailUnique(user.getEmail())) {
 			em.persist(user);
 			em.flush();
@@ -29,37 +30,42 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		return null;
 
 	}
-
+//for login
 	@Override
 	public boolean isEmailUnique(String email) {
-		List<User> users = null;
-		boolean containsEmail=false;
-		String jpql="SELECT u FROM User u";
-		users = em.createQuery(jpql, User.class).getResultList();
-		for (User user : users) {
-			if (user.getEmail().equals(email)) {
-				containsEmail=true;
-				break;
-			}
-				
+		String jpql = "Select u from User u where email = :userEmail";
+		List<User> users =  em.createQuery(jpql, User.class).setParameter("userEmail", email).getResultList();
+		return users.size()==0;
 	}
-			return containsEmail;
-	}
-
+// for login
 	@Override
 	public User getUserByEmail(String email) {
+		String jpql = "Select u from User u where email = :userEmail";
+		List<User> user =  em.createQuery(jpql, User.class).setParameter("userEmail", email).getResultList();
+		return user.size()!=0?user.get(0):null;
+	}
+// for login
+//	@Override
+//	public boolean isValidUser(User u) {
+//		if (getUserByEmail(u.getEmail()) == null) {
+//			return false;
+//		}
+//		boolean validUser = em.contains(u);
+//		return validUser;
+//	}
+	@Override
+	public boolean isValidUser(String email, String password) {
+		if (getUserByEmail(email) == null) {
+			return false;
+		}
+		boolean validUser = false;
 		User user = null;
 		String jpql = "Select u from User u where email = :userEmail";
 		user =  em.createQuery(jpql, User.class).setParameter("userEmail", email).getSingleResult();
-		return user;
-	}
-
-	@Override
-	public boolean isValidUser(User u) {
-		if (getUserByEmail(u.getEmail()) == null) {
-			return false;
+		if (user.getPassword().equals(password)) {
+			validUser = true;
 		}
-		boolean validUser = em.contains(u);
+		
 		return validUser;
 	}
 	
@@ -151,7 +157,6 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 	
 	//Find User by email
-
 	@Override
 	public User findByEmail(String email) {
 		String jpql = "Select u from User u where email = :userEmail";
@@ -159,6 +164,11 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		return user;
 		// TODO Auto-generated method stub
 	
+	}
+	@Override
+	public boolean isValidUser(User u) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	
