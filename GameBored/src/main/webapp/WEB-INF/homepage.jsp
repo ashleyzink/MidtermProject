@@ -43,27 +43,29 @@
 </table>
 
 <!-- COMMUNITY COMMENT -->
-<!--After creating a new comment in the community comment, should we return the list of comments 
-in the Community comment DAO (limit 5 maybe?)  -->
-<!-- Also need to redirect mapping for  addCommunityComment.do to homepage -->
-<form action="addCommunityComment.do" method="POST">
+
 <p> Community Comments</p>
-<c:forEach var="comment" items="${comments}"> 
- <br>
+<c:forEach var="commentL" items="${commentsList}"> 
+ <br> 
 <tr>
-<td>${comment.commentDate}<td>
+<td>${commentL.commentDate}<td>
  </tr>
 <tr>
-<td>${comment.commentText}<td>
+<td>${commentL.commentText}<td>
  </tr>
  <br>
 </c:forEach>
 
+<c:choose>
+    <c:when test="${loggedInUser.id>0}">
+  <form action="addCommunityComment.do" method="POST">
 <p> Add a comment </p>
-<textarea name="comment"></textarea>
+<textarea name="commentText"></textarea>
 <input type="submit" role="button"/>
 </form>
-<!-- https://www.smashingmagazine.com/2012/05/building-real-time-commenting-system/ -->
+</c:when>
+</c:choose>
+
 
 
 <!-- ADMIN CRUD BUTTON?  -->
