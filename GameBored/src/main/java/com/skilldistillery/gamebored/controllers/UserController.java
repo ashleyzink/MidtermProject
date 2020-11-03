@@ -2,6 +2,8 @@ package com.skilldistillery.gamebored.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -79,9 +81,11 @@ public class UserController {
 		return "update";
 	}
 	@RequestMapping("addCommunityComment.do")
-	public String addCommunityComment(CommunityComment comment, Model model) {
+	public String addCommunityComment(HttpSession session, CommunityComment comment, Model model) {
+		comment.setUser((User)session.getAttribute("loggedInUser"));
 		CommunityComment cc = cDao.create(comment);
-		model.addAttribute("comment", cc);
+		List<CommunityComment> comments =cDao.listAllCommunityComments();
+		model.addAttribute("commentsList", comments);
 		return "homepage";
 	}
 	
