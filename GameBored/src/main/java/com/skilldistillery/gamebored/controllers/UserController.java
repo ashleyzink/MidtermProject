@@ -11,6 +11,7 @@ import com.skilldistillery.gamebored.data.AuthenticationDAO;
 import com.skilldistillery.gamebored.data.BGCommentDAO;
 import com.skilldistillery.gamebored.data.CCommentDAO;
 import com.skilldistillery.gamebored.entities.BoardGameComment;
+import com.skilldistillery.gamebored.entities.Boardgame;
 import com.skilldistillery.gamebored.entities.CommunityComment;
 import com.skilldistillery.gamebored.entities.User;
 

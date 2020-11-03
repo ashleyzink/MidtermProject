@@ -114,6 +114,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		
 		return u;
 	}
+	
 	public User removeFavorite(int userId, int gameId) {
 		User u = em.find(User.class, userId);
 		Boardgame bg=em.find(Boardgame.class, gameId);
