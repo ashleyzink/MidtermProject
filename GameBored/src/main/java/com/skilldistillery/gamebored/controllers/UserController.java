@@ -61,6 +61,7 @@ public class UserController {
 		return "result";
 	}
 	
+
 	@RequestMapping(path="addBoardGameComment.do", method = RequestMethod.POST)
 	public String addBoardgameComment(HttpSession session, String commentText, Model model, int id) {
 		User u = (User)(session.getAttribute("loggedInUser"));
@@ -70,6 +71,7 @@ public class UserController {
 		BoardGameComment cc = bgDao.create(commentText, game, u);
 		model.addAttribute("game", game);
 		return "SingleBoardGameDisplay";
+
 	
 	}
 	
