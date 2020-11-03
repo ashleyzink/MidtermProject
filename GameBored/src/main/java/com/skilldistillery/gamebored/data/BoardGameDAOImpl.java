@@ -101,8 +101,16 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 
 
 	@Override
-	public Boardgame addGame(Boardgame boardGame) {
+	public Boardgame addGame(Boardgame boardGame, int pubId, int genId, int catId) {
+		System.err.println("*****" + pubId);
+		System.err.println("*****" + genId);
+		System.err.println("*****" + catId);
+		boardGame.setPublisher(em.find(Publisher.class, pubId));
+		boardGame.setGenre(em.find(Genre.class, genId));
+		boardGame.setCategory(em.find(Category.class, catId));
+		
 		em.persist(boardGame);
+		
 		em.flush();
 		return boardGame;
 	}

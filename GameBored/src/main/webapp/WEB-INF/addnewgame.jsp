@@ -31,19 +31,19 @@
 			      <input type="text" name="playTimeMinutes" value="30">minutes
 			      <br>
 			  	<label for="category">Category/Play Style:</label>
-			      <select name="category" id="category">   
+			      <select name="catId" id="category">   
 					<c:forEach items="${categories}" var="cat">
 					<option value="${cat.id}">${cat.name}</option>
 					</c:forEach>      
 			      </select>
 			  	<label for="genre">Genre:</label>
-			      <select name="genre" id="genre">   
+			      <select name="genId" id="genre">   
 					<c:forEach items="${genres}" var="gen">
 					<option value="${gen.id}">${gen.name}</option>
 					</c:forEach>      
 			      </select>
 			  	<label for="publisher">Publisher:</label>
-			      <select name="publisher" id="publisher">   
+			      <select name="pubId" id="publisher">   
 					<c:forEach items="${publishers}" var="pub">
 					<option value="${pub.id}">${pub.name}</option>
 					</c:forEach>      
@@ -54,6 +54,7 @@
 			    <label for="boxArtUrl">Box Art URL:</label>
 			      <input type="text" name="boxArtUrl" value="">
 			      <br>
+			      <input type="submit" class="btn btn-secondary" value="submit">
       		</form>
   	   </c:when>
   	  	<c:otherwise>
