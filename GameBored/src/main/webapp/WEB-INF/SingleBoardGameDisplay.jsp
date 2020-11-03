@@ -42,10 +42,13 @@
 
        <form action="addBoardGameComment.do" method="POST">	
      
-          <textarea name="commentText"></textarea>
-            <input type= "hidden" value="${game.id}" name="boardgame">
+            <textarea name="commentText"></textarea>
+           <input type= "text" value="${game.id}" name="id" >
+           
+           
+       
       
-            <input type="submit" role="button"/>
+            <input type="submit" value="submit"/>
       
        </form>
 
