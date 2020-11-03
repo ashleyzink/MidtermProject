@@ -81,7 +81,7 @@
 		<form action="homepage.do">
     <button type="submit">Home</button>
 </form>
-			
+  <a href="newGameForm.do" class="btn btn-secondary" role="button">Add a New Game </a>
 	</div>
  
 </body>
