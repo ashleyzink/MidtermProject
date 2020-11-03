@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.gamebored.data.BoardGameDAO;
+import com.skilldistillery.gamebored.data.CCommentDAO;
 import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.Boardgame;
 import com.skilldistillery.gamebored.entities.Category;
+import com.skilldistillery.gamebored.entities.CommunityComment;
 
 @Controller
 public class BoardGameController {
@@ -23,10 +25,15 @@ public class BoardGameController {
 	@Autowired
 	private BoardGameDAO boardGameDAO;
 	
+	@Autowired
+	private CCommentDAO cDao;
+	
 	@RequestMapping(path={"/", "homepage.do"}, method = RequestMethod.GET)
 	public String backHome(Model model) {
 			List<Boardgame> gameList = boardGameDAO.findAll();
 			model.addAttribute("gameList", gameList);
+			List<CommunityComment> comments =cDao.listAllCommunityComments();
+			model.addAttribute("commentsList", comments);
 		return "homepage";
 	}
 	
