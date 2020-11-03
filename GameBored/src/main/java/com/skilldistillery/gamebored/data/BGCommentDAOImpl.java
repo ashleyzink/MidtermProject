@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.gamebored.entities.BoardGameComment;
+import com.skilldistillery.gamebored.entities.Boardgame;
 
 @Service
 @Transactional
