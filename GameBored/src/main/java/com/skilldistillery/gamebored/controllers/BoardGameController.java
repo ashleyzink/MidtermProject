@@ -3,6 +3,8 @@ package com.skilldistillery.gamebored.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.skilldistillery.gamebored.data.BoardGameDAO;
 import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.Boardgame;
+import com.skilldistillery.gamebored.entities.Category;
 
 @Controller
 public class BoardGameController {
@@ -74,6 +77,13 @@ public class BoardGameController {
 	}
 	
 
+	@RequestMapping(path = "newGameForm.do", method = RequestMethod.GET)
+	public String redirToNewGameForm(Model model, HttpSession session) {
+		model.addAttribute("categories", boardGameDAO.getAllCategories());
+		model.addAttribute("genres", boardGameDAO.getAllGenres());
+		model.addAttribute("publishers", boardGameDAO.getAllPublishers());
+		return "addnewgame";
+	}
 	
 	@RequestMapping(path = "addGame.do", method = RequestMethod.POST)
 	public String addGame(Boardgame boardgame, Model model, RedirectAttributes redir) {
@@ -83,13 +93,9 @@ public class BoardGameController {
 	}
 	@RequestMapping(path = "gameAdded.do", method = RequestMethod.GET)
 	public String addGameRedir() {
-		return "GameDetailDisplay";
+		return "SingleBoardGameDisplay";
 	}
 	
-	@RequestMapping(path = "newGameForm.do", method = RequestMethod.GET)
-	public String redirToNewGameForm() {
-		return "NewGame";
-	}
 	
 	@RequestMapping(path = "updateGame.do", method = RequestMethod.POST )
 	public String updateGame(Boardgame bgame, Model model) {

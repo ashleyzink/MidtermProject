@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.Boardgame;
+import com.skilldistillery.gamebored.entities.Category;
+import com.skilldistillery.gamebored.entities.Genre;
+import com.skilldistillery.gamebored.entities.Publisher;
 
 public interface BoardGameDAO {
 	
@@ -28,5 +31,11 @@ Boardgame findById(int id);
 	boolean deleteGame(int id);
 
 	List<BoardGameComment> findAllCommentsForGame();
+	
+	List<Category> getAllCategories();
+	
+	List<Genre> getAllGenres();
+	
+	List<Publisher> getAllPublishers();
 
 }

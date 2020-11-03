@@ -79,7 +79,7 @@
 		
 		<!-- BACK TO HOME -->
 		<button type="button">Home</button>
-	
+		<a href="newGameForm.do" class="btn btn-secondary" role="button">Add a New Game </a>
 	</div>
  
 </body>

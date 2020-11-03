@@ -12,6 +12,7 @@ import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.Boardgame;
 import com.skilldistillery.gamebored.entities.Category;
 import com.skilldistillery.gamebored.entities.Genre;
+import com.skilldistillery.gamebored.entities.Publisher;
 
 @Transactional
 @Service
@@ -131,6 +132,24 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 		boolean gameDeleted = ! em.contains(deleteGame);
 		em.flush();
 		return gameDeleted;
+	}
+
+	@Override
+	public List<Category> getAllCategories() {
+		String jpql = "SELECT cat FROM Category cat";
+		return em.createQuery(jpql, Category.class).getResultList();
+	}
+
+	@Override
+	public List<Genre> getAllGenres() {
+		String jpql = "SELECT gen FROM Genre gen";
+		return em.createQuery(jpql, Genre.class).getResultList();
+	}
+
+	@Override
+	public List<Publisher> getAllPublishers() {
+		String jpql = "SELECT pub FROM Publisher pub";
+		return em.createQuery(jpql, Publisher.class).getResultList();
 	}
 
 	
