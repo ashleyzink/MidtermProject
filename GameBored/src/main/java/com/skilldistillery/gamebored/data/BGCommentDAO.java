@@ -3,6 +3,7 @@ package com.skilldistillery.gamebored.data;
 import java.util.List;
 
 import com.skilldistillery.gamebored.entities.BoardGameComment;
+import com.skilldistillery.gamebored.entities.Boardgame;
 
 public interface BGCommentDAO {
 
@@ -17,5 +18,7 @@ public interface BGCommentDAO {
 	BoardGameComment update(int id, BoardGameComment comment);
 
 	boolean destroy(int id);
+
+	//List<BoardGameComment> findBGCommentByBoardGame(Boardgame boardGame);
 
 }
