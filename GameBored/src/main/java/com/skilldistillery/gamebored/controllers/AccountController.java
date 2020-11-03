@@ -1,6 +1,7 @@
 package com.skilldistillery.gamebored.controllers;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,10 +31,11 @@ public class AccountController {
 	
 
 	@RequestMapping(path="login.do", method=RequestMethod.POST)
-	public ModelAndView doLogin(@Validated User user, Errors errors, HttpSession session) {
+	public ModelAndView doLogin(@Valid User user, Errors errors, HttpSession session) {
+//	public ModelAndView doLogin(String email, String password, Errors errors, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		
 		User loggedInUser = aDao.getUserByEmail(user.getEmail());
+//		User loggedInUser = aDao.getUserByEmail(email);
 		// TODO: If the email was not found, use the Errors object to reject the email, 
 		// with the message "Email not found"
 		if(loggedInUser == null) {
@@ -42,7 +44,7 @@ public class AccountController {
 		else {
     		// TODO: Else if the user is not valid (isValidUser), use the Errors object to reject 
   		  // the password with the message "Incorrect password"
-		  boolean isValidUser = aDao.isValidUser(user);
+		  boolean isValidUser = aDao.isValidUser(user.getEmail(), user.getPassword());
 		  if(!isValidUser) {
 		    errors.rejectValue("password", "error.password", "Incorrect password");
 		  }
@@ -51,9 +53,9 @@ public class AccountController {
 			mv.setViewName("login");
 			return mv;
 		}
-		session.setAttribute("loggedInUser", user);
+		session.setAttribute("loggedInUser", loggedInUser);
 		mv.addObject("user", loggedInUser);
-		mv.setViewName("profile");
+		mv.setViewName("profilepage");
 		return mv;
 	}
 	

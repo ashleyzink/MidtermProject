@@ -22,5 +22,8 @@ public interface AuthenticationDAO {
 
 	boolean destroy(int id);
 
+	//can be deleted if not used
+	boolean isValidUser(String email, String password);
+
 
 }

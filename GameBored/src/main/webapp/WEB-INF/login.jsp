@@ -11,8 +11,9 @@
 
 <form action="login.do" method="POST">
  <p>LOGIN</p>
- Username: <input type="text" name="username"/>
- Password: <input type="text" name="password"/>
+<!--  Username: <input type="text" name="username"/> -->
+ Email: <input type="text" name="email"/>
+ Password: <input type="password" name="password"/>
   <input type="submit" value="Login " />
 </form>
 </body>
