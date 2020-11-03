@@ -16,7 +16,7 @@
 	
 	<img src="${game.boxArtUrl}" alt="" border=3 height=100 width=100></img>
 	
-	<h3>${game.publisher.name }</h3>
+	<h3>Publisher: ${game.publisher.name }</h3>
 	
 	<img src="${game.publisher.logoUrl}" alt="" border=3 height=50 width=50></img>
 	
@@ -30,6 +30,7 @@
 	   <li>Play Time ${game.playTimeMinutes } mins</li>
 	</ul> 
 	   <table>
+	   
           <c:forEach var="comment" items="${game.boardGameComments}">
                <tr>
                <td>${comment.user.username}: </td>
@@ -37,29 +38,39 @@
                </tr>
           </c:forEach>    
        </table> 
+       
        <c:choose>
        <c:when test="${loggedInUser.id>0 }">
 
-       <form action="addBoardGameComment.do" method="POST">	
+         <form action="addBoardGameComment.do" method="POST">	
      
             <textarea name="commentText"></textarea>
-           <input type= "text" value="${game.id}" name="id" >
+            <input type= "text" value="${game.id}" name="id" >
            
            
        
       
             <input type="submit" value="submit"/>
       
-       </form>
-
-
-       </c:when>
-       
+          </form>
+        </c:when>
        </c:choose>
-       
-       
-		
-		
+       <h4> Users with this game in their favorites list</h4>
+       <c:forEach var="user" items="${game.userWithFavs}">
+		       <tr>
+               <td>${user.firstName}, ${user.firstName} UserName: ${user.username} </td>
+               
+           
+               </tr>
+	   </c:forEach> 
+       <h4> Users with this game in their owned list</h4>
+       <c:forEach var="user" items="${game.userWithOwned}">
+		       <tr>
+               <td>${user.firstName}, ${user.firstName} UserName: ${user.username} </td>
+               
+           
+               </tr>
+	   </c:forEach> 
 		
 			</c:when>
 			<c:otherwise>
