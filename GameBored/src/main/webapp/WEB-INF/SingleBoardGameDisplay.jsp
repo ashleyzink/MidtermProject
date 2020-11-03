@@ -32,7 +32,7 @@
 	   <table>
           <c:forEach var="comment" items="${game.boardGameComments}">
                <tr>
-               <td>${comment.user.userName}: </td>
+               <td>${comment.user.username}: </td>
                <td>${comment.commentText}</td>
                </tr>
           </c:forEach>    
@@ -43,6 +43,7 @@
        <form action="addBoardGameComment.do" method="POST">	
      
           <textarea name="commentText"></textarea>
+            <input type= "hidden" value="${game.id}" name="boardgame">
       
             <input type="submit" role="button"/>
       
