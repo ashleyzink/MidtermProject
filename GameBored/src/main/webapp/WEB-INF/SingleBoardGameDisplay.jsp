@@ -29,12 +29,13 @@
 	   <li>Cost: ${game.cost }</li>
 	   <li>Play Time ${game.playTimeMinutes } mins</li>
 	</ul> 
-		
-		<c:forEach var="comment" items= "${game.boardGameComments } ">
-		<ul>
-		<li>${comment.commentText }
-		</ul>
-	</c:forEach>	
+	   <table>
+          <c:forEach var="comment" items="${game.boardGameComments}">
+               <tr>
+               <td>${comment.commentText}</td>
+               </tr>
+          </c:forEach>    
+       </table> 	
 		
 		
 		
