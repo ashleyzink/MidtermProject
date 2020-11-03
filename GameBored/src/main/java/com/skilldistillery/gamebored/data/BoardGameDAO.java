@@ -24,7 +24,7 @@ Boardgame findById(int id);
 	
 	List<Boardgame> findGameByNumberOfPlayers(int numOfPlayers);
 	
-	Boardgame addGame(Boardgame boardGame);
+	Boardgame addGame(Boardgame boardGame, int pubId, int genId, int catId);
 	
 	Boardgame updateGame(Boardgame boardGame);
 	

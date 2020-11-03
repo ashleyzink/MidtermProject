@@ -1,16 +1,16 @@
 package com.skilldistillery.gamebored.controllers;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.gamebored.data.AuthenticationDAO;
 import com.skilldistillery.gamebored.data.BGCommentDAO;
+import com.skilldistillery.gamebored.data.BoardGameDAO;
 import com.skilldistillery.gamebored.data.CCommentDAO;
 import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.Boardgame;
@@ -28,6 +28,8 @@ public class UserController {
 
 	@Autowired
 	private CCommentDAO cDao;
+	@Autowired
+	private BoardGameDAO BoardgameDao;
 
 //	@RequestMapping("addFavorite.do")
 //	public 
@@ -59,12 +61,17 @@ public class UserController {
 		return "result";
 	}
 	
-	@RequestMapping("addBoardGameComment.do")
-	public String addBoardgameComment(HttpSession session, BoardGameComment comment, Model model) {
-		comment.setUser((User)session.getAttribute("loggedInUser"));
-		BoardGameComment cc = bgDao.create(comment);
-		model.addAttribute("comment", cc);
-		return "homepage";
+
+	@RequestMapping(path="addBoardGameComment.do", method = RequestMethod.POST)
+	public String addBoardgameComment(HttpSession session, String commentText, Model model, int id) {
+		User u = (User)(session.getAttribute("loggedInUser"));
+		Boardgame game = BoardgameDao.findById(id);
+
+
+		BoardGameComment cc = bgDao.create(commentText, game, u);
+		model.addAttribute("game", game);
+		return "SingleBoardGameDisplay";
+
 	
 	}
 	

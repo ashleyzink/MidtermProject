@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.Boardgame;
+import com.skilldistillery.gamebored.entities.User;
 
 public interface BGCommentDAO {
 
@@ -13,7 +14,7 @@ public interface BGCommentDAO {
 
 	List<BoardGameComment> findBGCommentByUser(String user);
 
-	BoardGameComment create(BoardGameComment comment);
+	BoardGameComment create(String comment, Boardgame game, User u);
 
 	BoardGameComment update(int id, BoardGameComment comment);
 

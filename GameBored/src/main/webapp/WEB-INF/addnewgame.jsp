@@ -11,9 +11,8 @@
   <div>
     <h1 style="text-align:center">Admin Only! </h1>
   	<br>
-  	<h6>${session} Testing if this prints</h6>
-  	  <%-- <c:choose>
-  	    	<c:when test="${session.loggedInUser.role eq 'ADMIN'}"> --%>
+  	 <c:choose>
+  	    	<c:when test="${sessionScope.loggedInUser.role eq 'ADMIN'}">
   	      
   	   		 <form action="addGame.do" method="POST">
 				<label for="name">Board Game Name:</label>
@@ -32,19 +31,19 @@
 			      <input type="text" name="playTimeMinutes" value="30">minutes
 			      <br>
 			  	<label for="category">Category/Play Style:</label>
-			      <select name="category" id="category">   
+			      <select name="catId" id="category">   
 					<c:forEach items="${categories}" var="cat">
 					<option value="${cat.id}">${cat.name}</option>
 					</c:forEach>      
 			      </select>
 			  	<label for="genre">Genre:</label>
-			      <select name="genre" id="genre">   
+			      <select name="genId" id="genre">   
 					<c:forEach items="${genres}" var="gen">
 					<option value="${gen.id}">${gen.name}</option>
 					</c:forEach>      
 			      </select>
 			  	<label for="publisher">Publisher:</label>
-			      <select name="publisher" id="publisher">   
+			      <select name="pubId" id="publisher">   
 					<c:forEach items="${publishers}" var="pub">
 					<option value="${pub.id}">${pub.name}</option>
 					</c:forEach>      
@@ -55,11 +54,11 @@
 			    <label for="boxArtUrl">Box Art URL:</label>
 			      <input type="text" name="boxArtUrl" value="">
 			      <br>
+			      <input type="submit" class="btn btn-secondary" value="submit">
       		</form>
-  	   	<%--  </c:when>
+  	   </c:when>
   	  	<c:otherwise>
   	  	<div class="container"> <h2>I'm sorry, this page is for Admin only</h2><br>
-				<h3>Y </h3><br>
 				<p>
 				<a href="profilePage.do" class="btn btn-secondary" role="button">Go to Profile Page </a>
 				</p>
@@ -68,7 +67,7 @@
 				</p>
 				</div>
   	  	</c:otherwise>
-  	  </c:choose> --%>
+  	  </c:choose> 
   </div>
 </body>
 </html>

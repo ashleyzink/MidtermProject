@@ -18,6 +18,8 @@ import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.Boardgame;
 import com.skilldistillery.gamebored.entities.Category;
 import com.skilldistillery.gamebored.entities.CommunityComment;
+import com.skilldistillery.gamebored.entities.Genre;
+import com.skilldistillery.gamebored.entities.Publisher;
 
 @Controller
 public class BoardGameController {
@@ -44,11 +46,11 @@ public class BoardGameController {
 		return "SingleBoardGameDisplay";
 	}
 	
-//	@RequestMapping(path="gameList.do", method = RequestMethod.GET)
+//	@RequestMapping(path="gameMakerTest.do", method = RequestMethod.POST)
 //	public String listOfAllGames(Model model) {
-//		List<Boardgame> gameList = boardGameDAO.findAll();
-//		model.addAttribute("games", gameList);
-//		return "boardgame/ListOfGames";
+//		Boardgame game = new Boardgame();
+//		model.addAttribute("gametest", game);
+//		return "SingleBoardGameDisplay";
 //	}
 	
 	@RequestMapping(path="gameList.do", method = RequestMethod.GET)
@@ -93,8 +95,8 @@ public class BoardGameController {
 	}
 	
 	@RequestMapping(path = "addGame.do", method = RequestMethod.POST)
-	public String addGame(Boardgame boardgame, Model model, RedirectAttributes redir) {
-		Boardgame bgame = boardGameDAO.addGame(boardgame);
+	public String addGame(Boardgame boardgame, int pubId, int genId, int catId, Model model, RedirectAttributes redir) {
+		Boardgame bgame = boardGameDAO.addGame(boardgame, pubId, genId, catId);
 		redir.addFlashAttribute("game", bgame);
 		return "redirect:gameAdded.do";
 	}
