@@ -67,5 +67,17 @@ public class CCommentDAOImpl implements CCommentDAO {
 
 			return commentDel;
 		}
+		
+		@Override 
+		public List<CommunityComment> listAllCommunityComments() {
+			List<CommunityComment> comments = null;
+			String jpql = "SELECT cc FROM CommunityComment cc";
+			comments = em.createQuery(jpql, CommunityComment.class).getResultList();
+			return comments;
+			
+			
+		}
+		
+		
 	}
 

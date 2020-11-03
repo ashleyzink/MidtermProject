@@ -23,16 +23,16 @@
 			<tr>
 				<th>Favorite Boardgame List</th>
 			</tr>
-			<c:forEach items="${boardgames}" var="boardgames">
+			<c:forEach items="${user.favorites}" var="boardgames">
 				<tr>
-					<td>${user.favorites}</td>
+					<td>${boardgames.name}</td>
 				</tr>
 			</c:forEach>
 			<tr>
 				<td>
 					<!-- ADD FAVORITE BUTTON -->
-					<form action = "gameList.do" method= "GET">
-				<button type="submit">Add a favorite</button>
+					<form action = "homepage.do" method= "GET">
+				<button type="submit">Add Favorite Game</button>
 				</form>
 				</td>
 				<td>
@@ -56,18 +56,18 @@
 		<!-- GAMES OWNED LIST -->
 		<table>
 			<tr>
-				<th>games owned by user</th>
+				<th>Games Owned</th>
 			</tr>
-			<c:forEach items="${boardgames}" var="boardgames">
+			<c:forEach items="${user.owned}" var="boardgames">
 				<tr>
-					<td>${user.owned}</td>
+					<td>${boardgames.name}</td>
 				</tr>
 			</c:forEach>
 			<tr>
 				<!-- ADD OWNED BOARDGAME -->
 				<td>
-				<form action = "gameList.do" method= "GET">
-				<button type="submit">Add an owned game</button>
+				<form action = "homepage.do" method= "GET">
+				<button type="submit">Add Owned Game</button>
 				</form>
 				</td>				
 			</tr>
@@ -78,8 +78,10 @@
 		<button type="button">Create an Event</button>
 		
 		<!-- BACK TO HOME -->
-		<button type="button">Home</button>
-		<a href="newGameForm.do" class="btn btn-secondary" role="button">Add a New Game </a>
+		<form action="homepage.do">
+    <button type="submit">Home</button>
+</form>
+  <a href="newGameForm.do" class="btn btn-secondary" role="button">Add a New Game </a>
 	</div>
  
 </body>
