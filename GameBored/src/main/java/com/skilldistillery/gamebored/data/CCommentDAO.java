@@ -16,4 +16,6 @@ public interface CCommentDAO {
 
 	boolean destroy(int id);
 
+	List<CommunityComment> listAllCommunityComments();
+
 }

@@ -26,4 +26,5 @@ public interface AuthenticationDAO {
 	boolean isValidUser(String email, String password);
 
 
+
 }
