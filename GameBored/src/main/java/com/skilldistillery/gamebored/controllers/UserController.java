@@ -60,7 +60,9 @@ public class UserController {
 	}
 	
 	@RequestMapping("addBoardGameComment.do")
-	public String addBoardgameComment(BoardGameComment comment, Model model) {
+	public String addBoardgameComment(HttpSession session, BoardGameComment comment, Model model) {
+		comment.setUser((User)session.getAttribute("loggedInUser"));
+
 		BoardGameComment cc = bgDao.create(comment);
 		model.addAttribute("comment", cc);
 		return "homepage";

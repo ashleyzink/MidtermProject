@@ -10,7 +10,7 @@
 <body>
 <c:choose>
 			<c:when test="${! empty game}">
-	<h5>ID: ${game.id }</h5>
+	<h3>ID: ${game.id }</h3>
 	
 	<h1>${game.name }</h1>
 	
@@ -32,10 +32,29 @@
 	   <table>
           <c:forEach var="comment" items="${game.boardGameComments}">
                <tr>
+               <td>${comment.user.username}: </td>
                <td>${comment.commentText}</td>
                </tr>
           </c:forEach>    
-       </table> 	
+       </table> 
+       <c:choose>
+       <c:when test="${loggedInUser.id>0 }">
+
+       <form action="addBoardGameComment.do" method="POST">	
+     
+          <textarea name="commentText"></textarea>
+            <input type= "hidden" value="${game.id}" name="boardgame">
+      
+            <input type="submit" role="button"/>
+      
+       </form>
+
+
+       </c:when>
+       
+       </c:choose>
+       
+       
 		
 		
 		
