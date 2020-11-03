@@ -10,10 +10,11 @@
 <body>
 	<div>
 		<!-- USER HEADER -->
-		<h1>${user.firstName} ${user.lastName}'s Profile</h1>
+		<h1>${loggedInUser.firstName} ${loggedInUser.lastName}'s Profile</h1>
+		
 		<table>
 			<tr>
-				<td><img src="${user.profileImageUrl}" alt="" border=3
+				<td><img src="${loggedInUser.profileImageUrl}" alt="" border=3
 					height=100 width=100></img></td>
 			</tr>
 		</table>
@@ -23,7 +24,7 @@
 			<tr>
 				<th>Favorite Boardgame List</th>
 			</tr>
-			<c:forEach items="${user.favorites}" var="boardgames">
+			<c:forEach items="${loggedInUser.favorites}" var="boardgames">
 				<tr>
 					<td>${boardgames.name}</td>
 				</tr>
@@ -58,7 +59,7 @@
 			<tr>
 				<th>Games Owned</th>
 			</tr>
-			<c:forEach items="${user.owned}" var="boardgames">
+			<c:forEach items="${loggedInUser.owned}" var="boardgames">
 				<tr>
 					<td>${boardgames.name}</td>
 				</tr>

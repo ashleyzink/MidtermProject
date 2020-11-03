@@ -54,7 +54,6 @@ public class AccountController {
 			return mv;
 		}
 		session.setAttribute("loggedInUser", loggedInUser);
-		mv.addObject("user", loggedInUser);
 		mv.setViewName("profilepage");
 		return mv;
 	}
@@ -111,5 +110,9 @@ public class AccountController {
 		return "login";
 	}
 	
+	@RequestMapping(path="profilepage.do", method=RequestMethod.GET)
+	public String profilePage(HttpSession session) {
+		return "profilepage";
+	}
 	
 }
