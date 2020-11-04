@@ -79,7 +79,7 @@
 	</ul> 
 	   <table>
 	   
-          <c:forEach var="comment" items="${bgcommentList}">
+          <c:forEach var="comment" items="${game.boardGameComments}">
                <tr>
                <td>${comment.user.username}: </td>
                <td>${comment.commentText}</td>
