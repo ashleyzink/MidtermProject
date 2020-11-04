@@ -108,19 +108,22 @@ public class BoardGameController {
 		return "SingleBoardGameDisplay";
 	}
 	
+	@RequestMapping(path = "goToUpdateForm.do", method = RequestMethod.GET)
+	public String goToUpdateForm(Integer id, Model model) {
+		model.addAttribute("game", boardGameDAO.findById(id));
+		model.addAttribute("categories", boardGameDAO.getAllCategories());
+		model.addAttribute("genres", boardGameDAO.getAllGenres());
+		model.addAttribute("publishers", boardGameDAO.getAllPublishers());
+		return "updategame";
+	}
 	
 	@RequestMapping(path = "updateGame.do", method = RequestMethod.POST )
-	public String updateGame(Boardgame bgame, Model model) {
-		Boardgame updateGame = boardGameDAO.updateGame(bgame);
+	public String updateGame(Boardgame bgame, int pubId, int genId, int catId, Model model) {
+		Boardgame updateGame = boardGameDAO.updateGame(bgame, pubId, genId, catId);
 		model.addAttribute("game", updateGame);
-		return "GameDetailDisplay";
+		return "SingleBoardGameDisplay";
 	}
 	
-	@RequestMapping(path = "redirToUpdate.do", method = RequestMethod.GET)
-	public String redirToUpdate(Integer id, Model model) {
-		model.addAttribute("game", boardGameDAO.findById(id));
-		return "UpdateGame";
-	}
 	
 	@RequestMapping(path = "deleteGame.do", method = RequestMethod.POST)
 	public String deleteGame(Integer id, RedirectAttributes redir) {

@@ -26,7 +26,7 @@ Boardgame findById(int id);
 	
 	Boardgame addGame(Boardgame boardGame, int pubId, int genId, int catId);
 	
-	Boardgame updateGame(Boardgame boardGame);
+	Boardgame updateGame(Boardgame boardGame, int pubId, int genId, int catId);
 	
 	boolean deleteGame(int id);
 
