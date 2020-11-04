@@ -17,13 +17,17 @@ import com.skilldistillery.gamebored.entities.Publisher;
 @Transactional
 @Service
 public class BoardGameDAOImpl implements BoardGameDAO {
-	
+
 	@PersistenceContext
-	private EntityManager  em;
+	private EntityManager em;
 
 	@Override
 	public Boardgame findById(int id) {
-		return em.find(Boardgame.class, id);
+		Boardgame boardgame = em.find(Boardgame.class, id);
+		boardgame.getBoardGameComments().size();
+		boardgame.getUserWithFavs().size();
+		boardgame.getUserWithOwned().size();
+		return boardgame;
 	}
 
 	@Override
@@ -31,11 +35,11 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 		String jpql = "SELECT game FROM Boardgame game";
 		return em.createQuery(jpql, Boardgame.class).getResultList();
 	}
+
 	@Override
 	public List<BoardGameComment> findAllCommentsForGame() {
 		String jpql = "SELECT c FROM BoardGameComment c";
-		
-		
+
 		return em.createQuery(jpql, BoardGameComment.class).getResultList();
 	}
 
@@ -43,12 +47,10 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 	public List<Boardgame> findGameByKeyword(String keyword) {
 		List<Boardgame> boardGameListByKeyword = null;
 		String jpql = "SELECT b FROM Boardgame b WHERE b.name LIKE :name OR b.description LIKE :description";
-		
-		boardGameListByKeyword = em.createQuery(jpql, Boardgame.class)
-								   .setParameter("name", "%" + keyword + "%")
-								   .setParameter("description", "%" + keyword + "%")
-								   .getResultList();
-		
+
+		boardGameListByKeyword = em.createQuery(jpql, Boardgame.class).setParameter("name", "%" + keyword + "%")
+				.setParameter("description", "%" + keyword + "%").getResultList();
+
 		return boardGameListByKeyword;
 	}
 
@@ -56,11 +58,10 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 	public List<Boardgame> findGameByGenre(String name) {
 		List<Boardgame> boardGameListByGenre = null;
 		String jpql = "SELECT g FROM Genre g WHERE name LIKE :name";
-		
-		boardGameListByGenre = em.createQuery(jpql, Genre.class)
-				 				.setParameter("name", "%" + name + "%")
-				 				.getSingleResult().getBoardGames();
-		 
+
+		boardGameListByGenre = em.createQuery(jpql, Genre.class).setParameter("name", "%" + name + "%")
+				.getSingleResult().getBoardGames();
+
 		return boardGameListByGenre;
 	}
 
@@ -68,10 +69,9 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 	public List<Boardgame> findGameByCategory(String name) {
 		List<Boardgame> boardGameListByCategory = null;
 		String jpql = "SELECT c FROM Category c WHERE name LIKE :name";
-		
-		boardGameListByCategory = em.createQuery(jpql, Category.class)
-				 				.setParameter("name", "%" + name + "%")
-				 				.getSingleResult().getBoardGames();
+
+		boardGameListByCategory = em.createQuery(jpql, Category.class).setParameter("name", "%" + name + "%")
+				.getSingleResult().getBoardGames();
 		return boardGameListByCategory;
 	}
 
@@ -79,26 +79,22 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 	public List<Boardgame> findGameByPublisher(String name) {
 		List<Boardgame> boardGameListByPublisher = null;
 		String jpql = "SELECT p FROM Publisher p WHERE name LIKE :name";
-		
-		boardGameListByPublisher = em.createQuery(jpql, Category.class)
-				 				.setParameter("name", "%" + name + "%")
-				 				.getSingleResult().getBoardGames();
+
+		boardGameListByPublisher = em.createQuery(jpql, Category.class).setParameter("name", "%" + name + "%")
+				.getSingleResult().getBoardGames();
 		return boardGameListByPublisher;
 	}
-	
+
 	@Override
 	public List<Boardgame> findGameByNumberOfPlayers(int numOfPlayers) {
 		List<Boardgame> boardGameListByNumberOfPlayers = null;
 		String jpql = "SELECT b FROM Boardgame b WHERE b.minPlayer <= :minPlayers AND b.maxPlayers >= :maxPlayers";
-		
-		boardGameListByNumberOfPlayers = em.createQuery(jpql, Boardgame.class)
-								   .setParameter("minPlayers", numOfPlayers)
-								   .setParameter("maxPlayers", numOfPlayers)
-								   .getResultList();
-		
+
+		boardGameListByNumberOfPlayers = em.createQuery(jpql, Boardgame.class).setParameter("minPlayers", numOfPlayers)
+				.setParameter("maxPlayers", numOfPlayers).getResultList();
+
 		return boardGameListByNumberOfPlayers;
 	}
-
 
 	@Override
 	public Boardgame addGame(Boardgame boardGame, int pubId, int genId, int catId) {
@@ -108,9 +104,11 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 		boardGame.setPublisher(em.find(Publisher.class, pubId));
 		boardGame.setGenre(em.find(Genre.class, genId));
 		boardGame.setCategory(em.find(Category.class, catId));
+
 		
 		em.persist(boardGame);
 		
+
 		em.flush();
 		return boardGame;
 	}
@@ -137,7 +135,7 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 	public boolean deleteGame(int id) {
 		Boardgame deleteGame = em.find(Boardgame.class, id);
 		em.remove(deleteGame);
-		boolean gameDeleted = ! em.contains(deleteGame);
+		boolean gameDeleted = !em.contains(deleteGame);
 		em.flush();
 		return gameDeleted;
 	}
@@ -160,5 +158,4 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 		return em.createQuery(jpql, Publisher.class).getResultList();
 	}
 
-	
 }
