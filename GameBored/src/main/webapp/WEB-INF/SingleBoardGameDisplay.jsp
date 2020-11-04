@@ -83,7 +83,7 @@
          <form action="addBoardGameComment.do" method="POST">	
      
             <textarea name="commentText"></textarea>
-            <input type= "hidden" value="${game.id}" name="id" >
+            <input type= "text" value="${game.id}" name="id" >
            
            
        
@@ -96,7 +96,7 @@
        <h4> Users with this game in their favorites list</h4>
        <c:forEach var="user" items="${game.userWithFavs}">
 		       <tr>
-               <td>${user.firstName}, ${user.lastName}  --- UserName: ${user.username} </td>
+               <td>${user.firstName}, ${user.firstName} UserName: ${user.username} </td>
                
            
                </tr>
@@ -105,7 +105,7 @@
        <h4> Users with this game in their owned list</h4>
        <c:forEach var="user" items="${game.userWithOwned}">
 		       <tr>
-               <td>${user.firstName}, ${user.lastName}   --- UserName: ${user.username} </td>
+               <td>${user.firstName}, ${user.firstName} UserName: ${user.username} </td>
                
            
                </tr>
