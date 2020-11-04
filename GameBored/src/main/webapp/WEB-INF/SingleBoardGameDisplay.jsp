@@ -69,7 +69,7 @@
 	</ul> 
 	   <table>
 	   
-          <c:forEach var="comment" items="${bgcommentList}">
+          <c:forEach var="comment" items="${game.boardGameComments}">
                <tr>
                <td>${comment.user.username}: </td>
                <td>${comment.commentText}</td>
@@ -101,6 +101,7 @@
            
                </tr>
 	   </c:forEach> 
+	   
        <h4> Users with this game in their owned list</h4>
        <c:forEach var="user" items="${game.userWithOwned}">
 		       <tr>

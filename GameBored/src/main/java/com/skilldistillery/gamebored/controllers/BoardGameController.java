@@ -138,7 +138,7 @@ public class BoardGameController {
 	
 	
 	
-	
+	//Delete this method
 	@RequestMapping(path={"getBGComments.do"}, method = RequestMethod.GET)
 	public String getBGComments(Model model) {
 			List<BoardGameComment> comments = boardGameDAO.findAllCommentsForGame();
