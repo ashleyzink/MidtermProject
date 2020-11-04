@@ -39,12 +39,13 @@ public class BGCommentDAOImpl implements BGCommentDAO{
 	}
 	
 	@Override
-	public BoardGameComment create(String comment, Boardgame game, User u) {
+	public BoardGameComment create(String commentText, Boardgame game, User u) {
        
 		BoardGameComment comment1 = new BoardGameComment();
 		comment1.setBoardgame(game);
-		comment1.setCommentText(comment);
+		comment1.setCommentText(commentText);
 		comment1.setUser(u);
+		game.addBoardgameComment(comment1);
 		em.persist(comment1);
 
 		em.flush();
