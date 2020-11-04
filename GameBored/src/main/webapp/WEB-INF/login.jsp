@@ -11,7 +11,8 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">gameBored</a>
+  <a class="navbar-brand" href="#"> <img src="imgs/logo.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100">
+</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -59,10 +60,14 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-     <img src="logo.png" class="img-thumbnail">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+     <img src="imgs/logo.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none">
     </div>
     <div class="col-sm">
-     <form action="login.do" method="POST">
      <br>
      <br>
      <br>
@@ -71,17 +76,30 @@
      <br>
      <br>
      <br>
-<!--  Username: <input type="text" name="username"/> -->
- Email: <input type="text" name="email"/>
-  <br>
- Password: <input type="password" name="password"/>
+<!-- <h3>WELCOME</h3> -->
+ <form action="login.do" method="POST">
+  <div class="form-group">
+    <input type="text" name="email" placeholder= "gameboredfriend@yahoo.com" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="password" name="password" class="form-control">
+  </div>
+  <button type="submit" value="LOGIN" class="btn btn-warning btn-lg btn-block">LOGIN</button>
+</form>
+  
+
+  
+ <!--  <form action="login.do" method="POST">
+<input type="text" name="email" placeholder= "gameboredfriend@yahoo.com"/>
+
+<input type="password" name="password"  placeholder= "password"/>
  <br>
-  <input type="submit" value="Login " />
+  <input type="submit" value="LOGIN" />
 </form>
     </div>
 </div>
 
-
+</form> -->
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

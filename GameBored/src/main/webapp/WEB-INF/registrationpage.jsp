@@ -57,9 +57,23 @@
   </div>
 </nav>
 <div>
-
-
-<h1>REGISTER</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+     
+    </div>
+    <div class="col-sm">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+      <h1>REGISTER</h1>
 
 <form action="registration.do" method="POST">
  
@@ -69,13 +83,21 @@
 <tr><td> First Name: <input type="text" name="firstName" required="required"/></td></tr> 
 <tr><td> Last Name: <input type="text" name="lastName" required="required"/></td></tr> 
 <tr><td> Email: <input type="text" name="email" required="required"/></td></tr> 
-<tr><td> Profile Pic URL: <input type="text" name="profileImageUrl" required="required"/></td></tr> 
+<tr><td> Profile Pic URL: <input type="text" name="profileImageUrl"/></td></tr> 
  
 
  
 <tr><td> <input type="submit" value="Register" /></td></tr> 
  </table>
  </form>
+    </div>
+    <div class="col-sm">
+     
+    </div>
+  </div>
+</div>
+
+<
 
 </div>
 
