@@ -98,9 +98,6 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 
 	@Override
 	public Boardgame addGame(Boardgame boardGame, int pubId, int genId, int catId) {
-		System.err.println("*****" + pubId);
-		System.err.println("*****" + genId);
-		System.err.println("*****" + catId);
 		boardGame.setPublisher(em.find(Publisher.class, pubId));
 		boardGame.setGenre(em.find(Genre.class, genId));
 		boardGame.setCategory(em.find(Category.class, catId));
@@ -114,7 +111,7 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 	}
 
 	@Override
-	public Boardgame updateGame(Boardgame boardGame) {
+	public Boardgame updateGame(Boardgame boardGame, int pubId, int genId, int catId) {
 		Boardgame updateGame = em.find(Boardgame.class, boardGame.getId());
 		updateGame.setName(boardGame.getName());
 		updateGame.setDescription(boardGame.getDescription());
@@ -122,9 +119,9 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 		updateGame.setMaxPlayers(boardGame.getMaxPlayers());
 		updateGame.setPlayTimeMinutes(boardGame.getPlayTimeMinutes());
 		updateGame.setCost(boardGame.getCost());
-		updateGame.setCategory(boardGame.getCategory());
-		updateGame.setGenre(boardGame.getGenre());
-		updateGame.setPublisher(boardGame.getPublisher());
+		updateGame.setPublisher(em.find(Publisher.class, pubId));
+		updateGame.setGenre(em.find(Genre.class, genId));
+		updateGame.setCategory(em.find(Category.class, catId));
 		updateGame.setLogoUrl(boardGame.getLogoUrl());
 		updateGame.setBoxArtUrl(boardGame.getBoxArtUrl());
 		em.flush();
