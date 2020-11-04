@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
@@ -12,13 +15,50 @@
 <title>Game List</title>
 </head>
 
-<body style="background-color:lavender;">
- 	<div class="container">
-	<h4 style="text-align:center;">*~*~*~*~*Board Game Search Results *~*~*~*~*</h4>
+<body">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">gameBored</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="homepage.do">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <c:choose>
+    <c:when test="${loggedInUser.id>0}">
+      <li class="nav-item">
+        <a class="nav-link" href="/profilepage.do">Profile</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/getUsers.do">Search for other users </a>
+      </li>
+ 
+      </c:when>
+	</c:choose>
+	
+      <li class="nav-item">
+        <a class="nav-link" href="/loginbutton.do">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register.do">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout.do">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="jumbotron" >
+  <h1 class="display-4 text-center">Board Game Search Results</h1>
+</div>
 	<br>
 	<table>
 	<c:forEach var="game" items="${games}">
-		<a href="getGame.do?gid=${game.id}">${game.name}</a>
+		<a href="getGame.do?id=${game.id}">${game.name} ${game.description}</a>
 		<br>
 	</c:forEach>
 	</table>
@@ -27,7 +67,6 @@
 	<br>
 	<a href="homepage.do" class="btn btn-secondary" role="button">Go to Home page </a>
 	<br />
- 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
