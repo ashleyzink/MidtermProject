@@ -364,7 +364,10 @@ USE `gameboreddb`;
 INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (1, '123 Sesame St', 'Aurora', 'CO', '80013');
 INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (2, '808 Rainbow Road', 'Denver', 'CO', '80203');
 INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (3, '5150 Park Place', 'Aurora', 'CO', '80013');
-INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (4, NULL, NULL, NULL, NULL);
+INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (4, '803 Devonshire Lane', 'Hagerstown', 'MD', '21740');
+INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (5, '7846 New Saddle Ave', 'Roselle', 'IL', '60172');
+INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (6, '7934 Cherry Ave', 'Owatonna', 'MN', '55060');
+INSERT INTO `address` (`id`, `street`, `city`, `state_abbreviation`, `zip_code`) VALUES (7, '8 Philmont Drive', 'Roanoke', 'VA', '24012');
 
 COMMIT;
 
@@ -374,9 +377,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `gameboreddb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (1, 'admin', 'admin', 1, 'ADMIN', 'Game', 'Bored', 'adminuser@gamebored.com', 1, NULL, NULL, NULL);
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (2, 'ihasshoulders', 'ihasshoulders', 1, 'user', 'Shoulder', 'Person', 'ihasshoulders@gamebored.com', 2, NULL, NULL, NULL);
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (3, 'disguisedhorse', 'disguisedhorse', 1, 'user', 'Disguised', 'Horse', 'disguisedhorse@gamebored.com', 4, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (1, 'admin', 'admin', 1, 'ADMIN', 'Alan', 'Moon', 'adminuser@gamebored.com', 1, 'http://www.ibgcafe.com//wp-content/uploads/2016/11/Alan-R-Moon-300x225.jpg', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (2, 'ihasshoulders', 'ihasshoulders', 1, 'user', 'Shoulder', 'Person', 'ihasshoulders@gamebored.com', 2, 'https://images.ctfassets.net/cnu0m8re1exe/4KwrJVfCGeyOKwm8PS2tjI/30026753d97e3b41a50560063126ded8/shutterstock_135114548.jpg?w=650&h=433&fit=fill', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (3, 'disguisedhorse', 'disguisedhorse', 1, 'user', 'Disguised', 'Horse', 'disguisedhorse@gamebored.com', 4, 'https://cdn.vox-cdn.com/thumbor/7M0VT7djnd3jeXmKkdC02cgEH9o=/0x0:5600x3150/1200x675/filters:focal(2649x836:3545x1732)/cdn.vox-cdn.com/uploads/chorus_image/image/65183911/Onyxia_Key_Art.0.jpg', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (4, 'boardgames4life', 'boardgames', 1, 'ADMIN', 'Uber', 'Rex', 'boardgames4life@gamebored.com', 5, 'https://media.wgrz.com/assets/GANNETT/images/073f6a84-4ced-4ff2-9a9d-45a631973322/073f6a84-4ced-4ff2-9a9d-45a631973322_750x422.jpg', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (5, 'gamerlizard', 'gamerlizard', 1, 'user', 'Captain', 'Lizard', 'gamerlizard@gameboard.com', 6, 'https://vertexgraphics.co.uk/wp-content/uploads/LIZARDSPOCK.jpg', NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `first_name`, `last_name`, `email`, `address_id`, `profile_image_url`, `bio_description`, `create_date`) VALUES (DEFAULT, 'ottergirl', 'ottergirl', 1, 'user', 'Ms', 'Otter', 'ottergirl@gamebored.com', 7, 'https://hhltmaine.org/wp-content/uploads/2013/11/River-Otter-image-from-inte.jpg', NULL, NULL);
 
 COMMIT;
 
@@ -448,6 +454,9 @@ INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_playe
 INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (5, 'Small World', 'Control one fantasy race after another to expand quickly throughout the land', 2, 5, 80, 49.99, 1, 2, 3, NULL, 'https://cf.geekdo-images.com/opengraph/img/H_klqnJiye4r0UmiuK11jaaXv1I=/fit-in/1200x630/filters:strip_icc()/pic428828.jpg');
 INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (6, 'Merchants and Marauders', 'Live the life of an influential merchant or a dreaded pirate in the Caribbean', 2, 4, 180, 49.97, 4, 8, 2, NULL, 'https://images.zmangames.com/filer_public/f7/a9/f7a96814-6943-4825-90ef-99383404089b/zm7062_box-front.png');
 INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (7, 'Runebound', 'Adventure and gain life experience until you can beat the Dragon!', 2, 6, 240, 64.59, 5, 3, 5, NULL, 'https://cf.geekdo-images.com/Zo4slt6oCCOFamxoR1ExcQ__imagepage/img/_hcTFNnN_csT_aknezns2DgZ6GE=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2625790.jpg');
+INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (8, 'Catan', 'Collect and trade resources to build up the island of Catan in this modern classic', 3, 4, 120, 43.97, 4, 7, 6, NULL, 'https://cf.geekdo-images.com/W3Bsga_uLP9kO91gZ7H8yw__imagepage/img/M_3Vg1j2HlNgkv7PL2xl2BJE2bw=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2419375.jpg');
+INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (9, 'Clank!', 'Claim your treasures but don\'t attract the dragon in this deck-building dungeon race', 2, 5, 60, 60.22, 1, 1, 7, NULL, 'https://cf.geekdo-images.com/DPjV1iI0ygo5Bl3XLNRiIg__imagepage/img/R9z8w4GndbY-r3fG_LK1LvBvLc0=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4449526.jpg');
+INSERT INTO `board_game` (`id`, `name`, `description`, `min_players`, `max_players`, `play_time_minutes`, `cost`, `genre_id`, `category_id`, `publisher_id`, `logo_url`, `box_art_url`) VALUES (10, 'Pandemic', 'Your team of experts must prevent the world from succumbing to a viral pandemic', 2, 4, 45, 42.07, 8, 3, 2, NULL, 'https://cf.geekdo-images.com/S3ybV1LAp-8SnHIXLLjVqA__imagepage/img/kIBu-2Ljb_ml5n-S8uIbE6ehGFc=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1534148.jpg');
 
 COMMIT;
 
