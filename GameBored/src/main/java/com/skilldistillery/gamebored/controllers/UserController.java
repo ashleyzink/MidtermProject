@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.gamebored.data.AuthenticationDAO;
 import com.skilldistillery.gamebored.data.BGCommentDAO;
@@ -29,7 +30,7 @@ public class UserController {
 	@Autowired
 	private CCommentDAO cDao;
 	@Autowired
-	private BoardGameDAO BoardgameDao;
+	private BoardGameDAO boardgameDao;
 
 //	@RequestMapping("addFavorite.do")
 //	public 
@@ -63,17 +64,17 @@ public class UserController {
 	
 
 	@RequestMapping(path="addBoardGameComment.do", method = RequestMethod.POST)
-	public String addBoardgameComment(HttpSession session, String commentText, Model model, int id) {
+	public String addBoardgameComment(HttpSession session, String commentText, Model model, int id, RedirectAttributes redir) {
 		User u = (User)(session.getAttribute("loggedInUser"));
-		Boardgame game = BoardgameDao.findById(id);
-
-
+		Boardgame game = boardgameDao.findById(id);
 		BoardGameComment cc = bgDao.create(commentText, game, u);
-		model.addAttribute("game", game);
-		return "SingleBoardGameDisplay";
+		redir.addFlashAttribute("game", game);
+		return "redirect:getGame.do?id=" + game.getId();	
 
 	
 	}
+	
+	
 	
 	@RequestMapping("deleteBoardGameComment.do")
 	public String deleteBoardgameComment(Integer id, Model model) {
