@@ -18,7 +18,7 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/homepage.do">Home <span class="sr-only">(current)</span></a>
       </li>
       
       <c:choose>
@@ -43,23 +43,27 @@
       <li class="nav-item">
         <a class="nav-link" href="/logout.do">Logout</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
     </ul>
   </div>
 </nav>
 <div>
-
-
-<h1>REGISTER</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+     
+    </div>
+    <div class="col-sm">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+      <h1>REGISTER</h1>
 
 <form action="registration.do" method="POST">
  
@@ -69,13 +73,21 @@
 <tr><td> First Name: <input type="text" name="firstName" required="required"/></td></tr> 
 <tr><td> Last Name: <input type="text" name="lastName" required="required"/></td></tr> 
 <tr><td> Email: <input type="text" name="email" required="required"/></td></tr> 
-<tr><td> Profile Pic URL: <input type="text" name="profileImageUrl" required="required"/></td></tr> 
+<tr><td> Profile Pic URL: <input type="text" name="profileImageUrl"/></td></tr> 
  
 
  
 <tr><td> <input type="submit" value="Register" /></td></tr> 
  </table>
  </form>
+    </div>
+    <div class="col-sm">
+     
+    </div>
+  </div>
+</div>
+
+<
 
 </div>
 

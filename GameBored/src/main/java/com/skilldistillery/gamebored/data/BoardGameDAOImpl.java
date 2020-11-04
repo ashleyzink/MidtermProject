@@ -80,7 +80,7 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 		List<Boardgame> boardGameListByPublisher = null;
 		String jpql = "SELECT p FROM Publisher p WHERE name LIKE :name";
 
-		boardGameListByPublisher = em.createQuery(jpql, Category.class).setParameter("name", "%" + name + "%")
+		boardGameListByPublisher = em.createQuery(jpql, Publisher.class).setParameter("name", "%" + name + "%")
 				.getSingleResult().getBoardGames();
 		return boardGameListByPublisher;
 	}
@@ -88,7 +88,7 @@ public class BoardGameDAOImpl implements BoardGameDAO {
 	@Override
 	public List<Boardgame> findGameByNumberOfPlayers(int numOfPlayers) {
 		List<Boardgame> boardGameListByNumberOfPlayers = null;
-		String jpql = "SELECT b FROM Boardgame b WHERE b.minPlayer <= :minPlayers AND b.maxPlayers >= :maxPlayers";
+		String jpql = "SELECT b FROM Boardgame b WHERE b.minPlayers <= :minPlayers AND b.maxPlayers >= :maxPlayers";
 
 		boardGameListByNumberOfPlayers = em.createQuery(jpql, Boardgame.class).setParameter("minPlayers", numOfPlayers)
 				.setParameter("maxPlayers", numOfPlayers).getResultList();

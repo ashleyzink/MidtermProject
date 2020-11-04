@@ -18,7 +18,7 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/homepage.do">Home <span class="sr-only">(current)</span></a>
       </li>
       
       <c:choose>
@@ -42,16 +42,6 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/logout.do">Logout</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
       </li>
     </ul>
   </div>
@@ -93,7 +83,7 @@
          <form action="addBoardGameComment.do" method="POST">	
      
             <textarea name="commentText"></textarea>
-            <input type= "hidden" value="${game.id}" name="id" >
+            <input type= "text" value="${game.id}" name="id" >
            
            
        
@@ -106,7 +96,9 @@
        <h4> Users with this game in their favorites list</h4>
        <c:forEach var="user" items="${game.userWithFavs}">
 		       <tr>
-               <td>${user.firstName}, ${user.lastName}  --- UserName: ${user.username} </td>
+
+               <td>${user.firstName} ${user.lastName}  --- UserName: ${user.username} </td>
+
                </tr>
 	   </c:forEach> 
 	   	   <c:set var="contains" value="false" />
@@ -134,7 +126,9 @@
        <h4> Users with this game in their owned list</h4>
        <c:forEach var="user" items="${game.userWithOwned}">
 		       <tr>
+
                <td>${user.firstName}, ${user.lastName}   --- UserName: ${user.username} </td>
+
                </tr>
 	   </c:forEach> 
 	   

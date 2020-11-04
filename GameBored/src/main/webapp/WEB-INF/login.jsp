@@ -11,14 +11,15 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">gameBored</a>
+  <a class="navbar-brand" href="#"> <img src="imgs/logo.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100">
+</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="homepage.do">Home <span class="sr-only">(current)</span></a>
       </li>
       
       <c:choose>
@@ -43,28 +44,53 @@
       <li class="nav-item">
         <a class="nav-link" href="/logout.do">Logout</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
     </ul>
   </div>
 </nav>
-<h1>LOGIN</h1>
-
-<form action="login.do" method="POST">
- <p>LOGIN</p>
-<!--  Username: <input type="text" name="username"/> -->
- Email: <input type="text" name="email"/>
- Password: <input type="password" name="password"/>
-  <input type="submit" value="Login " />
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+     <img src="imgs/logo.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none">
+    </div>
+    <div class="col-sm">
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+<!-- <h3>WELCOME</h3> -->
+ <form action="login.do" method="POST">
+  <div class="form-group">
+    <input type="text" name="email" placeholder= "gameboredfriend@yahoo.com" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="password" name="password" class="form-control">
+  </div>
+  <button type="submit" value="LOGIN" class="btn btn-warning btn-lg btn-block">LOGIN</button>
 </form>
+  
+
+  
+ <!--  <form action="login.do" method="POST">
+<input type="text" name="email" placeholder= "gameboredfriend@yahoo.com"/>
+
+<input type="password" name="password"  placeholder= "password"/>
+ <br>
+  <input type="submit" value="LOGIN" />
+</form>
+    </div>
+</div>
+
+</form> -->
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

@@ -8,6 +8,43 @@
 <title>Add New Board Game</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">gameBored</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/homepage.do">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <c:choose>
+    <c:when test="${loggedInUser.id>0}">
+      <li class="nav-item">
+        <a class="nav-link" href="/profilepage.do">Profile</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/getUsers.do">Search for other users </a>
+      </li>
+ 
+      </c:when>
+	</c:choose>
+	
+      <li class="nav-item">
+        <a class="nav-link" href="/loginbutton.do">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register.do">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout.do">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
   <div>
     <h1 style="text-align:center">Admin Only! </h1>
   	<br>
