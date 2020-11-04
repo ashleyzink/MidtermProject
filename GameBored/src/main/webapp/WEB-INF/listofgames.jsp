@@ -18,7 +18,7 @@
 	<br>
 	<table>
 	<c:forEach var="game" items="${games}">
-		<a href="getGame.do?gid=${game.id}">${game.name}</a>
+		<a href="getGame.do?id=${game.id}">${game.name}</a>
 		<br>
 	</c:forEach>
 	</table>

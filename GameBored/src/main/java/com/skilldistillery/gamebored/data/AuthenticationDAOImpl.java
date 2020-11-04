@@ -23,6 +23,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	public User create(User user) {
 		System.out.println("***********" + user);
 		if (isEmailUnique(user.getEmail())) {
+			user.setProfileImageUrl("https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg");
 			em.persist(user);
 			em.flush();
 			return user;

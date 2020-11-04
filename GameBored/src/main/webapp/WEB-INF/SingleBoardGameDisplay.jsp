@@ -111,6 +111,7 @@
            
                </tr>
 	   </c:forEach> 
+	   
        <h4> Users with this game in their owned list</h4>
        <c:forEach var="user" items="${game.userWithOwned}">
 		       <tr>
