@@ -25,6 +25,8 @@ public interface AuthenticationDAO {
 	//can be deleted if not used
 	boolean isValidUser(String email, String password);
 
+	List<User> getListOfUsers();
+
 
 
 }

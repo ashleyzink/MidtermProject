@@ -1,5 +1,7 @@
 package com.skilldistillery.gamebored.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -113,6 +115,15 @@ public class AccountController {
 	@RequestMapping(path="profilepage.do", method=RequestMethod.GET)
 	public String profilePage(HttpSession session) {
 		return "profilepage";
+	}
+	
+	@RequestMapping(path="getUsers.do", method=RequestMethod.GET)
+	public ModelAndView getUsers() {
+		ModelAndView mv = new ModelAndView();
+		List<User> users = aDao.getListOfUsers();
+		mv.addObject("users", users);
+		mv.setViewName("listofusers");
+		return mv;
 	}
 	
 }
