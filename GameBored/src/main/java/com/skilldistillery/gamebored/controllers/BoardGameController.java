@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.skilldistillery.gamebored.data.BGCommentDAO;
 import com.skilldistillery.gamebored.data.BoardGameDAO;
 import com.skilldistillery.gamebored.data.CCommentDAO;
 import com.skilldistillery.gamebored.entities.BoardGameComment;
@@ -27,6 +28,8 @@ public class BoardGameController {
 	@Autowired
 	private BoardGameDAO boardGameDAO;
 	
+	@Autowired
+	private BGCommentDAO bgDao;
 	@Autowired
 	private CCommentDAO cDao;
 	

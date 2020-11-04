@@ -67,7 +67,7 @@ public class AccountController {
 
 		session.removeAttribute("loggedInUser");
 
-		mv.setViewName("homepage");
+		mv.setViewName("login");
 		return mv;
 	}
 	

@@ -1,5 +1,7 @@
 package com.skilldistillery.gamebored.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,12 +68,11 @@ public class UserController {
 	@RequestMapping(path="addBoardGameComment.do", method = RequestMethod.POST)
 	public String addBoardgameComment(HttpSession session, String commentText, Model model, int id, RedirectAttributes redir) {
 		User u = (User)(session.getAttribute("loggedInUser"));
+
 		Boardgame game = boardgameDao.findById(id);
 		BoardGameComment cc = bgDao.create(commentText, game, u);
 		redir.addFlashAttribute("game", game);
 		return "redirect:getGame.do?id=" + game.getId();	
-
-	
 	}
 	
 	
