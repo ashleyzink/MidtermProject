@@ -20,6 +20,8 @@ public interface BGCommentDAO {
 
 	boolean destroy(int id);
 
+	List<BoardGameComment> findListBGCommentsById(int id);
+
 	//List<BoardGameComment> findBGCommentByBoardGame(Boardgame boardGame);
 
 }

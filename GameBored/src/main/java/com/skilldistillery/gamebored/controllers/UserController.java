@@ -1,5 +1,7 @@
 package com.skilldistillery.gamebored.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,9 +68,9 @@ public class UserController {
 	public String addBoardgameComment(HttpSession session, String commentText, Model model, int id) {
 		User u = (User)(session.getAttribute("loggedInUser"));
 		Boardgame game = BoardgameDao.findById(id);
-
-
 		BoardGameComment cc = bgDao.create(commentText, game, u);
+		List<BoardGameComment> bgCommentList= bgDao.findListBGCommentsById(id);
+		model.addAttribute("bgcommentList", bgCommentList);
 		model.addAttribute("game", game);
 		return "SingleBoardGameDisplay";
 
