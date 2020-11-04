@@ -96,21 +96,63 @@
        <h4> Users with this game in their favorites list</h4>
        <c:forEach var="user" items="${game.userWithFavs}">
 		       <tr>
-               <td>${user.firstName}, ${user.firstName} UserName: ${user.username} </td>
-               
-           
+
+               <td>${user.firstName} ${user.lastName}  --- UserName: ${user.username} </td>
+
                </tr>
 	   </c:forEach> 
+	   	   <c:set var="contains" value="false" />
+<c:forEach var="item" items="${loggedInUser.favorites}">
+  <c:if test="${item.name eq game.name}">
+    <c:set var="contains" value="true" />
+  </c:if>
+</c:forEach>
 	   
+                <c:choose>
+      <c:when test="${contains eq false && loggedInUserId>0 }">
+                <form action="addToFavs.do" method="GET">	
+            <input type= "hidden" value="${game.id}" name="gameId" >
+            <input type= "hidden" value="${loggedInUser.id}" name="userId" >
+          
+            <input type="submit" value="Add this game to your favorites"/>
+             </form>
+	    </c:when>
+       </c:choose>
+      
+      
+      
+      
+      
        <h4> Users with this game in their owned list</h4>
        <c:forEach var="user" items="${game.userWithOwned}">
 		       <tr>
-               <td>${user.firstName}, ${user.firstName} UserName: ${user.username} </td>
-               
-           
+
+               <td>${user.firstName}, ${user.lastName}   --- UserName: ${user.username} </td>
+
                </tr>
 	   </c:forEach> 
-		
+	   
+	   <c:set var="contains" value="false" />
+<c:forEach var="item" items="${loggedInUser.owned}">
+  <c:if test="${item.name eq game.name}">
+    <c:set var="contains" value="true" />
+  </c:if>
+</c:forEach>
+	   
+	     <c:choose>
+       <c:when test="${contains eq false && loggedInUserId>0}">
+                <form action="addToOwned.do" method="GET">	
+            <input type= "hidden" value="${game.id}" name="gameId" >
+            <input type= "hidden" value="${loggedInUser.id}" name="userId" >
+          
+            <input type="submit" value="Add this game to your owned list"/>
+             </form>
+               </c:when>
+       </c:choose>
+       
+       
+       
+       
 			</c:when>
 			<c:otherwise>
 			<h2>We could not find your game in our current inventory.</h2>
