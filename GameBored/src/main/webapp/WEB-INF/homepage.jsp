@@ -19,38 +19,84 @@
 	
 
 	<title>Homepage</title>
-	<div class="jumbotron">
-  <h1 class="display-4">Game Bored</h1>
-  <p class="lead">The Board Game social media platform</p>
+	<div class="jumbotron" >
+  <h1 class="display-4 text-center">Game Bored</h1>
+  <p class="lead text-center"">The Board Game social media platform</p>
 </div>
-	<!-- LOGIN BUTTON  -->
-	<form action="loginbutton.do" method="GET">
-		<input type="submit" value="LOGIN" />
-	</form>
-
-	<!-- REGISTRATION BUTTON -->
-	<form action="register.do" method="GET">
-		<input type="submit" value="REGISTER" />
-	</form>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<title>Homepage </title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">gameBored</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <c:choose>
+    <c:when test="${loggedInUser.id>0}">
+      <li class="nav-item">
+        <a class="nav-link" href="/profilepage.do">Profile</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/getUsers.do">Search for other users </a>
+      </li>
+ 
+      </c:when>
+	</c:choose>
+	
+      <li class="nav-item">
+        <a class="nav-link" href="/loginbutton.do">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register.do">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout.do">Logout</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
 	<!-- DROPDOWN SEARCH LIST -->
-	<form action="gameList.do" method="GET">
+	<form action="gameList.do" method="GET" class="d-flex justify-content-center md-form form-sm">
 		<select id="searchType" name="searchType">
 			<option value="genre">Genre</option>
 			<option value="category">Category</option>
 			<option value="publisher">Publisher</option>
 			<option value="numPlayers">Number of Player</option>
 			<option value="keyword">Keyword</option>
-		</select> <input type="text" name="searchTerm" required="required" /> <input
-			type="submit" value="Submit" />
+		</select> 
+		
+		<input name="searchTerm" required="required" class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+    aria-label="Search" /> 
 	</form>
 
-
-
-<div class="container">
+<div class="container" >
   <div class="row">
     <div class="col">
 	<!-- TABLE OF LINKS -->
+	<br>
+	<br>
+	<table><tr><th>BoardGames</th></tr></table>
+	<br>
 	<table class="table table-striped">
 		<c:forEach var="gameIndiv" items="${gameList}">
 			<tr>
@@ -63,11 +109,12 @@
     </div>
     <div class="col">
 	<!-- COMMUNITY COMMENT -->
-
-	<p>Community Comments</p>
+<br>
+<br>
+	<table><tr><th>Community Comments</th></tr></table>
+	<br>
 	<table class="table table-striped">
 	<c:forEach var="commentL" items="${commentsList}">
-		<br>
 		<tr>
 			<td>${commentL.commentDate}
 			<td>
@@ -76,7 +123,6 @@
 			<td>${commentL.commentText}
 			<td>
 		</tr>
-		<br>
 	</c:forEach>
 	</table>
 
@@ -105,17 +151,8 @@
 		</c:when>
 	</c:choose>
 
-	<!-- LOGIN BUTTON  -->
-	<form action="logout.do" method="GET">
-		<input type="submit" value="LOGOUT" />
-	</form>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-		crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </body>
-</html>
+</html> 

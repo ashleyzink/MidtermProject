@@ -166,6 +166,16 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		// TODO Auto-generated method stub
 	
 	}
+	
+	@Override
+	public List<User> getListOfUsers() {
+		List<User> users =null;
+		String jpql = "Select u from User u where role != 'ADMIN'";
+		users = em.createQuery(jpql, User.class).getResultList();
+		return users;
+		// TODO Auto-generated method stub
+		
+	}
 	@Override
 	public boolean isValidUser(User u) {
 		// TODO Auto-generated method stub

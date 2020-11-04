@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.gamebored.entities.BoardGameComment;
 import com.skilldistillery.gamebored.entities.Boardgame;
+import com.skilldistillery.gamebored.entities.User;
 
 @Service
 @Transactional
@@ -38,13 +39,17 @@ public class BGCommentDAOImpl implements BGCommentDAO{
 	}
 	
 	@Override
-	public BoardGameComment create(BoardGameComment comment) {
-
-		em.persist(comment);
+	public BoardGameComment create(String comment, Boardgame game, User u) {
+       
+		BoardGameComment comment1 = new BoardGameComment();
+		comment1.setBoardgame(game);
+		comment1.setCommentText(comment);
+		comment1.setUser(u);
+		em.persist(comment1);
 
 		em.flush();
 
-		return comment;
+		return comment1;
 	}
 
 	@Override
