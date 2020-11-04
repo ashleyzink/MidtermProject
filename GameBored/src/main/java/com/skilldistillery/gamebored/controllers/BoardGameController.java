@@ -30,7 +30,6 @@ public class BoardGameController {
 	
 	@Autowired
 	private BGCommentDAO bgDao;
-	
 	@Autowired
 	private CCommentDAO cDao;
 	
@@ -47,8 +46,6 @@ public class BoardGameController {
 	public String showGameByID(Integer id, Model model) {
 		Boardgame game = boardGameDAO.findById(id);
 		model.addAttribute("game", game);
-		List<BoardGameComment> bgCommentList= bgDao.findListBGCommentsById(id);
-		model.addAttribute("bgcommentList", bgCommentList);
 		return "SingleBoardGameDisplay";
 	}
 	

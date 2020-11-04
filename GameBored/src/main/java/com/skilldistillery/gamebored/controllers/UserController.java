@@ -73,9 +73,6 @@ public class UserController {
 		BoardGameComment cc = bgDao.create(commentText, game, u);
 		redir.addFlashAttribute("game", game);
 		return "redirect:getGame.do?id=" + game.getId();	
-
-
-	
 	}
 	
 	

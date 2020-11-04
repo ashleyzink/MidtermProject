@@ -80,12 +80,4 @@ public class BGCommentDAOImpl implements BGCommentDAO{
 		return commentDel;
 	}
 
-	
-	@Override
-	public List<BoardGameComment> findListBGCommentsById(int id) {
-		List<BoardGameComment> comments = null;
-		String jpql="SELECT bg FROM BoardGameComment bg WHERE bg.boardgame.id= :bid";
-		comments = em.createQuery(jpql, BoardGameComment.class).setParameter("bid", id).getResultList();
-		return comments;
-	}
 }
