@@ -56,15 +56,33 @@
     </ul>
   </div>
 </nav>
-<h1>LOGIN</h1>
-
-<form action="login.do" method="POST">
- <p>LOGIN</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+     <img src="logo.png" class="img-thumbnail">
+    </div>
+    <div class="col-sm">
+     <form action="login.do" method="POST">
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
 <!--  Username: <input type="text" name="username"/> -->
  Email: <input type="text" name="email"/>
+  <br>
  Password: <input type="password" name="password"/>
+ <br>
   <input type="submit" value="Login " />
 </form>
+    </div>
+</div>
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
