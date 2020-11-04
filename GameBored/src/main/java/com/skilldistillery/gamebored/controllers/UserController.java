@@ -113,5 +113,21 @@ public class UserController {
 		model.addAttribute("update", cc);
 		return "update";
 	}
+	@RequestMapping("addToFavs.do")
+	public String addGameToFavs(int userId, int gameId) {
+
+		aDao.addFavorite(userId, gameId);
+		
+		return "addedToFavs";
+		
+	}
+	@RequestMapping("addToOwned.do")
+	public String addGameToOwned(int userId, int gameId) {
+		
+		aDao.addOwned(userId, gameId);
+		
+		return "addedToOwned";
+		
+	}
 	
 }

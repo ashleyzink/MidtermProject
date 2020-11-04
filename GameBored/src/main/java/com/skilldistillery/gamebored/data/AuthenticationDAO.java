@@ -27,6 +27,14 @@ public interface AuthenticationDAO {
 
 	List<User> getListOfUsers();
 
+	User addFavorite(int userId, int gameId);
+
+	User removeFavorite(int userId, int gameId);
+
+	User addOwned(int userId, int ownedId);
+
+	User removeOwned(int userId, int gameId);
+
 
 
 }

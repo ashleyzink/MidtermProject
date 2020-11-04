@@ -105,6 +105,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 
 		return u;
 	}
+	@Override
 	
 	public User addFavorite(int userId, int gameId) {
 		User u = em.find(User.class, userId);
@@ -115,6 +116,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		
 		return u;
 	}
+	@Override
 	
 	public User removeFavorite(int userId, int gameId) {
 		User u = em.find(User.class, userId);
@@ -125,6 +127,8 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		
 		return u;
 	}
+	@Override
+	
 	public User addOwned(int userId, int ownedId) {
 		User u = em.find(User.class, userId);
 		Boardgame bg=em.find(Boardgame.class, ownedId);
@@ -134,6 +138,8 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		
 		return u;
 	}
+	@Override
+	
 	public User removeOwned(int userId, int gameId) {
 		User u = em.find(User.class, userId);
 		Boardgame bg=em.find(Boardgame.class, gameId);
