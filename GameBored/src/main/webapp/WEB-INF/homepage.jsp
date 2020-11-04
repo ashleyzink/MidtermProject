@@ -26,6 +26,11 @@
       <li class="nav-item">
         <a class="nav-link" href="/profilepage.do">Profile</a>
       </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/getUsers.do">Search for other users </a>
+      </li>
+ 
       </c:when>
 	</c:choose>
 	
@@ -52,9 +57,9 @@
   </div>
 </nav>
 <!-- LOGIN BUTTON  -->
-<form action="loginbutton.do" method="GET">
+<!-- <form action="loginbutton.do" method="GET">
 <input type="submit" value="LOGIN" />
-</form> 
+</form>  -->
 
 <!-- REGISTRATION BUTTON -->
 <!-- <form action="register.do" method="GET">
