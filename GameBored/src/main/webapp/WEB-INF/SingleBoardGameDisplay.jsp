@@ -14,70 +14,77 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">gameBored</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<li class="nav-item active"><a class="nav-link"
-					href="/homepage.do">HOME <span class="sr-only">(current)</span></a>
-				</li>
-
-				<c:choose>
-					<c:when test="${loggedInUser.id>0}">
-						<li class="nav-item"><a class="nav-link"
-							href="/profilepage.do">PROFILE</a></li>
-
-						<li class="nav-item"><a class="nav-link" href="/getUsers.do">SEARCH
-								FOR OTHER USERS </a></li>
-
-					</c:when>
-				</c:choose>
-
-				<li class="nav-item"><a class="nav-link" href="/loginbutton.do">LOGIN</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="/register.do">REGISTER</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="/logout.do">LOGOUT</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+  <a class="navbar-brand" href="/homepage.do"> <img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100" >
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/homepage.do">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <c:choose>
+    <c:when test="${loggedInUser.id>0}">
+      <li class="nav-item">
+        <a class="nav-link" href="/profilepage.do">Profile</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/getUsers.do">Search for other users </a>
+      </li>
+ 
+      </c:when>
+	</c:choose>
+	
+      <li class="nav-item">
+        <a class="nav-link" href="/loginbutton.do">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register.do">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout.do">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 	<c:choose>
 		<c:when test="${! empty game}">
-		<div class="container justify-content-center">
-		<div class="row justify-content-center">
-		<div class="col">
-			<h3>ID: ${game.id }</h3>
+<div class="jumbotron">			
 
-			<h1>${game.name }</h1>
+<h1 class="display-4 text-center">${game.name }</h1>
+<img src="${game.boxArtUrl}" class="rounded mx-auto d-block" alt="" border=3 height=300 width=300></img>
+			<br>
+			<p class = "mx-auto d-block text-center">By: <img src="${game.publisher.logoUrl}" class="rounded" alt="" border=3 height=100
+				width=100></img></p>
+			</div>
 
-			<img src="${game.boxArtUrl}" alt="" border=3 height=100 width=100></img>
+			
+		<div class="container ">
+<div class="mx-auto " style="width: 300px;">
+  <div class="row">
+    <div class="col-sm">
 
-			<h3>Publisher: ${game.publisher.name }</h3>
 
-			<img src="${game.publisher.logoUrl}" alt="" border=3 height=50
-				width=50></img>
 
-			<p>${game.description}</p>
+			<p>${game.description}!</p>
 
 
 			<ul>
-				<li>Min Players: ${game.minPlayers }</li>
-				<li>Max Players: ${game.maxPlayers }</li>
-				<li>Cost: $${game.cost }</li>
+			<li>Genre: ${game.genre} Category: ${game.category}</li>
+				<li>Players: ${game.minPlayers } - ${game.maxPlayers }</li>
+				<li>MSRP $${game.cost }</li>
 				<li>Play Time ${game.playTimeMinutes } mins</li>
 			</ul>
 			</div>
 			</div>
 </div>
+</div>
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<table class="table w-90">
+						<table class="table w-90 bg-info text-white">
 							<tr>
 								<th>Game Favorited By</th>
 							</tr>
@@ -105,14 +112,14 @@
 									<input type="hidden" value="${game.id}" name="gameId">
 									<input type="hidden" value="${loggedInUser.id}" name="userId">
 
-									<input type="submit" value="Add this game to your favorites" />
+									<input type="submit" value="Add this game to your favorites" class="btn btn-info btn-lg btn-block"/>
 								</form>
 							</c:when>
 						</c:choose>
 
 					</div>
 					<div class="col">
-						<table class="table w-90">
+						<table class="table w-90 bg-info text-white">
 							<tr>
 								<th>Game Owned By</th>
 							</tr>
@@ -141,7 +148,7 @@
 									<input type="hidden" value="${game.id}" name="gameId">
 									<input type="hidden" value="${loggedInUser.id}" name="userId">
 
-									<input type="submit" value="Add this game to your owned list" />
+									<input type="submit" value="Add this game to your owned list" class="btn btn-info btn-lg btn-block"/>
 								</form>
 							</c:when>
 						</c:choose>
@@ -151,7 +158,7 @@
 					<br><br><br>
 				<div class="container">
 					<div class="row justify-content-center">
-						<table class="table w-100"><tr><th>Comments</th></tr></table>
+						<table class="table w-100 bg-info text-white"><tr><th>Comments</th></tr></table>
 						<table class="table table-striped w-100">
 
 							<c:forEach var="comment" items="${game.boardGameComments}">
@@ -169,7 +176,7 @@
 									<textarea name="commentText"></textarea>
 
 									<input type="hidden" value="${game.id}" name="id"> <input
-										type="submit" value="submit" />
+										type="submit" value="submit" class="btn btn-info btn-lg"/>
 
 								</form>
 							</c:when>
@@ -185,7 +192,7 @@
 	<c:choose>
 		<c:when test="${sessionScope.loggedInUser.role eq 'ADMIN'}">
 			<form action="goToUpdateForm.do" method="GET">
-				<button type="submit" name="id" value="${game.id}">Update</button>
+				<button type="submit" name="id" value="${game.id}" class="btn btn-info btn-lg">Update</button>
 			</form>
 		</c:when>
 	</c:choose>
