@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.cache.spi.support.AbstractCachedDomainDataAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -135,18 +136,22 @@ public class UserController {
 		return "update";
 	}
 	@RequestMapping("addToFavs.do")
-	public String addGameToFavs(int userId, int gameId) {
+	public String addGameToFavs(int userId, int gameId, HttpSession session) {
        
 		aDao.addFavorite(userId, gameId);
-		
+		Boardgame game = boardgameDao.findById(gameId);
+		User u = (User)(session.getAttribute("loggedInUser"));
+		u.getFavorites().add(game);
 		return "redirect:getGame.do?id=" + gameId;
 		
 	}
 	@RequestMapping("addToOwned.do")
-	public String addGameToOwned(int userId, int gameId) {
+	public String addGameToOwned(int userId, int gameId, HttpSession session) {
 
 		aDao.addOwned(userId, gameId);
-		
+		Boardgame game = boardgameDao.findById(gameId);
+		User u = (User)(session.getAttribute("loggedInUser"));
+		u.getOwned().add(game);
 		return "redirect:getGame.do?id=" + gameId;
 	
 		

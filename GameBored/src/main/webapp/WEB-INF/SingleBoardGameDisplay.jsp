@@ -106,7 +106,7 @@
     <c:set var="containsFav" value="true" />
   </c:if>
 </c:forEach>
-	   <h1>${containsFav  }  **********   ${containsFav eq false } </h1>
+	  
                 <c:choose>
       <c:when test="${containsFav eq false and loggedInUser.id > 0 }">
                 <form action="addToFavs.do" method="GET">	
@@ -117,9 +117,6 @@
              </form>
 	    </c:when>
        </c:choose>
-      
-      
-      
       
       
        <h4> Users with this game in their owned list</h4>
@@ -139,7 +136,7 @@
 </c:forEach>
 	   
 	     <c:choose>
-       <c:when test="${contains eq false and  not empty loggedInUser}">
+       <c:when test="${contains eq false and loggedInUser.id > 0}">
                 <form action="addToOwned.do" method="GET">	
             <input type= "hidden" value="${game.id}" name="gameId" >
             <input type= "hidden" value="${loggedInUser.id}" name="userId" >
