@@ -115,18 +115,19 @@ public class UserController {
 	}
 	@RequestMapping("addToFavs.do")
 	public String addGameToFavs(int userId, int gameId) {
-
+       
 		aDao.addFavorite(userId, gameId);
 		
-		return "addedToFavs";
+		return "redirect:getGame.do?id=" + gameId;
 		
 	}
 	@RequestMapping("addToOwned.do")
 	public String addGameToOwned(int userId, int gameId) {
-		
+
 		aDao.addOwned(userId, gameId);
 		
-		return "addedToOwned";
+		return "redirect:getGame.do?id=" + gameId;
+	
 		
 	}
 	
