@@ -188,6 +188,10 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	@Override
+	public User findById(int id) {
+		return em.find(User.class, id);
+	}
 	
 	
 	

@@ -117,13 +117,5 @@ public class AccountController {
 		return "profilepage";
 	}
 	
-	@RequestMapping(path="getUsers.do", method=RequestMethod.GET)
-	public ModelAndView getUsers() {
-		ModelAndView mv = new ModelAndView();
-		List<User> users = aDao.getListOfUsers();
-		mv.addObject("users", users);
-		mv.setViewName("listofusers");
-		return mv;
-	}
 	
 }
