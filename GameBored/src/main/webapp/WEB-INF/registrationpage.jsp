@@ -54,28 +54,6 @@
 </nav>
 
 
-				<c:choose>
-					<c:when test="${loggedInUser.id>0}">
-						<li class="nav-item"><a class="nav-link"
-							href="profilepage.do">PROFILE</a></li>
-
-						<li class="nav-item"><a class="nav-link" href="getUsers.do">SEARCH
-								FOR OTHER USERS </a></li>
-
-					</c:when>
-				</c:choose>
-
-				<li class="nav-item"><a class="nav-link" href="loginbutton.do">LOGIN</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="register.do">REGISTER</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="logout.do">LOGOUT</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-
 	<div>
 		<div class="container">
 			<div class="mx-auto" style="width: 200px;">

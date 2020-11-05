@@ -63,7 +63,7 @@
 	<title>Homepage</title>
 	<div class="jumbotron" >
 
-<h1 class="display-4 text-center"><img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="200" height="200" ></h1>  <p class="lead text-center"">The Board Game social media platform</p>
+<h1 class="display-4 text-center"><img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="200" height="200" ></h1>  <p class="lead text-center"">A BOARD GAME SOCIAL MEDIA PLATFORM</p>
  
 </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
