@@ -18,14 +18,14 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">gameBored</a>
+  <a class="navbar-brand" href="/homepage.do"> <img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100" >
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="/homepage.do">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/homepage.do"> HOME <span class="sr-only">(current)</span></a>
       </li>
       
       <c:choose>
@@ -53,17 +53,35 @@
     </ul>
   </div>
 </nav>
-	<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 		<!-- USER HEADER -->
-		<h1>${loggedInUser.firstName} ${loggedInUser.lastName}'s Profile</h1>
-		
+		<div class="container">
+  		<div class="row">
+  		<div class="col-sm">
+  		<br>
+<br>
+<br>
+
+<br>
+<br>
+<img src="imgs/ticket.png" class="img-fluid" alt="Responsive image">
+    </div>
+			<div class="col-sm">
+		<h1 class ="centered">${loggedInUser.firstName} ${loggedInUser.lastName}'s Profile</h1>
+		<br>
 		<table>
 			<tr>
 				<td><img src="${loggedInUser.profileImageUrl}" alt="" border=3
 					height=100 width=100></img></td>
 			</tr>
 		</table>
-
+	<br>
+	<br>
 		<!-- USERS LIST OF FAVORITE BOARDGAMES -->
 		<table>
 			<tr>
@@ -75,6 +93,7 @@
 				</tr>
 			</c:forEach>
 			<tr>
+		
 				<td>
 					<!-- ADD FAVORITE BUTTON -->
 					<form action = "homepage.do" method= "GET">
@@ -82,14 +101,14 @@
 				</form>
 				</td>
 				<td>
-	
 					<!-- REMOVE FAVORITE BUTTON -->
 					<button type="button">Remove a favorite</button>
 	
 				</td>
 			</tr>
 		</table>
-
+	<br>
+		<br>
 		<!-- WINS/LOSSES/ATTENDED -->
 		<table>
 			<tr>
@@ -98,7 +117,8 @@
 				<th>Games Attended</th>
 			</tr>
 		</table>
-
+	<br>
+		<br>
 		<!-- GAMES OWNED LIST -->
 		<table>
 			<tr>
@@ -118,17 +138,22 @@
 				</td>				
 			</tr>
 		</table>
+			<br>	
+			<br>
 
 		
 		<!-- CREATE NEW EVENT -->
 		<button type="button">Create an Event</button>
+			<br>
+				<br>
 		
-		<!-- BACK TO HOME -->
-		<form action="homepage.do">
-    <button type="submit">Home</button>
-</form>
   <a href="newGameForm.do" class="btn btn-secondary" role="button">Add a New Game </a>
+		<!-- BACK TO HOME -->
+		<!-- <form action="homepage.do">
+    <button type="submit">Home</button>
+</form> -->
 	</div>
+	 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
