@@ -11,7 +11,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">gameBored</a>
+  <a class="navbar-brand" href="/homepage.do"> <img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100" >
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -48,6 +48,7 @@
 </nav>
 <div>
 <div class="container">
+<div class="mx-auto" style="width: 200px;">
   <div class="row">
     <div class="col-sm">
      
@@ -56,30 +57,29 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-      <h1>REGISTER</h1>
-
+      <img src="imgs/logo.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none">
+     <br>
+     <br>
+     <br>
+ <div class= "centered">
+      <h1>WELCOME</h1>
+      <p>Create an account here</p>
+</div>
+ <div class="form-group">
 <form action="registration.do" method="POST">
  
-<table>
-<tr><td> Username: <input type="text" name="username" required="required" /></td></tr> 
-<tr><td> Password: <input type="text" name="password" required="required"/></td></tr> 
-<tr><td> First Name: <input type="text" name="firstName" required="required"/></td></tr> 
-<tr><td> Last Name: <input type="text" name="lastName" required="required"/></td></tr> 
-<tr><td> Email: <input type="text" name="email" required="required"/></td></tr> 
-<tr><td> Profile Pic URL: <input type="text" name="profileImageUrl"/></td></tr> 
- 
 
- 
-<tr><td> <input type="submit" value="Register" /></td></tr> 
- </table>
+Username <input class="form-control" type="text" name="username" required="required" />
+Password <input class="form-control" type="text" name="password" required="required"/>
+First Name <input class="form-control" type="text" name="firstName" required="required"/>
+Last Name <input class="form-control" type="text" name="lastName" required="required"/> 
+Email <input class="form-control" type="text" name="email" required="required"/>
+Profile Pic URL <input class="form-control" type="text" name="profileImageUrl"/>
+<br>
+<br>
+<button type="submit" value="LOGIN" class="btn btn-info btn-lg btn-block">REGISTER</button>
  </form>
+    </div>
     </div>
     <div class="col-sm">
      
@@ -87,7 +87,7 @@
   </div>
 </div>
 
-<
+  </div>
 
 </div>
 

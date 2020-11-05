@@ -11,7 +11,9 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"> <img src="imgs/logo.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100">
+<div class="image-cropper">
+  <a class="navbar-brand" href="/homepage.do"> <img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100" >
+</div>
 </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -74,7 +76,7 @@
   <div class="form-group">
     <input type="password" name="password" class="form-control">
   </div>
-  <button type="submit" value="LOGIN" class="btn btn-warning btn-lg btn-block">LOGIN</button>
+  <button type="submit" value="LOGIN" class="btn btn-info btn-lg btn-block">LOGIN</button>
 </form>
   
 
