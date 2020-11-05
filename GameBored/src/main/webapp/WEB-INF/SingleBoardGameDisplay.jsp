@@ -137,6 +137,24 @@
 								</form>
 							</c:when>
 						</c:choose>
+						<c:set var="containsFav" value="false" />
+						<c:forEach var="item" items="${loggedInUser.favorites}">
+							<c:if test="${item.name eq game.name}">
+								<c:set var="containsFav" value="true" />
+							</c:if>
+						</c:forEach>
+
+						<c:choose>
+							<c:when test="${containsFav eq true and loggedInUser.id > 0 }">
+								<form action="removeFromFavs.do" method="GET">
+									<input type="hidden" value="${game.id}" name="gameId">
+									<input type="hidden" value="${loggedInUser.id}" name="userId">
+
+									<input type="submit" value="Remove this game from your favorites"
+										class="btn btn-info btn-lg btn-block" />
+								</form>
+							</c:when>
+						</c:choose>
 
 					</div>
 					<div class="col">
@@ -170,6 +188,23 @@
 									<input type="hidden" value="${loggedInUser.id}" name="userId">
 
 									<input type="submit" value="Add this game to your owned list"
+										class="btn btn-info btn-lg btn-block" />
+								</form>
+							</c:when>
+						</c:choose>
+						<c:set var="contains" value="false" />
+						<c:forEach var="item" items="${loggedInUser.owned}">
+							<c:if test="${item.name eq game.name}">
+								<c:set var="contains" value="true" />
+							</c:if>
+						</c:forEach>
+						<c:choose>
+							<c:when test="${contains eq true and loggedInUser.id > 0}">
+								<form action="RemoveFromOwned.do" method="GET">
+									<input type="hidden" value="${game.id}" name="gameId">
+									<input type="hidden" value="${loggedInUser.id}" name="userId">
+
+									<input type="submit" value="Remove this game from your owned list"
 										class="btn btn-info btn-lg btn-block" />
 								</form>
 							</c:when>

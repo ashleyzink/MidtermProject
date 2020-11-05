@@ -145,6 +145,16 @@ public class UserController {
 		return "redirect:getGame.do?id=" + gameId;
 		
 	}
+	@RequestMapping("removeFromFavs.do")
+	public String removeFromFavs(int userId, int gameId, HttpSession session) {
+		
+		aDao.removeFavorite(userId, gameId);
+		Boardgame game = boardgameDao.findById(gameId);
+		User u = (User)(session.getAttribute("loggedInUser"));
+		u.getFavorites().remove(game);
+		return "redirect:getGame.do?id=" + gameId;
+		
+	}
 	@RequestMapping("addToOwned.do")
 	public String addGameToOwned(int userId, int gameId, HttpSession session) {
 
@@ -154,6 +164,17 @@ public class UserController {
 		u.getOwned().add(game);
 		return "redirect:getGame.do?id=" + gameId;
 	
+		
+	}
+	@RequestMapping("removeFromOwned.do")
+	public String removeFromOwned(int userId, int gameId, HttpSession session) {
+		
+		aDao.removeOwned(userId, gameId);
+		Boardgame game = boardgameDao.findById(gameId);
+		User u = (User)(session.getAttribute("loggedInUser"));
+		u.getOwned().remove(game);
+		return "redirect:getGame.do?id=" + gameId;
+		
 		
 	}
 	
