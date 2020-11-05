@@ -12,9 +12,9 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <div class="image-cropper">
-  <a class="navbar-brand" href="/homepage.do"> <img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100" >
-</div>
+  <a class="navbar-brand" href="homepage.do"> <img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100" >
 </a>
+</div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,24 +27,24 @@
       <c:choose>
     <c:when test="${loggedInUser.id>0}">
       <li class="nav-item">
-        <a class="nav-link" href="/profilepage.do">PROFILE</a>
+        <a class="nav-link" href="profilepage.do">PROFILE</a>
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="/getUsers.do">SEARCH FOR OTHER USERS </a>
+        <a class="nav-link" href="getUsers.do">SHOW USERS </a>
       </li>
  
       </c:when>
 	</c:choose>
 	
       <li class="nav-item">
-        <a class="nav-link" href="/loginbutton.do">LOGIN</a>
+        <a class="nav-link" href="loginbutton.do">LOGIN</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/register.do">REGISTER</a>
+        <a class="nav-link" href="register.do">REGISTER</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/logout.do">LOGOUT</a>
+        <a class="nav-link" href="logout.do">LOGOUT</a>
       </li>
     </ul>
   </div>
@@ -56,6 +56,7 @@
 		<div class="container">
   		<div class="row">
   		<div class="col-sm">
+  		
   		<br>
 	<br>
 <br>
@@ -72,7 +73,28 @@
 		<h1 class ="centered serif">${loggedInUser.firstName} ${loggedInUser.lastName}'s Profile</h1>
 		<br>
 		<!-- USERS LIST OF FAVORITE BOARDGAMES -->
-		<table>
+		<div class="container">
+				<div class="row">
+					<div class="col">
+						<table class="table w-90 bg-info text-white">
+							<tr>
+								<th>Favorite Board Game List</th>
+							</tr>
+						</table>
+						<table class="table table-striped w-90">
+							<c:forEach var="boardgames" items="${loggedInUser.favorites}">
+								<tr>
+
+									<td>${boardgames.name}</td>
+
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
+				</div>	
+		</div>
+			<br>
+		<%-- <table>
 			<tr>
 				<th>Favorite Boardgame List</th>
 			</tr>
@@ -80,36 +102,48 @@
 				<tr>
 					<td>${boardgames.name}</td>
 				</tr>
-			</c:forEach>
-			<tr>
-		
-				<td>
-					<!-- ADD FAVORITE BUTTON -->
-					<form action = "homepage.do" method= "GET">
+			</c:forEach> --%>
+			<!-- <tr>
+				<td> -->
+				<!--Left code in here in case we can figure out later how to use add favor 
+				button that links from viewing someone else's profile, to your own and 
+				remove from your own personal list of favorites/owned  -->
+				 	<!-- ADD FAVORITE BUTTON -->
+					<!-- <form action = "homepage.do" method= "GET">
 				<button type="submit">Add Favorite Game</button>
 				</form>
 				</td>
 				<td>
-					<!-- REMOVE FAVORITE BUTTON -->
-					<button type="button">Remove a favorite</button>
-	
-				</td>
-			</tr>
-		</table>
+					REMOVE FAVORITE BUTTON
+					<button type="button">Remove a favorite</button> -->
+				<!-- </td>
+			</tr> -->
+		<!-- </table> -->
 	<br>
 		<br>
-		<!-- WINS/LOSSES/ATTENDED -->
-		<table>
-			<tr>
-				<th>Wins</th>
-				<th>Losses</th>
-				<th>Games Attended</th>
-			</tr>
-		</table>
-	<br>
-		<br>
+		
 		<!-- GAMES OWNED LIST -->
-		<table>
+		<div class="container">
+				<div class="row">
+					<div class="col">
+						<table class="table w-90 bg-info text-white">
+							<tr>
+								<th>Game Owned</th>
+							</tr>
+						</table>
+						<table class="table table-striped w-90">
+							<c:forEach var="boardgames" items="${loggedInUser.owned}">
+								<tr>
+
+									<td>${boardgames.name}</td>
+
+								</tr>
+							</c:forEach>
+						</table>
+		</div>
+				<br>
+				
+		<%-- <table>
 			<tr>
 				<th>Games Owned</th>
 			</tr>
@@ -117,10 +151,11 @@
 				<tr>
 					<td>${boardgames.name}</td>
 				</tr>
+				
 			</c:forEach>
-			<tr>
+			<tr> --%>
 				<!-- ADD OWNED BOARDGAME -->
-				<td>
+				<!-- <td>
 				<form action = "homepage.do" method= "GET">
 				<button type="submit">Add Owned Game</button>
 				</form>
@@ -128,15 +163,32 @@
 			</tr>
 		</table>
 			<br>	
-			<br>
-
-		
-		<!-- CREATE NEW EVENT -->
-		<button type="button">Create an Event</button>
-			<br>
+			<br> -->
+		<!-- WINS/LOSSES/ATTENDED -->
+				<table>
+					<tr>
+						<th>Game Events Attended</th>
+					</tr>
+					 <td>GAMA Expo: March 9-12 Peppermill Resort in Reno, Nevada Booth #445 </td>
+				</table>
+				<br>
 				<br>
 		
-  <a href="newGameForm.do" class="btn btn-secondary" role="button">Add a New Game </a>
+		<!-- CREATE NEW EVENT -->
+		<button type="submit" class="btn btn-info btn-sm">Create an Event</button>
+			<br>
+			<br>
+		
+ <!--  <a href="newGameForm.do" class="btn btn-secondary" role="button">Add a New Game </a> -->
+  <div>
+  <c:choose>
+		<c:when test="${sessionScope.loggedInUser.role eq 'ADMIN'}">
+			<form action="newGameForm.do" method="GET">
+				<button type="submit" class="btn btn-info btn-sm">Add New Game</button>
+			</form>
+		</c:when>
+	</c:choose>
+  </div>
 		<!-- BACK TO HOME -->
 		<!-- <form action="homepage.do">
     <button type="submit">Home</button>
