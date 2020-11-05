@@ -32,7 +32,7 @@
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="getUsers.do">SEARCH FOR OTHER USERS </a>
+        <a class="nav-link" href="getUsers.do">SHOW USERS</a>
       </li>
  
       </c:when>
@@ -148,11 +148,10 @@
     <c:forEach var="user" items="${users}">
 <a href="getUserById.do?id=${user.id}"><h3 class="text-left">${user.username}</h3></a>
  <img src="${user.profileImageUrl}" alt="" border=3
-					height=270 width=270></img> 
+					height=150 width=150></img> 
 							<br>
 							<br>
-							<br>
-							<br>
+							
 		<br>
 </c:forEach>
     </div>

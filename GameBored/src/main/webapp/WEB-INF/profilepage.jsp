@@ -51,6 +51,7 @@
 </nav>
 <br>
 <br>
+		<h1 class ="centered serif text-left">${loggedInUser.firstName} ${loggedInUser.lastName}'s Profile</h1>
 
 		<!-- USER HEADER -->
 		<div class="container">
@@ -59,18 +60,17 @@
   		
   		<br>
 	<br>
-<br>
+
 <!-- <img src="imgs/ticket.png" class="img-fluid" alt="Responsive image">
  -->    
  <table>
 			<tr>
 				<td><img src="${loggedInUser.profileImageUrl}" alt="" border=3
-					height=500 width=500></img></td>
+					height=450 width=450></img></td>
 			</tr>
 		</table>
 		</div>
 			<div class="col-sm">
-		<h1 class ="centered serif">${loggedInUser.firstName} ${loggedInUser.lastName}'s Profile</h1>
 		<br>
 		<!-- USERS LIST OF FAVORITE BOARDGAMES -->
 		<div class="container">

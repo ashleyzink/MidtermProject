@@ -31,7 +31,7 @@
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="getUsers.do">SEARCH FOR OTHER USERS </a>
+        <a class="nav-link" href="getUsers.do">SHOW USERS</a>
       </li>
  
       </c:when>
@@ -56,7 +56,7 @@
 		<table>
 			<tr>
 				<td><img src="${user.profileImageUrl}" alt="" border=3
-					height=100 width=100></img></td>
+					height=100 width=165></img></td>
 			</tr>
 		</table>
 
