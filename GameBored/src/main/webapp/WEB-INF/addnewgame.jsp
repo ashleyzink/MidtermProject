@@ -49,27 +49,52 @@
     </ul>
   </div>
 </nav>
+
+<div class="container">
+<div class="mx-auto" style="width: 200px;">
+  <div class="row">
+
+    <div class="col-sm">
+    <br>
+    <br>
+    <br>
+      <img src="imgs/logo.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none">
+     <br>
+     <br>
+     <br>
+     </div>
+     </div>
+     </div>
+     </div>
+    
+     
+      <h1 style="text-align:center; color:gray;">Admin Only!</h1>
+     
+<!--  <div class= "centered"> -->
+<div class ="container">
+	<div class="row align-items-center">
+		<div class="row align-self-center">
   <div>
-    <h1 style="text-align:center">Admin Only! </h1>
+    
   	<br>
   	 <c:choose>
   	    	<c:when test="${sessionScope.loggedInUser.role eq 'ADMIN'}">
   	      
   	   		 <form action="addGame.do" method="POST">
 				<label for="name">Board Game Name:</label>
-			      <input type="text" name="name" value="name">
+			      <input type="text" name="name" placeholder="gameBORED">
 			      <br>
 				<label for="description">Description of Board Game:</label>
-			      <input type="text" name="description" value="description">
+			      <input type="text" name="description" placeholder="Something fun to do...">
 			      <br>
 				<label for="minPlayers">Minimum # of Players:</label>
-			      <input type="text" name="minPlayers" value="2">
+			      <input type="text" name="minPlayers" placeholder="2">
 			      <br>
 				<label for="maxPlayers">Maximum # of Players:</label>
-			      <input type="text" name="maxPlayers" value="4">
+			      <input type="text" name="maxPlayers" placeholder="4">
 			      <br>
 				<label for="playTimeMinutes">Avg Time to Play:</label>
-			      <input type="text" name="playTimeMinutes" value="30">minutes
+			      <input type="text" name="playTimeMinutes" placeholder="30">minutes
 			      <br>
 			  	<label for="category">Category/Play Style:</label>
 			      <select name="catId" id="category">   
@@ -77,39 +102,50 @@
 					<option value="${cat.id}">${cat.name}</option>
 					</c:forEach>      
 			      </select>
+			      <br>
 			  	<label for="genre">Genre:</label>
 			      <select name="genId" id="genre">   
 					<c:forEach items="${genres}" var="gen">
 					<option value="${gen.id}">${gen.name}</option>
 					</c:forEach>      
 			      </select>
+			      <br>
 			  	<label for="publisher">Publisher:</label>
 			      <select name="pubId" id="publisher">   
 					<c:forEach items="${publishers}" var="pub">
 					<option value="${pub.id}">${pub.name}</option>
 					</c:forEach>      
 			      </select>
+			      <br>
 			    <label for="cost">Cost:</label>
 			      <input type="text" name="cost" value="">
 			      <br>
 			    <label for="boxArtUrl">Box Art URL:</label>
 			      <input type="text" name="boxArtUrl" value="">
 			      <br>
-			      <input type="submit" class="btn btn-secondary" value="submit">
+			      <button type="submit" class="btn btn-info btn-sm" value="submit">Submit</button>
       		</form>
+      	
   	   </c:when>
   	  	<c:otherwise>
   	  	<div class="container"> <h2>I'm sorry, this page is for Admin only</h2><br>
 				<p>
-				<a href="profilePage.do" class="btn btn-secondary" role="button">Go to Profile Page </a>
-				</p>
+				<form action="profilepage.do" method="GET">
+				<button type="submit" class="btn btn-info btn-lg">Go to Profile Page</button>
+				</form>
+		
 				<p>
-				<a href="homepage.do" class="btn btn-secondary" role="button">Go to Home page </a>
-				</p>
+				<form action="homepage.do" method="GET">
+				<button type="submit" class="btn btn-info btn-lg">Go to Home Page</button>
+				</form>
+				
 				</div>
   	  	</c:otherwise>
   	  </c:choose> 
+	</div>
+	</div>
   </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
