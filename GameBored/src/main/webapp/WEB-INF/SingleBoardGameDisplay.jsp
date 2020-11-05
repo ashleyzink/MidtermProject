@@ -83,11 +83,10 @@
          <form action="addBoardGameComment.do" method="POST">	
      
             <textarea name="commentText"></textarea>
-            <input type= "text" value="${game.id}" name="id" >
-           
-           
-       
-      
+
+            <input type= "hidden" value="${game.id}" name="id" >
+
+
             <input type="submit" value="submit"/>
       
           </form>
@@ -101,15 +100,15 @@
 
                </tr>
 	   </c:forEach> 
-	   	   <c:set var="contains" value="false" />
+	   	   <c:set var="containsFav" value="false" />
 <c:forEach var="item" items="${loggedInUser.favorites}">
   <c:if test="${item.name eq game.name}">
-    <c:set var="contains" value="true" />
+    <c:set var="containsFav" value="true" />
   </c:if>
 </c:forEach>
-	   
+	   <h1>${containsFav  }  **********   ${containsFav eq false } </h1>
                 <c:choose>
-      <c:when test="${contains eq false && loggedInUserId>0 }">
+      <c:when test="${containsFav eq false and loggedInUser.id > 0 }">
                 <form action="addToFavs.do" method="GET">	
             <input type= "hidden" value="${game.id}" name="gameId" >
             <input type= "hidden" value="${loggedInUser.id}" name="userId" >
@@ -140,7 +139,7 @@
 </c:forEach>
 	   
 	     <c:choose>
-       <c:when test="${contains eq false && loggedInUserId>0}">
+       <c:when test="${contains eq false and  not empty loggedInUser}">
                 <form action="addToOwned.do" method="GET">	
             <input type= "hidden" value="${game.id}" name="gameId" >
             <input type= "hidden" value="${loggedInUser.id}" name="userId" >

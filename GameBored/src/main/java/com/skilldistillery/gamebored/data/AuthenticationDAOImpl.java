@@ -132,7 +132,7 @@ public class AuthenticationDAOImpl implements AuthenticationDAO {
 	public User addOwned(int userId, int ownedId) {
 		User u = em.find(User.class, userId);
 		Boardgame bg=em.find(Boardgame.class, ownedId);
-		
+	
 		u.getOwned().add(bg);
 		em.flush();
 		
