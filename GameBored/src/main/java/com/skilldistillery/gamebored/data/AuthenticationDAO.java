@@ -26,6 +26,8 @@ public interface AuthenticationDAO {
 	boolean isValidUser(String email, String password);
 
 	List<User> getListOfUsers();
+	
+	User findById(int id); 
 
 	User addFavorite(int userId, int gameId);
 

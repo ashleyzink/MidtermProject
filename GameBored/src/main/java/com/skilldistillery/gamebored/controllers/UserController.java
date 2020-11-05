@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.gamebored.data.AuthenticationDAO;
@@ -57,11 +58,31 @@ public class UserController {
 		model.addAttribute("update", u);
 		return "update";
 	}
-	@RequestMapping("searchUser.do")
-	public String searchUser(String keyword, Model model) {
-		User userList=aDao.findByEmail(keyword);
-		model.addAttribute("user", userList);
-		return "result";
+	//Leaving in case we'd like to add a search by email on the frontend
+//	@RequestMapping("searchUser.do")
+//	public String searchUser(String keyword, Model model) {
+//		User userList=aDao.findByEmail(keyword);
+//		model.addAttribute("user", userList);
+//		return "result";
+//	}
+	
+	@RequestMapping(path="getUsers.do", method=RequestMethod.GET)
+	public ModelAndView getUsers() {
+		ModelAndView mv = new ModelAndView();
+		List<User> users = aDao.getListOfUsers();
+		mv.addObject("users", users);
+		mv.setViewName("listofusers");
+		return mv;
+	}
+	
+	@RequestMapping(path="getUserById.do", method=RequestMethod.GET)
+	public ModelAndView getUserById(int id) {
+		ModelAndView mv = new ModelAndView();
+		User user = aDao.findById(id);
+		mv.addObject("user", user);
+		mv.setViewName("searcheduserprofilepage");
+		return mv;
+		
 	}
 	
 
