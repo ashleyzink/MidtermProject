@@ -19,3 +19,12 @@
   display: flex;
   justify-content: center;
 }
+
+.center {
+  text-align: center;
+  border: 3px solid green;
+}
+
+.serif {
+  font-family: "Times New Roman", Times, serif;
+}

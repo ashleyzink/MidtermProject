@@ -70,38 +70,17 @@
 </head>
 <body>
 
+<!--  <img src="imgs/gamepieces.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none class="d-block w-100">
+ -->
+<!-- <img src="imgs/scrabble.png" class="img-fluid h-25" alt="Responsive image" style="width: 100%; height: 50px%;">
+ -->
+<div class="container-sm mx-auto" style="width: 200px;">
 
-<!-- Carousel -->
-<div class="container-sm">
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
- <img src="imgs/scrabble.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none class="d-block w-100">
-    </div>
-    <div class="carousel-item">
- <img src="imgs/gamepieces.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none class="d-block w-100">
-    </div>
-    <div class="carousel-item">
- <img src="imgs/chess.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none class="d-block w-100">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-</div>
+ </div>
+<!-- <img src="imgs/boardgame.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="700" height="500" >
+ -->
+<img src="imgs/boardgame.png" class="img-fluid" alt="Responsive image" style="width: 100%; height:100px%;">
 
-<br>
 <br>
 <br>
 	<!-- DROPDOWN SEARCH LIST -->
@@ -119,13 +98,12 @@
 		<input name="searchTerm" required="required" class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
     aria-label="Search" /> 
 	</form>
-	<br>
-<br>
-<br>
+
 <!-- IMAGE -->
-<img src="imgs/boardgame.png" class="img-fluid" alt="Responsive image">
+<div class="container-sm">
 <!-- <img src="imgs/boardgame.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="700" height="500" >
  -->
+ </div>
  <br>
 
 	
