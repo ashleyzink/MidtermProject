@@ -10,6 +10,7 @@
 <title>Login </title>
 </head>
 <body>
+<div class="container-fluid">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <div class="image-cropper">
   <a class="navbar-brand" href="/homepage.do"> <img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100" >
@@ -51,14 +52,117 @@
 </nav>
 
 		<!-- USER HEADER -->
-<c:forEach var="user" items="${users}">
-<p>
+		<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-auto">
+     <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+  	<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br><br>
+		<br>
+    <h1 class="display-4">D I S C O V E R</h1>
+   
+	<br>
+    <h1 class="display-4">U S E R S</h1>
+    <p class="lead"></p>
+    <br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+  </div>
+  </div>
+</div>
+   <div class="col">
+    <c:forEach var="user" items="${users}">
+<a href="getUserById.do?id=${user.id}"><h3 class="text-left">${user.username}</h3></a>
  <img src="${user.profileImageUrl}" alt="" border=3
-					height=100 width=100></img> 
-					<a href="getUserById.do?id=${user.id}">${user.username}</a><br>
+					height=270 width=270></img> 
+							<br>
+							<br>
+							<br>
+							<br>
+		<br>
 </c:forEach>
-		
+    </div>
+    </div>
+  </div>
 
+
+</div>
+		
+</div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
