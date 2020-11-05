@@ -34,7 +34,7 @@
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="getUsers.do">SEARCH FOR OTHER USERS </a>
+        <a class="nav-link" href="getUsers.do">SHOW USERS</a>
       </li>
  
       </c:when>

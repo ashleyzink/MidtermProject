@@ -39,7 +39,7 @@
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="getUsers.do">SEARCH FOR OTHER USERS </a>
+        <a class="nav-link" href="getUsers.do">SHOW USERS</a>
       </li>
  
       </c:when>
@@ -62,8 +62,9 @@
 	
 	<title>Homepage</title>
 	<div class="jumbotron" >
- <h1 class="display-4 text-center">gameBORED</h1> 
- <p class="lead text-center"">The Board Game social media platform</p>
+
+<h1 class="display-4 text-center"><img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="200" height="200" ></h1>  <p class="lead text-center"">The Board Game social media platform</p>
+ 
 </div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <title>Homepage </title>
@@ -85,8 +86,9 @@
 <br>
 	<!-- DROPDOWN SEARCH LIST -->
 	<h1 class="display-4 text-center">FIND A BOARD GAME</h1>
+	<br>
 	<form action="gameList.do" method="GET" class="d-flex justify-content-center md-form form-sm">
-	<label id="searchType">Search by </label>
+	<label id="searchType">SEARCH BY </label>
 		<select id="searchType" name="searchType">
 			<option value="genre">Genre</option>
 			<option value="category">Category</option>
@@ -113,13 +115,13 @@
 	<!-- TABLE OF LINKS -->
 	<br>
 	<br>
-	<table><tr><th>BoardGames</th></tr></table>
+	<h3 class="text-center">EXPLORE BOARD GAMES</h3>
 	<br>
 	<table class="table table-striped">
 		<c:forEach var="gameIndiv" items="${gameList}">
 			<tr>
 				<td><a href="getGame.do?id=${gameIndiv.id}">
-						${gameIndiv.name}</a>
+						<h5>${gameIndiv.name}</h5></a>
 				<td>
 			</tr>
 		</c:forEach>
@@ -129,16 +131,18 @@
 	<!-- COMMUNITY COMMENT -->
 <br>
 <br>
-	<table><tr><th>Community Comments</th></tr></table>
+	<h3 class="text-center">COMMUNITY FORUM</h3>
+	
+	
 	<br>
 	<table class="table table-striped">
 	<c:forEach var="commentL" items="${commentsList}">
 		<tr>
-			<td>${commentL.commentDate}
+			<td><h5>${commentL.commentDate} </h5>
 			<td>
 		</tr>
 		<tr>
-			<td>${commentL.commentText}
+			<td><h5>${commentL.user.username}: ${commentL.commentText}</h5>
 			<td>
 		</tr>
 	</c:forEach>
