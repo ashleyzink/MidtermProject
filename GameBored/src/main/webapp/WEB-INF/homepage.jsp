@@ -26,20 +26,20 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="/homepage.do"><span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="homepage.do"><span class="sr-only">(current)</span></a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="/homepage.do">HOME</a>
+        <a class="nav-link" href="homepage.do">HOME</a>
       </li> 
       
       <c:choose>
     <c:when test="${loggedInUser.id>0}">
       <li class="nav-item">
-        <a class="nav-link" href="/profilepage.do">PROFILE</a>
+        <a class="nav-link" href="profilepage.do">PROFILE</a>
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="/getUsers.do">SEARCH FOR OTHER USERS </a>
+        <a class="nav-link" href="getUsers.do">SEARCH FOR OTHER USERS </a>
       </li>
  
       </c:when>
@@ -47,13 +47,13 @@
 	
 
       <li class="nav-item">
-        <a class="nav-link" href="/loginbutton.do">LOGIN</a>
+        <a class="nav-link" href="loginbutton.do">LOGIN</a>
       </li> 
       <li class="nav-item">
-        <a class="nav-link" href="/register.do">REGISTER</a>
+        <a class="nav-link" href="register.do">REGISTER</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/logout.do">LOGOUT</a>
+        <a class="nav-link" href="logout.do">LOGOUT</a>
       </li>
     </ul>
   </div>

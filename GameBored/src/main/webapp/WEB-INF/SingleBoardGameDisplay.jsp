@@ -15,7 +15,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="image-cropper">
-			<a class="navbar-brand" href="/homepage.do"> <img
+			<a class="navbar-brand" href="homepage.do"> <img
 				src="imgs/logo.png" class="profile-pic" class="img-thumbnail"
 				border=0 style="border: 0; text-decoration: none; outline: none"
 				width="100" height="100">
@@ -35,19 +35,19 @@
 				<c:choose>
 					<c:when test="${loggedInUser.id>0}">
 						<li class="nav-item"><a class="nav-link"
-							href="/profilepage.do">PROFILE</a></li>
+							href="profilepage.do">PROFILE</a></li>
 
-						<li class="nav-item"><a class="nav-link" href="/getUsers.do">SEARCH
+						<li class="nav-item"><a class="nav-link" href="getUsers.do">SEARCH
 								FOR OTHER USERS </a></li>
 
 					</c:when>
 				</c:choose>
 
-				<li class="nav-item"><a class="nav-link" href="/loginbutton.do">LOGIN</a>
+				<li class="nav-item"><a class="nav-link" href="loginbutton.do">LOGIN</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="/register.do">REGISTER</a>
+				<li class="nav-item"><a class="nav-link" href="register.do">REGISTER</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="/logout.do">LOGOUT</a>
+				<li class="nav-item"><a class="nav-link" href="logout.do">LOGOUT</a>
 				</li>
 			</ul>
 		</div>
