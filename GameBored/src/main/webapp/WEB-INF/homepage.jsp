@@ -85,7 +85,7 @@
 <br>
 <br>
 	<!-- DROPDOWN SEARCH LIST -->
-	<h1 class="display-4 text-center" style="color: gray;">FIND A BOARD GAME</h1>
+	<h1 class="display-4 text-center">FIND A BOARD GAME</h1>
 	<br>
 	<form action="gameList.do" method="GET" class="d-flex justify-content-center md-form form-sm">
 	<label id="searchType">SEARCH BY </label>
@@ -172,6 +172,17 @@
 			</form>
 		</c:when>
 	</c:choose>
+	
+	<br>
+	<br>
+	<br>
+  <div >
+      <div class="container-xl"style="width:100%;height:80px;background-color:#f0f0f0;color: gray;">
+      <br>
+    <p class="lead text-center"> @2020 gameBORED | All Rights Reserved</p>
+  </div>
+  </div>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
