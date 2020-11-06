@@ -128,7 +128,7 @@
 			    <label for="boxArtUrl">Box Art URL:</label>
 			      <input type="text" name="boxArtUrl" value="${game.boxArtUrl}">
 			      <br>
-			      <input type="submit" class="btn btn-secondary" value="submit">
+			      <button type="submit" class="btn btn-info btn-sm" value="submit">Submit</button>
       		</form>
   	   </c:when>
   	  	<c:otherwise>
