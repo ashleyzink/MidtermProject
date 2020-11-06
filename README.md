@@ -24,3 +24,22 @@ BoredGame uses the following ERDiagram for the database and correlating back end
 
 ![GitHub Logo](gameboreddatabaseimage.png)
 Format: ![Alt Text](url)
+
+
+### Technologies and Methodologies Used
+* Spring
+* Spring MVC
+* Spring Boot
+* Gradle
+* JSTL
+* JPA
+* Agile Software Development
+* Pair Programming
+* Group programming
+* Scrum Stand Ups
+* Git Branching
+
+## Lessons Learned
+
+
+## Stretch goals
