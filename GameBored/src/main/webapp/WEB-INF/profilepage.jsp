@@ -53,7 +53,7 @@
 	<div class="jumbotron">
 		<div class="row align-items-center">
 			<div class="col mx-auto">
-				<h1 class="serif display-4 text-center">${loggedInUser.firstName}
+				<h1 class="serif display-4 text-center" style="color: gray;">${loggedInUser.firstName}
 					${loggedInUser.lastName}'s Profile</h1>
 			</div>
 		</div>
