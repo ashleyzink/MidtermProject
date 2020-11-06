@@ -85,7 +85,7 @@
 <br>
 <br>
 	<!-- DROPDOWN SEARCH LIST -->
-	<h1 class="display-4 text-center">FIND A BOARD GAME</h1>
+	<h1 class="display-4 text-center" style="color: gray;">FIND A BOARD GAME</h1>
 	<br>
 	<form action="gameList.do" method="GET" class="d-flex justify-content-center md-form form-sm">
 	<label id="searchType">SEARCH BY </label>
@@ -115,7 +115,7 @@
 	<!-- TABLE OF LINKS -->
 	<br>
 	<br>
-	<h3 class="text-center">EXPLORE BOARD GAMES</h3>
+	<h3 class="text-center" style="color: gray;">EXPLORE BOARD GAMES</h3>
 	<br>
 	<table class="table table-striped">
 		<c:forEach var="gameIndiv" items="${gameList}">
@@ -131,7 +131,7 @@
 	<!-- COMMUNITY COMMENT -->
 <br>
 <br>
-	<h3 class="text-center">COMMUNITY FORUM</h3>
+	<h3 class="text-center" style="color: gray;">COMMUNITY FORUM</h3>
 	
 	
 	<br>
