@@ -74,7 +74,7 @@
 
 								Username <input class="form-control" type="text" name="username"
 									required="required" /> Password <input class="form-control"
-									type="text" name="password" required="required" /> First Name <input
+									type="password" name="password" required="required" /> First Name <input
 									class="form-control" type="text" name="firstName"
 									required="required" /> Last Name <input class="form-control"
 									type="text" name="lastName" required="required" /> Email <input
