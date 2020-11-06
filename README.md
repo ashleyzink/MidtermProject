@@ -22,17 +22,21 @@ BoredGame version 1.0 will allow users to do the following:
 ### Implementation
 BoredGame uses the following ERDiagram for the database and correlating back end code:
 
-![GitHub Logo](gameboreddatabaseimage.png)
-Format: ![Alt Text](url)
+![ERDiagram](https://github.com/bronson-s/MidtermProject/blob/main/DB/gameboreddatabaseimage.png?raw=true)
+
 
 
 ### Technologies and Methodologies Used
+* Java
 * Spring
 * Spring MVC
 * Spring Boot
+* MySQL Workbench
+* Amazon Web Services
 * Gradle
 * JSTL
 * JPA
+* HMTL, CSS, JSP, XML
 * Agile Software Development
 * Pair Programming
 * Group programming
@@ -40,6 +44,16 @@ Format: ![Alt Text](url)
 * Git Branching
 
 ## Lessons Learned
-
+Bronson - The major lesson I learned with this project was the work flow of a larger group. I found that git branching is challenging to initially pick up but wonderful once mastered. Further more, I learned the how to balance my attention during a sprint, ie not taking things so seriously that they are life and death but also seriously enough that the project will still get done with the desired features in a timely manner.
 
 ## Stretch goals
+1. Users can Create meet ups for playing/ exchanging games.
+2. Users ability to update their profile.
+3. Users ability to deactivate account.
+4. Users ability to leave comments/ ratings on users they have met with.
+5. Users being able to suggest board games to be added to the admin.
+
+### How to Run this Application
+Direct your browser to: http://18.216.158.16:8080/GameBored/
+
+Once on the site either, explore the site as a non logged in user or, hit the registration button to create an account that has full access to the site. To add a game to your favorites/Owned list, log into your account and then either search for the game you want, or click on the game you want to add from the list on the homepage. Once on the display page for the game you chose, buttons will be available to add to the proper list of your choosing.
