@@ -199,7 +199,7 @@
 						</c:forEach>
 						<c:choose>
 							<c:when test="${contains eq true and loggedInUser.id > 0}">
-								<form action="RemoveFromOwned.do" method="GET">
+								<form action="removeFromOwned.do" method="GET">
 									<input type="hidden" value="${game.id}" name="gameId">
 									<input type="hidden" value="${loggedInUser.id}" name="userId">
 

@@ -67,7 +67,8 @@
 			</tr>
 			<c:forEach items="${user.favorites}" var="boardgames">
 				<tr>
-					<td>${boardgames.name}</td>
+					<td><a href="getGame.do?id=${boardgames.id}">
+						<h5>${boardgames.name}</h5></a></td>
 				</tr>
 			</c:forEach>
 			</table>
@@ -81,7 +82,8 @@
 			</tr>
 			<c:forEach items="${user.owned}" var="boardgames">
 				<tr>
-					<td>${boardgames.name}</td>
+					<td><a href="getGame.do?id=${boardgames.id}">
+						<h5>${boardgames.name}</h5></a></td>
 					<td>${boardgames.description}</td>
 				</tr>
 			</c:forEach>
