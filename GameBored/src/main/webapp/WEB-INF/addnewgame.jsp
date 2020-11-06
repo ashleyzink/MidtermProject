@@ -10,6 +10,7 @@
 <title>Add New Game </title>
 </head>
 <body>
+<div class= "container">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <div class="image-cropper">
   <a class="navbar-brand" href="homepage.do"> <img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100" >
@@ -144,6 +145,14 @@
   	  </c:choose> 
 	</div>
 	</div>
+  </div>
+</div>
+<br>
+	<br>
+  <div >
+      <div class="container-xl"style="width:100%;height:80px;background-color:#f0f0f0;color: gray;">
+      <br>
+    <p class="lead text-center"> @2020 gameBORED | All Rights Reserved</p>
   </div>
 </div>
 
