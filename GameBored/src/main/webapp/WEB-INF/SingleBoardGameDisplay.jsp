@@ -112,8 +112,7 @@
 							<c:forEach var="user" items="${game.userWithFavs}">
 								<tr>
 
-									<td>${user.firstName}${user.lastName}---UserName:
-										${user.username}</td>
+									<td>${user.firstName} ${user.lastName}--- ${user.username}</td>
 
 								</tr>
 							</c:forEach>
@@ -149,7 +148,7 @@
 									<input type="hidden" value="${game.id}" name="gameId">
 									<input type="hidden" value="${loggedInUser.id}" name="userId">
 
-									<input type="submit" value="Remove this game from your favorites"
+									<input type="submit" onclick="return confirm('Are you sure?')" value="Remove this game from your favorites"
 										class="btn btn-info btn-lg btn-block" />
 								</form>
 							</c:when>
@@ -167,8 +166,7 @@
 							<c:forEach var="user" items="${game.userWithOwned}">
 								<tr>
 
-									<td>${user.firstName}${user.lastName}---UserName:
-										${user.username}</td>
+									<td>${user.firstName} ${user.lastName}--- ${user.username}</td>
 
 								</tr>
 							</c:forEach>
@@ -203,7 +201,7 @@
 									<input type="hidden" value="${game.id}" name="gameId">
 									<input type="hidden" value="${loggedInUser.id}" name="userId">
 
-									<input type="submit" value="Remove this game from your owned list"
+									<input type="submit" onclick="return confirm('Are you sure?')" value="Remove this game from your owned list"
 										class="btn btn-info btn-lg btn-block" />
 								</form>
 							</c:when>
