@@ -7,7 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<title>Login </title>
+
+<title>Update Game</title>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -49,15 +51,35 @@
     </ul>
   </div>
 </nav>
+<div class="container">
+<div class="mx-auto" style="width: 200px;">
+  <div class="row">
+
+    <div class="col-sm">
+    <br>
+    <br>
+    <br>
+      <img src="imgs/logo.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none">
+     <br>
+     <br>
+     <br>
+     </div>
+     </div>
+     </div>
+     </div>
   <div>
-    <h1 style="text-align:center">Admin Only! </h1>
+    <h1 style="text-align:center; color:gray;">Admin Only!</h1>
+    <div class ="container">
+	<div class="row align-items-center">
+		<div class="row align-self-center">
+  <div>
   	<br>
   	 <c:choose>
   	    	<c:when test="${sessionScope.loggedInUser.role eq 'ADMIN'}">
   	      
+			<h6>BoardGame ID: ${game.id} </h6><br> 
   	      	<h3>
-			BoardGame ID: ${game.id} <br> BoardGame Name: ${game.name} <br>
-			BoardGame Description: ${game.description} <br>
+			BoardGame Name: ${game.name} <br>
 			</h3>
   	   		 <form action="updateGame.do" method="POST">
   	   		 	  <input type="hidden" name="id" value="${game.id}"> 
@@ -112,14 +134,26 @@
   	  	<c:otherwise>
   	  	<div class="container"> <h2>I'm sorry, this page is for Admin only</h2><br>
 				<p>
-				<a href="profilePage.do" class="btn btn-secondary" role="button">Go to Profile Page </a>
-				</p>
+				<form action="profilepage.do" method="GET">
+				<button type="submit" class="btn btn-info btn-lg">Go to Profile Page</button>
+				</form>
+		
 				<p>
-				<a href="homepage.do" class="btn btn-secondary" role="button">Go to Home page </a>
-				</p>
+				<form action="homepage.do" method="GET">
+				<button type="submit" class="btn btn-info btn-lg">Go to Home Page</button>
+				</form>
+				
 				</div>
   	  	</c:otherwise>
   	  </c:choose> 
+	</div>
+	</div>
   </div>
+</div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+  
 </body>
 </html>
