@@ -45,6 +45,7 @@ BoredGame uses the following ERDiagram for the database and correlating back end
 
 ## Lessons Learned
 Bronson - The major lesson I learned with this project was the work flow of a larger group. I found that git branching is challenging to initially pick up but wonderful once mastered. Further more, I learned the how to balance my attention during a sprint, ie not taking things so seriously that they are life and death but also seriously enough that the project will still get done with the desired features in a timely manner.
+Ashley - During this sprint I was reminded that deleting things from a database table that has foreign keys is not as simple as a .remove in your logic. Some other lessons learned during our project was that communication is key. I had a great team that stayed on call with each other everyday, which I know made this turn out better than it would have been had we not been able to talk to each other. Being my first group project with 4 people I'm still unsure whether it might have gone better had we made the project bigger, so there'd be more areas we could each work in, or if that might have made us stressed for time. Either way, it was great seeing different personalities come out, having to let go of control a bit, and trusting in my partners abilities. 
 
 ## Stretch goals
 1. Users can Create meet ups for playing/ exchanging games.
