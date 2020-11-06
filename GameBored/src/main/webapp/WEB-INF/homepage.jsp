@@ -78,24 +78,42 @@
 				</div>
 			</div>
 		</div>
+		
+
+<!-- 		<div class="card bg-dark text-white">
+<img src="imgs/boardgame.png" class="img-fluid card-img-top"
+				alt="Responsive image" style="width: 100%; height: 100px%;"> 
+				<div class="card-img-overlay">
+				<div class="text-center">
+				<br>
+				<br>
+				<br>
+  <img src="imgs/logo.png" class="profile-pic "
+									class="img-thumbnail" border=0
+									style="border: 0; text-decoration: none; outline: none"
+									width="200" height="200">
+									
+									
+    <h2 class="card-title" style="color:black" >A BOARD GAME GAME SOCIAL MEDIA PLATFORM </h2>
+    </div>
+  </div>
+</div> -->
 		<!-- <title>Homepage</title>
 		<div class="jumbotron">
-
 			<h1 class="display-4 text-center">
 				<img src="imgs/logo.png" class="profile-pic" class="img-thumbnail"
 					border=0 style="border: 0; text-decoration: none; outline: none"
 					width="200" height="200">
 			</h1>
 			<p class="lead text-center"">A BOARD GAME SOCIAL MEDIA PLATFORM</p>
-
 		</div> -->
-		<link rel="stylesheet"
+		<!-- <link rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 			integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 			crossorigin="anonymous">
 		<title>Homepage</title>
 		</head>
-		<body>
+		<body> -->
 
 			<!--  <img src="imgs/gamepieces.png" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none class="d-block w-100">
  -->
@@ -122,9 +140,11 @@
 					<option value="publisher">Publisher</option>
 					<option value="numPlayers">Number of Player</option>
 					<option value="keyword">Keyword</option>
-				</select> <input name="searchTerm" required="required"
-					class="form-control form-control-sm mr-3 w-75" type="text"
-					placeholder="Search" aria-label="Search" />
+				</select> 
+				<input name="searchTerm" required="required"
+					class="form-control form-control-md mr-3 w-75" type="text"
+					placeholder="Search" aria-label="Search" class="form-control form-control-sm mr-3 w-75"/>
+				<input name="submit" type="submit" />
 			</form>
 
 			<!-- IMAGE -->
@@ -199,7 +219,17 @@
 					</form>
 				</c:when>
 			</c:choose>
-	</div>
+			<br>
+	<br>
+	<br>
+  <div >
+      <div class="container-xl"style="width:100%;height:80px;background-color:#f0f0f0;color: gray;">
+      <br>
+    <p class="lead text-center"> @2020 gameBORED | All Rights Reserved</p>
+  </div>
+  </div>
+</div>		
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>

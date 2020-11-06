@@ -15,7 +15,8 @@
 <title>Game List</title>
 </head>
 
-<body">
+<body>
+  <div class= "container">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="homepage.do"> <img src="imgs/logo.png" class="profile-pic" class="img-thumbnail" border=0 style="border:0; text-decoration:none; outline:none" width="100" height="100" >
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,6 +68,17 @@
 	<br>
 	<a href="homepage.do" class="btn btn-secondary" role="button">Go to Home page </a>
 	<br />
+	
+    </div>
+    <br>
+	<br>
+  <div >
+      <div class="container-xl"style="width:100%;height:80px;background-color:#f0f0f0;color: gray;">
+      <br>
+    <p class="lead text-center"> @2020 gameBORED | All Rights Reserved</p>
+  </div>
+    </div>
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>

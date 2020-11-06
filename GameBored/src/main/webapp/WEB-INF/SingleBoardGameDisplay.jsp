@@ -255,6 +255,14 @@
 			</form>
 		</c:when>
 	</c:choose>
+	  <br>
+	<br>
+  <div >
+      <div class="container-xl"style="width:100%;height:80px;background-color:#f0f0f0;color: gray;">
+      <br>
+    <p class="lead text-center"> @2020 gameBORED | All Rights Reserved</p>
+  </div>
+    </div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
