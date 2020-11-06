@@ -49,50 +49,86 @@
     </ul>
   </div>
 </nav>
-	<div>
 		<!-- USER HEADER -->
-		<h1>${user.username}'s Profile</h1>
-		
-		<table>
-			<tr>
-				<td><img src="${user.profileImageUrl}" alt="" border=3
+	<br>
+	<div class="jumbotron">
+		<div class="row align-items-center">
+			<div class="col mx-auto">
+				<h1 class="serif display-4 text-center">${user.username}'s Profile</h1>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<table>
+					<tr>
+						<td><img src="${user.profileImageUrl}" alt="" border=3
 					height=100 width=165></img></td>
-			</tr>
-		</table>
-
-		<!-- USERS LIST OF FAVORITE BOARDGAMES -->
-		<table>
-			<tr>
-				<th>Favorite Boardgame List</th>
-			</tr>
-			<c:forEach items="${user.favorites}" var="boardgames">
-				<tr>
-					<td><a href="getGame.do?id=${boardgames.id}">
-						<h5>${boardgames.name}</h5></a></td>
-				</tr>
-			</c:forEach>
-			</table>
-				
-					
-		
-		<!-- GAMES OWNED LIST -->
-		<table>
-			<tr>
-				<th>Games Owned</th>
-			</tr>
-			<c:forEach items="${user.owned}" var="boardgames">
-				<tr>
-					<td><a href="getGame.do?id=${boardgames.id}">
-						<h5>${boardgames.name}</h5></a></td>
-					<td>${boardgames.description}</td>
-				</tr>
-			</c:forEach>
-			</table>
-				
-		<!-- BACK TO HOME -->
-		<form action="homepage.do">
+					</tr>
+				</table>
+			</div>
+			<!-- USERS LIST OF FAVORITE BOARDGAMES -->
+			<div class="col">
+				<table class="table w-90 bg-info text-white">
+					<tr>
+						<th>Favorite Board Game List</th>
+					</tr>
+				</table>
+				<table class="table table-striped w-90">
+					<c:forEach var="boardgames" items="${user.favorites}">
+						<tr>
+							<td>${boardgames.name}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+			<br> <br> <br>
+			<!-- GAMES OWNED LIST -->
+			<div class="col">
+				<table class="table w-90 bg-info text-white">
+					<tr>
+						<th>Game Owned</th>
+					</tr>
+				</table>
+				<table class="table table-striped w-90">
+					<c:forEach var="boardgames" items="${user.owned}">
+						<tr>
+							<td>${boardgames.name}</td>
+							<td>${boardgames.description}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</div>
+		<br> <br> <br>
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg align-self-center">
+					<h5 class="text-center">Game Events Attended</h5>
+					<p class="text-center">HERO Expo: May 10-11 Omni Resory in Phoenix, Arizona
+						Booth #900</p>
+					<br> 
+					<br>
+				</div>
+			</div>
+			<div class="row align-items-center">
+				<div class="col align-self-center">
+					<!-- CREATE NEW EVENT -->
+					<button type="submit" class="btn btn-info btn-sm">Create
+						an Event</button>
+					<br> <br>
+					<!--  <a href="newGameForm.do" class="btn btn-secondary" role="button">Add a New Game </a> -->
+				</div>
+			<!-- BACK TO HOME -->
+		<!-- <form action="homepage.do">
     		<button type="submit">Home</button>
-		</form>
+		</form> --> 
+				<!-- BACK TO HOME -->
+				<!-- <form action="homepage.do">
+    <button type="submit">Home</button>
+</form> -->
+			</div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
